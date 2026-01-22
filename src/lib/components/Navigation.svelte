@@ -8,7 +8,7 @@
     { href: '/', label: 'Inicio' },
     { href: '/ensayos', label: 'Ensayos' },
     { href: '/entrevistas', label: 'Entrevistas' },
-    { href: '/videoensayos', label: 'Videoensayos' },
+
     { href: '/equipo', label: 'Equipo' },
     { href: '/convocatoria', label: 'Convocatoria' }
   ];

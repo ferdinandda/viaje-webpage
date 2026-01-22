@@ -5,7 +5,7 @@
 @theme {
   /* Typography */
   --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-body: "Courier New", Courier, monospace;
 
   /* Editorial Color Palette */
   --color-cream: #FAF8F5;

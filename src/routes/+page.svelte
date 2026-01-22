@@ -37,14 +37,8 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center relative overflow-hidden">
-  <!-- Decorative bracket elements -->
-  <div class="absolute top-20 left-8 md:left-16 text-[20rem] md:text-[28rem] font-[var(--font-display)] text-[var(--color-rule-light)] select-none pointer-events-none opacity-50 leading-none -translate-y-1/4">
-    [
-  </div>
-  <div class="absolute bottom-0 right-8 md:right-16 text-[20rem] md:text-[28rem] font-[var(--font-display)] text-[var(--color-rule-light)] select-none pointer-events-none opacity-50 leading-none translate-y-1/4">
-    ]
-  </div>
+<section class="min-h-screen flex flex-col justify-center relative overflow-hidden bg-black text-white">
+
 
   <div class="relative z-10 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 py-32 md:py-40">
     <!-- Overline -->
@@ -52,8 +46,7 @@
       class="mb-8 md:mb-12 transition-all duration-700 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}"
     >
-      <span class="inline-block font-[var(--font-body)] text-xs md:text-sm uppercase tracking-[0.3em] text-[var(--color-ink-muted)]">
-        Ensayos · Entrevistas · Videoensayos
+              <span class="inline-block font-[var(--font-body)] text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400">        Ensayos · Entrevistas
       </span>
       <div class="mt-4 w-16 h-px bg-[var(--color-terracotta)]"></div>
     </div>
@@ -64,10 +57,10 @@
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
       <span class="block font-[var(--font-display)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight leading-[0.9]">
-        <span class="text-[var(--color-ink)]">Revista</span>
+        <span class="text-white">Revista</span>
       </span>
       <span class="block font-[var(--font-display)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight leading-[0.9] mt-2">
-        <span class="text-[var(--color-terracotta)]">[</span><span class="text-[var(--color-ink)]">Viaje</span><span class="text-[var(--color-terracotta)]">]</span>
+        <span class="text-white">[</span><span class="text-white">Viaje</span><span class="text-white">]</span>
       </span>
     </h1>
 
@@ -77,7 +70,7 @@
              transition-all duration-700 delay-200 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      Pensamos los <span class="text-[var(--color-ink)] font-medium">territorios de Chile</span> y la <span class="text-[var(--color-ink)] font-medium">literatura</span> como fuentes de experiencia. Entendemos la escritura y la lectura como prácticas que intervienen en la manera en que <span class="italic">habitamos el mundo</span>.
+      Pensamos los <span class="text-white font-medium">territorios de Chile</span> y la <span class="text-white font-medium">literatura</span> como fuentes de experiencia. Entendemos la escritura y la lectura como prácticas que intervienen en la manera en que <span class="italic">habitamos el mundo</span>.
     </p>
 
     <!-- CTA Button -->
@@ -90,10 +83,10 @@
         class="group inline-flex items-center gap-3 px-8 py-4 border-2 border-[var(--color-ink)] bg-transparent
                hover:bg-[var(--color-ink)] transition-all duration-300"
       >
-        <span class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-ink)] group-hover:text-[var(--color-cream)] transition-colors">
+        <span class="font-[var(--font-body)] text-sm uppercase tracking-widest text-white group-hover:text-black transition-colors">
           Convocatoria abierta
         </span>
-        <svg class="w-4 h-4 text-[var(--color-ink)] group-hover:text-[var(--color-cream)] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 text-white group-hover:text-black group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </a>
@@ -105,7 +98,7 @@
     class="absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 delay-500 ease-out
            {mounted ? 'opacity-100' : 'opacity-0'}"
   >
-    <div class="flex flex-col items-center gap-2 text-[var(--color-ink-muted)]">
+    <div class="flex flex-col items-center gap-2 text-gray-400">
       <span class="font-[var(--font-body)] text-xs uppercase tracking-widest">Explorar</span>
       <div class="w-px h-8 bg-[var(--color-rule)] animate-pulse"></div>
     </div>
@@ -197,20 +190,7 @@
         </p>
       </a>
 
-      <a href="/videoensayos" class="group">
-        <div class="aspect-[4/5] bg-[var(--color-paper)] border border-[var(--color-rule)] flex items-center justify-center
-                    group-hover:border-[var(--color-terracotta)] transition-colors duration-300">
-          <span class="font-[var(--font-display)] text-6xl text-[var(--color-rule)] group-hover:text-[var(--color-terracotta)] transition-colors">
-            [▶]
-          </span>
-        </div>
-        <h3 class="mt-4 font-[var(--font-display)] text-xl font-medium text-[var(--color-ink)] group-hover:text-[var(--color-terracotta)] transition-colors">
-          Videoensayos
-        </h3>
-        <p class="mt-2 font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">
-          Reflexiones audiovisuales. 3-8 minutos de duración.
-        </p>
-      </a>
+
     </div>
   </div>
 </section>
