@@ -41,16 +41,6 @@
 
 
   <div class="relative z-10 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 py-32 md:py-40">
-    <!-- Overline -->
-    <div
-      class="mb-8 md:mb-12 transition-all duration-700 ease-out
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}"
-    >
-              <span class="inline-block font-[var(--font-body)] text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400">        Ensayos · Entrevistas
-      </span>
-      <div class="mt-4 w-16 h-px bg-[var(--color-terracotta)]"></div>
-    </div>
-
     <!-- Main Title -->
     <h1
       class="transition-all duration-700 delay-100 ease-out

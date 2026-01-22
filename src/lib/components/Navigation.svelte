@@ -8,7 +8,6 @@
     { href: '/', label: 'Inicio' },
     { href: '/ensayos', label: 'Ensayos' },
     { href: '/entrevistas', label: 'Entrevistas' },
-
     { href: '/equipo', label: 'Equipo' },
     { href: '/convocatoria', label: 'Convocatoria' }
   ];
@@ -43,9 +42,9 @@
         class="group flex items-baseline gap-0.5 font-[var(--font-display)] text-xl md:text-2xl font-semibold tracking-tight"
         onclick={closeMobileMenu}
       >
-        <span class="text-[var(--color-ink-muted)] transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
-        <span class="text-[var(--color-ink)]">Viaje</span>
-        <span class="text-[var(--color-ink-muted)] transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
+        <span class="{scrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/60'} transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
+        <span class="{scrolled ? 'text-[var(--color-ink)]' : 'text-white'} transition-colors">Viaje</span>
+        <span class="{scrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/60'} transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -54,9 +53,10 @@
           <li>
             <a
               href={item.href}
-              class="relative font-[var(--font-body)] text-sm tracking-wide uppercase
-                     text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors duration-300
-                     {$page.url.pathname === item.href ? 'text-[var(--color-ink)]' : ''}"
+              class="relative font-[var(--font-body)] text-sm tracking-wide uppercase transition-colors duration-300
+                     {scrolled
+                       ? ($page.url.pathname === item.href ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)]')
+                       : ($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')}"
             >
               {item.label}
               {#if $page.url.pathname === item.href}
@@ -70,7 +70,8 @@
       <!-- Mobile Menu Button -->
       <button
         onclick={toggleMobileMenu}
-        class="md:hidden p-2 -mr-2 text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors"
+        class="md:hidden p-2 -mr-2 transition-colors
+               {scrolled ? 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)]' : 'text-white/70 hover:text-white'}"
         aria-label="Toggle menu"
         aria-expanded={mobileMenuOpen}
       >
