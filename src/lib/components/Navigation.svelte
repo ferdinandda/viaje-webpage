@@ -12,6 +12,10 @@
     { href: '/convocatoria', label: 'Convocatoria' }
   ];
 
+  // Only use light (white) nav on homepage when not scrolled
+  let isHomepage = $derived($page.url.pathname === '/');
+  let useLightNav = $derived(isHomepage && !scrolled);
+
   $effect(() => {
     const handleScroll = () => {
       scrolled = window.scrollY > 20;
@@ -32,7 +36,7 @@
 
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
-         {scrolled ? 'bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-rule)]' : 'bg-transparent'}"
+         {scrolled || !isHomepage ? 'bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-rule)]' : 'bg-transparent'}"
 >
   <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
     <div class="flex items-center justify-between h-20 md:h-24">
@@ -42,9 +46,9 @@
         class="group flex items-baseline gap-0.5 font-[var(--font-display)] text-xl md:text-2xl font-semibold tracking-tight"
         onclick={closeMobileMenu}
       >
-        <span class="{scrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/60'} transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
-        <span class="{scrolled ? 'text-[var(--color-ink)]' : 'text-white'} transition-colors">Viaje</span>
-        <span class="{scrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/60'} transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
+        <span class="{useLightNav ? 'text-white/60' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
+        <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink)]'} transition-colors">Viaje</span>
+        <span class="{useLightNav ? 'text-white/60' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -54,9 +58,9 @@
             <a
               href={item.href}
               class="relative font-[var(--font-body)] text-sm tracking-wide uppercase transition-colors duration-300
-                     {scrolled
-                       ? ($page.url.pathname === item.href ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)]')
-                       : ($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')}"
+                     {useLightNav
+                       ? ($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')
+                       : ($page.url.pathname === item.href ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)]')}"
             >
               {item.label}
               {#if $page.url.pathname === item.href}
@@ -71,7 +75,7 @@
       <button
         onclick={toggleMobileMenu}
         class="md:hidden p-2 -mr-2 transition-colors
-               {scrolled ? 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)]' : 'text-white/70 hover:text-white'}"
+               {useLightNav ? 'text-white/70 hover:text-white' : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)]'}"
         aria-label="Toggle menu"
         aria-expanded={mobileMenuOpen}
       >
