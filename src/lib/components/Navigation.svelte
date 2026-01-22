@@ -8,8 +8,9 @@
     { href: '/', label: 'Inicio' },
     { href: '/ensayos', label: 'Ensayos' },
     { href: '/entrevistas', label: 'Entrevistas' },
-    { href: '/equipo', label: 'Equipo Editorial' },
-    { href: '/convocatoria', label: 'Convocatoria 2026' }
+    { href: '/videoensayos', label: 'Videoensayos' },
+    { href: '/equipo', label: 'Equipo' },
+    { href: '/convocatoria', label: 'Convocatoria' }
   ];
 
   $effect(() => {
@@ -48,7 +49,7 @@
       </a>
 
       <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center gap-8 lg:gap-10">
+      <ul class="hidden md:flex items-center gap-6 lg:gap-8">
         {#each navItems as item}
           <li>
             <a
