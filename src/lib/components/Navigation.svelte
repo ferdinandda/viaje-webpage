@@ -1,0 +1,110 @@
+<script>
+  import { page } from '$app/stores';
+
+  let scrolled = $state(false);
+  let mobileMenuOpen = $state(false);
+
+  const navItems = [
+    { href: '/', label: 'Inicio' },
+    { href: '/ensayos', label: 'Ensayos' },
+    { href: '/entrevistas', label: 'Entrevistas' },
+    { href: '/equipo', label: 'Equipo Editorial' },
+    { href: '/convocatoria', label: 'Convocatoria 2026' }
+  ];
+
+  $effect(() => {
+    const handleScroll = () => {
+      scrolled = window.scrollY > 20;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  function toggleMobileMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+  }
+
+  function closeMobileMenu() {
+    mobileMenuOpen = false;
+  }
+</script>
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
+         {scrolled ? 'bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-rule)]' : 'bg-transparent'}"
+>
+  <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-20 md:h-24">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="group flex items-baseline gap-0.5 font-[var(--font-display)] text-xl md:text-2xl font-semibold tracking-tight"
+        onclick={closeMobileMenu}
+      >
+        <span class="text-[var(--color-ink-muted)] transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
+        <span class="text-[var(--color-ink)]">Viaje</span>
+        <span class="text-[var(--color-ink-muted)] transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-8 lg:gap-10">
+        {#each navItems as item}
+          <li>
+            <a
+              href={item.href}
+              class="relative font-[var(--font-body)] text-sm tracking-wide uppercase
+                     text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors duration-300
+                     {$page.url.pathname === item.href ? 'text-[var(--color-ink)]' : ''}"
+            >
+              {item.label}
+              {#if $page.url.pathname === item.href}
+                <span class="absolute -bottom-1 left-0 right-0 h-px bg-[var(--color-terracotta)]"></span>
+              {/if}
+            </a>
+          </li>
+        {/each}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        onclick={toggleMobileMenu}
+        class="md:hidden p-2 -mr-2 text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded={mobileMenuOpen}
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {#if mobileMenuOpen}
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+          {:else}
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+          {/if}
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    {#if mobileMenuOpen}
+      <div
+        class="md:hidden absolute top-full left-0 right-0 bg-[var(--color-cream)] border-b border-[var(--color-rule)]
+               animate-in slide-in-from-top-2 duration-200"
+      >
+        <ul class="py-6 px-[var(--spacing-editorial)] space-y-4">
+          {#each navItems as item}
+            <li>
+              <a
+                href={item.href}
+                onclick={closeMobileMenu}
+                class="block font-[var(--font-body)] text-base tracking-wide
+                       text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors
+                       {$page.url.pathname === item.href ? 'text-[var(--color-ink)] font-medium' : ''}"
+              >
+                {item.label}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
+  </nav>
+</header>
