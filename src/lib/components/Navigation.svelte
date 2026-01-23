@@ -6,8 +6,8 @@
 
   const navItems = [
     { href: '/', label: 'Inicio' },
-    { href: '/ensayos', label: 'Ensayos' },
-    { href: '/entrevistas', label: 'Entrevistas' },
+
+
     { href: '/equipo', label: 'Equipo' },
     { href: '/convocatoria', label: 'Convocatoria 2026' }
   ];

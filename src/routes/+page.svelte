@@ -61,18 +61,9 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div
-    class="absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 delay-500 ease-out
-           {mounted ? 'opacity-100' : 'opacity-0'}"
-  >
-    <div class="flex flex-col items-center gap-2 text-gray-400">
-      <span class="font-[var(--font-body)] text-xs uppercase tracking-widest">Explorar</span>
-      <div class="w-px h-8 bg-[var(--color-rule)] animate-pulse"></div>
-    </div>
-  </div>
-</section>
 
+
+</section>
 <main class="pt-24">
   <TabbedContent />
 </main>

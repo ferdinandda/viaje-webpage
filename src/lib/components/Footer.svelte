@@ -25,7 +25,7 @@
         </h4>
         <ul class="space-y-2">
           <li><a href="/ensayos" class="text-[var(--color-ink-light)] hover:text-[var(--color-terracotta)] transition-colors">Ensayos</a></li>
-          <li><a href="/entrevistas" class="text-[var(--color-ink-light)] hover:text-[var(--color-terracotta)] transition-colors">Entrevistas</a></li>
+
 
         </ul>
       </div>

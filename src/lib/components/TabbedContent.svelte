@@ -1,6 +1,6 @@
 <script>
   let tabs = [
-    { id: 1, title: 'Título 1', author: 'Autor 1', content: 'Contenido 1...' },
+    { id: 1, title: 'Sangre, tierra y silencio', author: 'Florencia Leiva Silva', content: 'Contenido 1...' },
     { id: 2, title: 'Título 2', author: 'Autor 2', content: 'Contenido 2...' },
     { id: 3, title: 'Título 3', author: 'Autor 3', content: 'Contenido 3...' },
     { id: 4, title: 'Título 4', author: 'Autor 4', content: 'Contenido 4...' },
@@ -11,14 +11,19 @@
 
 <div class="p-8">
   <h2 class="text-3xl font-bold text-center mb-8">Últimas Publicaciones</h2>
-  <div class="grid grid-cols-3 gap-4">
+  <div class="flex flex-col gap-4">
     {#each tabs as tab}
       <a
-        href="/ensayos"
-        class="aspect-square p-4 border"
+        href={tab.id === 1 ? "/sangre-tierra-y-silencio" : "/"}
+        class="block"
       >
-        <h3 class="font-bold">{tab.title}</h3>
-        <p>{tab.author}</p>
+        {#if tab.id === 1}
+          <img src="/my-image.jpg" alt="Image for {tab.title}" class="w-full h-auto" />
+        {/if}
+        <div class="p-4">
+          <h3 class="font-bold text-center font-['DM Sans',_sans-serif]">{tab.title}</h3>
+          <p>{tab.author}</p>
+        </div>
       </a>
     {/each}
   </div>
