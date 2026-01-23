@@ -16,35 +16,26 @@
     </div>
 
     <!-- Intro -->
-    <div class="max-w-3xl mb-16">
-      <p class="font-[var(--font-display)] text-2xl md:text-3xl italic text-[var(--color-ink-light)] leading-relaxed">
-        "Conversaciones con quienes <span class="text-[var(--color-terracotta)]">[re]piensan</span> la cultura contemporánea"
-      </p>
-      <p class="mt-8 font-[var(--font-body)] text-lg text-[var(--color-ink-light)] leading-relaxed">
-        Diálogos con escritores, investigadores, artistas y pensadores que desde Chile y Latinoamérica reflexionan sobre literatura, territorio, cultura y el oficio de escribir.
-      </p>
-    </div>
+
 
     <!-- Subsections -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-      <div class="p-8 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-        <span class="font-[var(--font-display)] text-3xl text-[var(--color-terracotta)]">[&]</span>
-        <h3 class="mt-4 font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">
-          Entrevistas originales
+      <a href="/entrevistas/originales" class="p-8 bg-[#000080] border border-[var(--color-rule)] text-white">
+        <h3 class="mt-4 font-[var(--font-display)] text-xl font-semibold text-white">
+          Entrevistas
         </h3>
-        <p class="mt-3 font-[var(--font-body)] text-sm text-[var(--color-ink-light)] leading-relaxed">
-          Conversaciones realizadas especialmente para Revista Viaje con figuras relevantes del pensamiento y la literatura contemporánea.
+        <p class="mt-3 font-[var(--font-body)] text-sm text-white leading-relaxed">
+          Diálogos con ensayistas en torno al ensayo como práctica intelectual, sus cruces con otros medios y las problemáticas que atraviesan su trabajo.
         </p>
-      </div>
-      <div class="p-8 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-        <span class="font-[var(--font-display)] text-3xl text-[var(--color-terracotta)]">[T]</span>
-        <h3 class="mt-4 font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">
+      </a>
+      <a href="/entrevistas/traducciones" class="p-8 bg-[#000080] border border-[var(--color-rule)] text-white">
+        <h3 class="mt-4 font-[var(--font-display)] text-xl font-semibold text-white">
           Traducciones
         </h3>
-        <p class="mt-3 font-[var(--font-body)] text-sm text-[var(--color-ink-light)] leading-relaxed">
-          Entrevistas históricas o recientes traducidas al español por primera vez, ampliando el acceso a voces fundamentales.
+        <p class="mt-3 font-[var(--font-body)] text-sm text-white leading-relaxed">
+          Entrevistas históricas o recientes traducidas al español por primera vez, ampliando el acceso autores.
         </p>
-      </div>
+      </a>
     </div>
 
     <!-- Placeholder for future content -->

@@ -1,279 +1,64 @@
-<svelte:head>
-  <title>Convocatoria 2026 — Revista Viaje</title>
-  <meta name="description" content="Convocatoria abierta para el primer volumen de Revista Viaje. Ensayos de 8-10 páginas y videoensayos de 3-8 minutos." />
-</svelte:head>
+<div class="font-[var(--font-body)] p-8 pt-24">
+  <h1 class="text-2xl font-bold mb-4">Convocatoria abierta</h1>
 
-<section class="pt-32 pb-24 md:pt-40 md:pb-32">
-  <div class="mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
-    <!-- Header -->
-    <div class="border-b border-[var(--color-rule)] pb-8 mb-16">
-      <span class="font-[var(--font-body)] text-xs uppercase tracking-[0.2em] text-[var(--color-terracotta)]">
-        Abierta
-      </span>
-      <h1 class="mt-4 font-[var(--font-display)] text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-[var(--color-ink)]">
-        Convocatoria 2026
-      </h1>
-      <p class="mt-4 font-[var(--font-display)] text-xl text-[var(--color-ink-light)]">
-        Volumen 1 · Publicación trimestral
-      </p>
-    </div>
+  <h2 class="text-xl font-bold mb-2">Tipos de colaboraciones</h2>
+  <p class="mb-4">La revista recibe envíos personales y propuestas editoriales vinculadas al pensamiento crítico, la reflexión sobre cultura y el ensayo contemporáneo, en las siguientes modalidades:</p>
+  <ul class="list-disc list-inside mb-4">
+    <li>Textos ensayísticos
+      <ul class="list-disc list-inside ml-4">
+        <li>Ensayos inéditos</li>
+        <li>Ensayos breves o series de ensayos</li>
+      </ul>
+    </li>
+    <li>Entrevistas
+      <ul class="list-disc list-inside ml-4">
+        <li>Entrevistas a autoras y autores que desarrollen este género</li>
+        <li>Conversaciones centradas en procesos de escritura, pensamiento crítico, obra publicada o proyectos en desarrollo</li>
+      </ul>
+    </li>
+    <li>Propuestas editoriales
+      <ul class="list-disc list-inside ml-4">
+        <li>Entrevistas o ensayos leídos en actividades públicas</li>
+        <li>Dosieres de eventos vinculados al ensayo (conjunto de textos o intervenciones leídas en una misma instancia)</li>
+      </ul>
+    </li>
+  </ul>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-      <!-- Main Content -->
-      <div class="lg:col-span-2 space-y-12">
-        <!-- Introduction -->
-        <div>
-          <p class="font-[var(--font-display)] text-2xl md:text-3xl italic text-[var(--color-ink-light)] leading-relaxed">
-            Invitamos a investigadores, académicos, ensayistas y realizadores audiovisuales a participar en el primer volumen de Revista <span class="text-[var(--color-terracotta)] not-italic">[Viaje]</span>
-          </p>
-        </div>
+  <h2 class="text-xl font-bold mb-2">Lineamientos generales de formato</h2>
+  <p class="mb-4">Los textos deberán ajustarse a las siguientes pautas formales:</p>
+  <ul class="list-disc list-inside mb-4">
+    <li>Tipografía Times New Roman, tamaño 12. El uso de una tipografía distinta solo será aceptado si forma parte explícita del proyecto estético o de la propuesta autoral.</li>
+    <li>Interlineado 1,5.</li>
+    <li>Alineación justificada.</li>
+    <li>Sin espacio adicional entre párrafos. La separación estándar debe realizarse mediante un renglón en blanco. Las excepciones deberán responder a decisiones estilísticas justificadas.</li>
+    <li>Sin sangrías. Únicamente las citas separadas del cuerpo del texto deben llevar una sangría izquierda de 1 cm.</li>
+  </ul>
 
-        <!-- Líneas temáticas -->
-        <div class="p-8 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-          <h3 class="font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)] mb-6">
-            Líneas temáticas
-          </h3>
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-terracotta)] mb-2">
-                [01] Territorio, espacio y geopolítica cultural
-              </h4>
-              <p class="font-[var(--font-body)] text-[var(--color-ink-light)] text-sm leading-relaxed">
-                Chile y América Latina como espacios históricos y políticos. Fronteras, centros y periferias. Colonialismo, extractivismo, desplazamientos. Paisaje, ciudad, desierto, mar, cordillera.
-              </p>
-            </div>
-            <div>
-              <h4 class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-terracotta)] mb-2">
-                [02] Pensamiento latinoamericano
-              </h4>
-              <p class="font-[var(--font-body)] text-[var(--color-ink-light)] text-sm leading-relaxed">
-                Tradiciones intelectuales del continente. Ensayo latinoamericano. Filosofía y crítica desde el sur. Estudios decoloniales.
-              </p>
-            </div>
-            <div>
-              <h4 class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-terracotta)] mb-2">
-                [03] Literatura y teoría literaria
-              </h4>
-              <p class="font-[var(--font-body)] text-[var(--color-ink-light)] text-sm leading-relaxed">
-                Canon y literatura chilena. Historia y crítica literaria contemporánea. Teoría del texto, del autor y del lector. Estudios culturales.
-              </p>
-            </div>
-            <div>
-              <h4 class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-terracotta)] mb-2">
-                [04] Escritura como práctica
-              </h4>
-              <p class="font-[var(--font-body)] text-[var(--color-ink-light)] text-sm leading-relaxed">
-                El oficio de escribir. El cuerpo que escribe. La materialidad del texto. La lengua, el estilo, la voz. La escritura como intervención.
-              </p>
-            </div>
-          </div>
-        </div>
+  <h2 class="text-xl font-bold mb-2">Material complementario</h2>
+  <p class="mb-4">En el caso de ensayos inéditos y entrevistas, puede adjuntarse una imagen como propuesta visual. Esta será evaluada por el equipo editorial; de no enviarse, la revista definirá el acompañamiento gráfico.</p>
+  <p class="mb-4">Para entrevistas y presentaciones, debe adjuntarse al menos un material visual pertinente (portadas de libros, fotografías del evento o del/de la autor/a entrevistado/a), en alta resolución.</p>
+  <p class="mb-4">En los dosieres de eventos, además de enviar cada texto en documentos separados, debe incorporarse:</p>
+  <ul class="list-disc list-inside mb-4">
+    <li>Un formulario completo con una introducción a la actividad (lugar, fecha y motivo).</li>
+    <li>Un índice que indique el orden de los textos, la autoría correspondiente y las citas que se deseen destacar para el diseño gráfico.</li>
+  </ul>
 
-        <!-- Formatos -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Ensayos -->
-          <div class="p-6 border border-[var(--color-ink)] bg-[var(--color-cream)]">
-            <span class="font-[var(--font-display)] text-3xl text-[var(--color-terracotta)]">[E]</span>
-            <h3 class="mt-4 font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">
-              Ensayos
-            </h3>
-            <ul class="mt-4 font-[var(--font-body)] text-sm text-[var(--color-ink-light)] space-y-2">
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Extensión: 8-10 páginas tamaño carta
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Formato: Word o PDF
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Tipografía: Times New Roman 12pt
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Interlineado: 1.5
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Citación: MLA o Chicago
-              </li>
-            </ul>
-          </div>
+  <h2 class="text-xl font-bold mb-2">Extensión de los textos</h2>
+  <ul class="list-disc list-inside mb-4">
+    <li>Ensayos y entrevistas: mínimo 8 páginas y máximo 12 páginas. En el caso de series de ensayos o entrevistas extensas, la extensión podrá comprender uno o varios textos.</li>
+    <li>Las intervenciones leídas en eventos no están sujetas a una extensión mínima.</li>
+  </ul>
 
-          <!-- Videoensayos -->
-          <div class="p-6 border border-[var(--color-ink)] bg-[var(--color-cream)]">
-            <span class="font-[var(--font-display)] text-3xl text-[var(--color-terracotta)]">[▶]</span>
-            <h3 class="mt-4 font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">
-              Videoensayos
-            </h3>
-            <ul class="mt-4 font-[var(--font-body)] text-sm text-[var(--color-ink-light)] space-y-2">
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Duración: 3-8 minutos
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Formato: MP4 o enlace privado
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Resolución mínima: 1080p
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Subtítulos en español
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-[var(--color-terracotta)]">—</span>
-                Guión o sinopsis adjunta
-              </li>
-            </ul>
-          </div>
-        </div>
+  <h2 class="text-xl font-bold mb-2">Criterios editoriales de evaluación</h2>
+  <p class="mb-4">Una vez recibida la propuesta, el comité editorial de Revista [viaje] evaluará su eventual publicación considerando, entre otros, los siguientes aspectos:</p>
+  <ul class="list-disc list-inside mb-4">
+    <li>Originalidad y enfoque reflexivo: se priorizarán textos que aporten perspectivas críticas, conceptuales o interpretativas relevantes al campo del ensayo.</li>
+    <li>Calidad del pensamiento y de la escritura: se atenderá a la claridad expositiva, la coherencia argumentativa y el rigor reflexivo, así como a la solidez del estilo ensayístico.</li>
+    <li>Pertinencia temática: se valorarán propuestas que dialoguen con problemáticas culturales, territoriales, literarias, políticas o filosóficas contemporáneas.</li>
+    <li>Estructura y desarrollo: la organización del texto y el despliegie progresivo de las ideas serán fundamentales para garantizar una lectura articulada.</li>
+    <li>Afinidad con la política editorial: [viaje] promueve el pensamiento independiente, el pluralismo, la libertad de expresión, el respeto, la responsabilidad social y la democratización del conocimiento. No se considerarán colaboraciones que promuevan, de forma directa o indirecta, el odio, la discriminación o cualquier tipo de violencia simbólica o verbal.</li>
+  </ul>
 
-        <!-- Requisitos generales -->
-        <div class="p-8 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-          <h3 class="font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)] mb-4">
-            Requisitos generales
-          </h3>
-          <ul class="font-[var(--font-body)] text-[var(--color-ink-light)] space-y-3">
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--color-terracotta)]">—</span>
-              Incluir breve biografía del autor (100 palabras máximo)
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--color-terracotta)]">—</span>
-              Textos inéditos y originales
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--color-terracotta)]">—</span>
-              Resumen de 150 palabras y 5 palabras clave
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--color-terracotta)]">—</span>
-              Datos de contacto: nombre completo, correo electrónico, afiliación institucional (si aplica)
-            </li>
-          </ul>
-        </div>
-
-        <!-- Proceso editorial -->
-        <div class="p-8 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-          <h3 class="font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)] mb-4">
-            Proceso editorial
-          </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-ink-muted)] mb-2">
-                Selección
-              </h4>
-              <ul class="font-[var(--font-body)] text-sm text-[var(--color-ink-light)] space-y-1">
-                <li>• Evaluación por comité editorial</li>
-                <li>• Revisión de calidad argumentativa</li>
-                <li>• Verificación de fuentes</li>
-                <li>• Control de originalidad</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-[var(--font-body)] text-sm uppercase tracking-widest text-[var(--color-ink-muted)] mb-2">
-                Edición
-              </h4>
-              <ul class="font-[var(--font-body)] text-sm text-[var(--color-ink-light)] space-y-1">
-                <li>• Corrección de estilo</li>
-                <li>• Edición de contenido</li>
-                <li>• Maquetación</li>
-                <li>• Revisión final con autor</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Envío -->
-        <div class="p-8 border-2 border-[var(--color-ink)] bg-[var(--color-cream)]">
-          <h3 class="font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)] mb-4">
-            Enviar postulación
-          </h3>
-          <p class="font-[var(--font-body)] text-[var(--color-ink-light)] mb-4">
-            Envía tu ensayo o videoensayo junto con los materiales requeridos a:
-          </p>
-          <a
-            href="mailto:convocatoria@revistaviaje.cl"
-            class="inline-block font-[var(--font-display)] text-2xl text-[var(--color-terracotta)] hover:text-[var(--color-terracotta-dark)] transition-colors"
-          >
-            convocatoria@revistaviaje.cl
-          </a>
-          <p class="mt-4 font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">
-            Asunto: Convocatoria 2026 – [Título del trabajo]
-          </p>
-        </div>
-      </div>
-
-      <!-- Sidebar -->
-      <aside class="space-y-8">
-        <!-- Key Dates -->
-        <div class="p-6 border border-[var(--color-ink)] bg-[var(--color-cream)] sticky top-28">
-          <h4 class="font-[var(--font-body)] text-xs uppercase tracking-widest text-[var(--color-ink-muted)] mb-6">
-            Fechas clave
-          </h4>
-          <dl class="space-y-6">
-            <div>
-              <dt class="font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">Apertura</dt>
-              <dd class="font-[var(--font-display)] text-xl text-[var(--color-ink)]">Enero 2026</dd>
-            </div>
-            <div>
-              <dt class="font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">Cierre de recepción</dt>
-              <dd class="font-[var(--font-display)] text-xl text-[var(--color-ink)]">Por confirmar</dd>
-            </div>
-            <div>
-              <dt class="font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">Notificación de resultados</dt>
-              <dd class="font-[var(--font-display)] text-xl text-[var(--color-ink)]">Por confirmar</dd>
-            </div>
-            <div>
-              <dt class="font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">Publicación Vol. 1</dt>
-              <dd class="font-[var(--font-display)] text-xl text-[var(--color-ink)]">Por confirmar</dd>
-            </div>
-          </dl>
-        </div>
-
-        <!-- Contact -->
-        <div class="p-6 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-          <h4 class="font-[var(--font-body)] text-xs uppercase tracking-widest text-[var(--color-ink-muted)] mb-4">
-            Consultas
-          </h4>
-          <p class="font-[var(--font-body)] text-sm text-[var(--color-ink-light)] mb-3">
-            Para preguntas sobre la convocatoria:
-          </p>
-          <a
-            href="mailto:revista@revistaviaje.cl"
-            class="font-[var(--font-body)] text-sm text-[var(--color-terracotta)] hover:text-[var(--color-terracotta-dark)] transition-colors"
-          >
-            revista@revistaviaje.cl
-          </a>
-        </div>
-
-        <!-- Types accepted -->
-        <div class="p-6 bg-[var(--color-paper)] border border-[var(--color-rule)]">
-          <h4 class="font-[var(--font-body)] text-xs uppercase tracking-widest text-[var(--color-ink-muted)] mb-4">
-            Tipos de ensayo
-          </h4>
-          <ul class="font-[var(--font-body)] text-sm text-[var(--color-ink-light)] space-y-2">
-            <li>• Literario</li>
-            <li>• Político</li>
-            <li>• Filosófico</li>
-            <li>• Social</li>
-            <li>• Cultural</li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-16 bg-[var(--color-ink)]">
-  <div class="mx-auto max-w-3xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 text-center">
-    <p class="font-[var(--font-display)] text-2xl text-[var(--color-cream)] italic">
-      "El viaje del pensamiento comienza con la mano que escribe"
-    </p>
-  </div>
-</section>
+  <h2 class="text-xl font-bold mb-2">Derechos de publicación</h2>
+  <p>El envío de una colaboración implica la autorización a [viaje] para publicar, reproducir y difundir el texto en sus plataformas digitales de manera no exclusiva. Los derechos de autor permanecen en todo momento en manos de sus creadores/as. Cualquier publicación posterior del texto deberá mencionar explícitamente su aparición original en Revista [viaje].</p>
+</div>

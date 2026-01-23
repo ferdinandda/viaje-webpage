@@ -13,8 +13,9 @@
           <span class="text-[var(--color-ink-muted)]">]</span>
         </a>
         <p class="font-[var(--font-display)] text-[var(--color-ink-muted)] text-base italic leading-relaxed max-w-xs">
-          Ensayos sobre territorio, literatura y pensamiento latinoamericano
+          Revista digital de ensayos
         </p>
+
       </div>
 
       <!-- Secciones -->
@@ -36,7 +37,7 @@
         </h4>
         <ul class="space-y-2">
           <li><a href="/equipo" class="text-[var(--color-ink-light)] hover:text-[var(--color-terracotta)] transition-colors">Equipo Editorial</a></li>
-          <li><a href="/convocatoria" class="text-[var(--color-ink-light)] hover:text-[var(--color-terracotta)] transition-colors">Convocatoria</a></li>
+          <li><a href="/convocatoria" class="text-[var(--color-ink-light)] hover:text-[var(--color-terracotta)] transition-colors">Convocatoria 2026</a></li>
         </ul>
       </div>
 
@@ -46,8 +47,8 @@
           Contacto
         </h4>
         <p class="text-[var(--color-ink-light)]">
-          <a href="mailto:revista@viaje.cl" class="hover:text-[var(--color-terracotta)] transition-colors">
-            revista@viaje.cl
+          <a href="mailto:viajerevista@gmail.com" class="hover:text-[var(--color-terracotta)] transition-colors">
+            viajerevista@gmail.com
           </a>
         </p>
         <p class="text-sm text-[var(--color-ink-muted)]">
