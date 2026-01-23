@@ -1,11 +1,6 @@
 <script>
   let tabs = [
     { id: 1, title: 'Sangre, tierra y silencio', author: 'Florencia Leiva Silva', content: 'Contenido 1...' },
-    { id: 2, title: 'Título 2', author: 'Autor 2', content: 'Contenido 2...' },
-    { id: 3, title: 'Título 3', author: 'Autor 3', content: 'Contenido 3...' },
-    { id: 4, title: 'Título 4', author: 'Autor 4', content: 'Contenido 4...' },
-    { id: 5, title: 'Título 5', author: 'Autor 5', content: 'Contenido 5...' },
-    { id: 6, title: 'Título 6', author: 'Autor 6', content: 'Contenido 6...' }
   ];
 </script>
 
