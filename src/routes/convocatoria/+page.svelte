@@ -1,6 +1,6 @@
 <div class="font-[var(--font-body)] p-8 pt-24">
   <h1 class="text-2xl font-bold mb-4">Convocatoria abierta</h1>
-  <img src="/david lynch_.jpg" alt="David Lynch" class="w-full h-auto mb-4" />
+  <img src="/david_lynch.jpg" alt="David Lynch" class="w-full h-auto mb-4" />
 
   <h2 class="text-xl font-bold mb-2">Tipos de colaboraciones</h2>
   <p class="mb-4">La revista recibe envíos personales y propuestas editoriales vinculadas al pensamiento crítico, la reflexión sobre cultura y el ensayo contemporáneo, en las siguientes modalidades:</p>
