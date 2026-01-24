@@ -51,10 +51,10 @@
         class="group inline-flex items-center gap-3 px-8 py-4 border-2 border-[var(--color-ink)] bg-transparent
                hover:bg-[var(--color-ink)] transition-all duration-300"
       >
-        <span class="font-[var(--font-body)] text-sm uppercase tracking-widest text-white group-hover:text-black transition-colors">
+        <span class="font-[var(--font-body)] text-sm uppercase tracking-widest text-white group-hover:text-white transition-colors">
           Convocatoria abierta
         </span>
-        <svg class="w-4 h-4 text-white group-hover:text-black group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 text-white group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </a>
