@@ -169,7 +169,7 @@ sistemas inspirados en tribus indígenas como modelos de experiencia de la menst
 recalibrar el desbalance ecológico.</p>
 
       <button
-        on:click={toggleReferences}
+        onclick={toggleReferences}
         class="text-xl font-bold mb-4 text-center mt-12 font-['Advent_Pro'] text-gray-600 w-full"
         class:bounce={atBottom}
       >
