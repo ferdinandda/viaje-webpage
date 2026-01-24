@@ -103,7 +103,7 @@
     <!-- Mobile Menu -->
     {#if mobileMenuOpen}
       <div
-        class="md:hidden absolute top-full left-0 right-0 {isSangreTierraYSilencio || isHomepage ? 'bg-black' : 'bg-[var(--color-cream)]'} border-b border-[var(--color-rule)]
+        class="md:hidden absolute top-full left-0 right-0 {useLightNav ? 'bg-black' : 'bg-[var(--color-cream)]'} border-b border-[var(--color-rule)]
                animate-in slide-in-from-top-2 duration-200"
       >
         <ul class="py-6 px-[var(--spacing-editorial)] space-y-4">
