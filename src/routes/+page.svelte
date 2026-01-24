@@ -21,7 +21,7 @@
   <div class="relative z-10 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 py-32 md:py-40">
     <!-- Main Title -->
     <h1
-      class="transition-all duration-700 delay-100 ease-out
+      class="transition-all duration-700 delay-100 ease-out text-center
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
       <span class="block font-[var(--font-display)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight leading-[0.9]">
@@ -38,7 +38,7 @@
              transition-all duration-700 delay-200 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      Pensamos el ensayo en sus [des]articulaciones, durante el movimiento de la mano que escribe. Entendemos la escritura y la lectura como prácticas que pueden intervenir en la manera en que habitamos el mundo.
+      [viaje] Revista de Ensayo y Creación, es un medio digital chileno con publicaciones semanales sobre el mundo que habitamos <s>y otros mundos posibles</s>.
     </p>
 
     <!-- CTA Button -->

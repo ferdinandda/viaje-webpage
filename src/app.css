@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 
 /* Revista Viaje - Editorial Design System */

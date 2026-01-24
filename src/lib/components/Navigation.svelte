@@ -1,26 +1,33 @@
 <script>
   import { page } from '$app/stores';
+  import { onMount, onDestroy } from 'svelte';
 
-  let scrolled = $state(false);
   let mobileMenuOpen = $state(false);
+  let scrolled = $state(false);
 
-  const navItems = [
-    { href: '/', label: 'Inicio' },
+    const navItems = [
 
+      { href: '/', label: 'Inicio' },
 
-    { href: '/equipo', label: 'Equipo' },
-    { href: '/convocatoria', label: 'Convocatoria 2026' }
-  ];
+      { href: '/ensayistas', label: 'Autores Cardinales' },
 
-  // Only use light (white) nav on homepage when not scrolled
+      { href: '/derivas-del-hoy', label: 'Derivas del Hoy' },
+
+      { href: '/equipo', label: 'Equipo' },
+
+      { href: '/convocatoria', label: 'Convocatoria' }
+
+    ];
+
   let isHomepage = $derived($page.url.pathname === '/');
-  let useLightNav = $derived(isHomepage && !scrolled);
+  let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
+
+  let useLightNav = $derived((isHomepage && !scrolled) || isSangreTierraYSilencio);
 
   $effect(() => {
     const handleScroll = () => {
       scrolled = window.scrollY > 20;
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   });
@@ -36,7 +43,11 @@
 
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
-         {scrolled || !isHomepage ? 'bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-rule)]' : 'bg-transparent'}"
+         {isSangreTierraYSilencio
+           ? 'bg-black'
+           : (isHomepage && !scrolled
+               ? 'bg-[#8B0000]'
+               : 'bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-rule)]')}"
 >
   <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
     <div class="flex items-center justify-between h-20 md:h-24">
@@ -46,9 +57,9 @@
         class="group flex items-baseline gap-0.5 font-[var(--font-display)] text-xl md:text-2xl font-semibold tracking-tight"
         onclick={closeMobileMenu}
       >
-        <span class="{useLightNav ? 'text-white/60' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
+        <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
         <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink)]'} transition-colors">Viaje</span>
-        <span class="{useLightNav ? 'text-white/60' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
+        <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -64,7 +75,7 @@
             >
               {item.label}
               {#if $page.url.pathname === item.href}
-                <span class="absolute -bottom-1 left-0 right-0 h-px bg-[var(--color-terracotta)]"></span>
+                <span class="absolute -bottom-1 left-0 right-0 h-px {useLightNav ? 'bg-white' : 'bg-[var(--color-terracotta)]'}"></span>
               {/if}
             </a>
           </li>
@@ -92,23 +103,22 @@
     <!-- Mobile Menu -->
     {#if mobileMenuOpen}
       <div
-        class="md:hidden absolute top-full left-0 right-0 bg-[var(--color-cream)] border-b border-[var(--color-rule)]
+        class="md:hidden absolute top-full left-0 right-0 {isSangreTierraYSilencio || isHomepage ? 'bg-black' : 'bg-[var(--color-cream)]'} border-b border-[var(--color-rule)]
                animate-in slide-in-from-top-2 duration-200"
       >
         <ul class="py-6 px-[var(--spacing-editorial)] space-y-4">
           {#each navItems as item}
-            <li>
+                        <li>
               <a
                 href={item.href}
                 onclick={closeMobileMenu}
-                class="block font-[var(--font-body)] text-base tracking-wide
-                       text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors
-                       {$page.url.pathname === item.href ? 'text-[var(--color-ink)] font-medium' : ''}"
+                class="block font-[var(--font-body)] text-base tracking-wide {useLightNav
+                         ? ($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')
+                         : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors ' + ($page.url.pathname === item.href ? 'text-[var(--color-ink)] font-medium' : '')}"
               >
                 {item.label}
               </a>
-            </li>
-          {/each}
+            </li>          {/each}
         </ul>
       </div>
     {/if}
