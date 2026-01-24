@@ -23,13 +23,11 @@
           <article class="grid md:grid-cols-[0.6fr,2fr] gap-6 md:gap-8 items-start">
             <!-- Image -->
             <div class="relative overflow-hidden bg-[var(--color-paper)]">
-              <div class="aspect-[3/4]">
-                <img
-                  src="/my-image.jpg"
-                  alt="{pub.title}"
-                  class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                />
-              </div>
+              <img
+                src="/my-image.jpg"
+                alt="{pub.title}"
+                class="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <!-- Subtle overlay on hover -->
               <div class="absolute inset-0 bg-[var(--color-ink)]/0 group-hover:bg-[var(--color-ink)]/5 transition-colors duration-300"></div>
             </div>
