@@ -3,31 +3,36 @@
     {
       nombre: 'Fernanda Moreno Gutiérrez',
       rol: 'Fundadora y Directora Editorial',
-      descripcion: '(Iquique, 1999). Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
+      locacion_ano: '(Iquique, 1999)',
+      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'FM'
     },
     {
       nombre: 'Javiera Zumelzu',
       rol: 'Diseñadora de Redes',
-      descripcion: '(Iquique, 1999). Estudió Diseño Gráfico con Mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales; y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
+      locacion_ano: '(Iquique, 1999)',
+      descripcion: 'Estudió Diseño Gráfico con Mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales; y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
       inicial: 'JZ'
     },
     {
       nombre: 'Florencia Leiva Silva',
-      rol: 'Editora',
-      descripcion: '(Talagante, 2002). Estudió Letras en la Pontificia Universidad Católica de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
+      rol: '',
+      locacion_ano: '(Talagante, 2001)',
+      descripcion: 'Estudió Letras en la Pontificia Universidad Católica de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'FL'
     },
     {
       nombre: 'Aurora Mañas Navarrete',
-      rol: 'Editora',
-      descripcion: '(Valladolid, 2002). Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
+      rol: '',
+      locacion_ano: '(Valladolid, 2002)',
+      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'AM'
     },
     {
       nombre: 'Hannah Smalley',
-      rol: 'Editora',
-      descripcion: '(Tennesse, 1998). Estudió Castellano en Princeton y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
+      rol: '',
+      locacion_ano: '(Nashville, 1998)',
+      descripcion: 'Estudió Castellano en Princeton y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'HS'
     }
   ];
@@ -60,20 +65,28 @@
       </p>
     </section>
 
-    <h2 class="text-2xl font-bold mb-4 text-[var(--color-ink)]">Equipo</h2>
 
-    <!-- Team Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+
+    <!-- Team List -->
+    <div class="mb-24">
       {#each equipo as miembro}
-        <div class="group">
+        {#if miembro.nombre === 'Florencia Leiva Silva'}
+          <p class="mt-12 mb-4 font-[var(--font-body)] text-sm uppercase tracking-widest text-[#000080]">COMITÉ EDITORIAL:</p>
+        {/if}
+        <div class="group mb-8">
           <div class="mt-6">
-            <h3 class="font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">
-              {miembro.nombre}
-            </h3>
             <p class="mt-1 font-[var(--font-body)] text-sm uppercase tracking-widest text-[#000080]">
               {miembro.rol}
             </p>
-            <p class="mt-3 font-[var(--font-body)] text-sm text-[var(--color-ink-muted)] leading-relaxed">
+            <h3 class="font-[var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">
+              {miembro.nombre}
+            </h3>
+            {#if miembro.locacion_ano}
+              <p class="mt-1 font-[var(--font-body)] text-sm text-[var(--color-ink-muted)]">
+                {miembro.locacion_ano}
+              </p>
+            {/if}
+            <p class="mt-3 font-[var(--font-body)] text-sm text-[var(--color-ink-muted)] leading-relaxed text-justify">
               {miembro.descripcion}
             </p>
           </div>
