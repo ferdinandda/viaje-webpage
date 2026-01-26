@@ -1,7 +1,21 @@
 <div class="font-[var(--font-body)] p-8 pt-24">
-  <div class="h-2 bg-black w-full mb-24"></div>
-  <h1 class="text-3xl font-bold mb-4 text-center">Convocatoria abierta</h1>
-  <p class="text-lg text-center mb-4">Envíos a viajerevista@gmail.com</p>
+
+  <div class="bg-[#000080] p-8 mb-12 text-white">
+    <a href="mailto:viajerevista@gmail.com" class="flex justify-center mb-4">
+      <svg
+        class="w-8 h-8 transform -rotate-15 transition-all duration-300 hover:rotate-0"
+        viewBox="0 0 100 40"
+        fill="white"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon points="0,20 100,0 90,20 100,40" />
+      </svg>
+    </a>
+    <h1 class="text-3xl font-bold mb-4 text-center">Convocatoria abierta</h1>
+    <p class="text-lg text-center mb-0">
+      <a href="mailto:viajerevista@gmail.com" class="hover:underline">Envíos a viajerevista@gmail.com</a>
+    </p>
+  </div>
 
   <h2 class="text-xl font-bold mb-2">Tipos de colaboraciones</h2>
   <p class="mb-4 text-justify">La revista recibe colaboraciones vinculadas al ensayo como forma crítica y creativa, entendido como un modo de pensamiento situado, experimental y reflexivo, en diálogo con la tradición del ensayo moderno y contemporáneo, tal como fue pensada por autores como Lukács, Adorno y Bense: una forma no sistemática, fragmentaria y especulativa, que ensaya ideas sin clausurarlas y que se define por su relación analítica con, sobre todo, la experiencia de quien escribe.</p>
@@ -71,7 +85,7 @@
   </ul>
 
   <h2 class="text-xl font-bold mb-2">Derechos de publicación</h2>
-  <p class="mb-4 text-justify">La publicación es no exclusiva. Los derechos de autor permanecen en todo momento en manos de quien escribe. Toda publicación posterior debe mencionar la aparición original en Revista [viaje].</p>
-  <div class="h-2 bg-black w-full my-8"></div>
-  <img src="/david_lynch.jpg" alt="David Lynch" class="w-1/2 h-auto mx-auto mb-4" />
+  <p class="mb-4 text-justify">La publicación es no exclusiva. Los derechos de autor permanecen en todo momento en manos de quien escribe. Toda publicación posterior debe mencionar la aparición original en Revista [Viaje].</p>
+
+
 </div>

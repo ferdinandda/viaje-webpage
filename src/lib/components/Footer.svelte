@@ -42,6 +42,11 @@
             viajerevista@gmail.com
           </a>
         </p>
+        <p class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'}">
+          <a href="https://www.instagram.com/revistaviajecl/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-terracotta)] transition-colors">
+            Instagram
+          </a>
+        </p>
         <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
           Tarapacá, Chile
         </p>
