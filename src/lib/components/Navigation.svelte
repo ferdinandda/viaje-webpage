@@ -2,6 +2,7 @@
   import { page } from '$app/stores';
   import { onMount, onDestroy } from 'svelte';
   import { navItems } from '$lib/navItems.js';
+  import Logo from '$lib/components/Logo.svelte';
 
   let mobileMenuOpen = $state(false);
   let scrolled = $state(false);
@@ -40,15 +41,7 @@
   <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
     <div class="flex items-center justify-between h-20 md:h-24">
       <!-- Logo -->
-      <a
-        href="/"
-        class="group flex items-baseline gap-0.5 font-[var(--font-display)] text-xl md:text-2xl font-semibold tracking-tight"
-        onclick={closeMobileMenu}
-      >
-        <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">[</span>
-        <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink)]'} transition-colors">Viaje</span>
-        <span class="{useLightNav ? 'text-white' : 'text-[var(--color-ink-muted)]'} transition-colors group-hover:text-[var(--color-terracotta)]">]</span>
-      </a>
+      <Logo {useLightNav} />
 
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex items-center gap-6 lg:gap-8">
