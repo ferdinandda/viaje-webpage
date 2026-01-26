@@ -43,7 +43,7 @@
              transition-all duration-700 delay-200 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      Revista viaje es un medio digital chileno con publicaciones semanales sobre el mundo que habitamos
+      Revista viaje es un medio digital chileno con publicaciones mensuales sobre el mundo que habitamos
     </p>
     <p
       class="mt-2 text-center font-[var(--font-display)] text-lg md:text-xl text-white/80
