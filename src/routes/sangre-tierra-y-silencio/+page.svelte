@@ -33,7 +33,7 @@
       <h1 class="text-4xl font-bold mb-4 font-['Advent_Pro'] uppercase text-center mx-auto max-w-3xl">Sangre, tierra y silencio: el doble vínculo de la experiencia femenina</h1>
       <p class="text-sm text-center font-['Jost'] mb-2">Por Florencia Leiva Silva</p>
       <p class="text-xs text-center font-['Jost'] mb-4">Enero, 2025</p>
-      <img src="/Carrieee.jpg" alt="Image related to Sangre, tierra y silencio" class="w-full h-auto mb-4" />
+      <img src="/Carrieee.jpg" alt="Sangre, tierra y silencio" class="w-full h-auto mb-4" />
       <p class="text-xs text-center font-['Jost'] mb-8">Compartir en:
         <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A5173%2Fsangre-tierra-y-silencio&text=Sangre%2C%20tierra%20y%20silencio%3A%20el%20doble%20v%C3%ADnculo%20de%20la%20experiencia%20femenina" target="_blank" class="text-blue-600 hover:underline">X</a> /
         <a href="https://www.instagram.com/" target="_blank" class="text-pink-600 hover:underline">Instagram</a>
