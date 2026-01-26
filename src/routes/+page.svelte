@@ -24,26 +24,37 @@
       class="transition-all duration-700 delay-100 ease-out text-center
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      <span class="block font-[var(--font-display)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight leading-[0.9]">
-        <span class="text-white">Revista</span>
-      </span>
-      <span class="block font-[var(--font-display)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight leading-[0.9] mt-2">
-        <span class="text-white">[</span><span class="text-white">Viaje</span><span class="text-white">]</span>
+      <span class="block font-[var(--font-display)] text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight leading-[0.9]">
+        <span class="text-white">[</span><span class="text-white">viaje</span><span class="text-white">]</span>
       </span>
     </h1>
+    <p
+      class="mt-4 text-center font-[var(--font-display)] text-lg md:text-xl text-white/80
+             transition-all duration-700 delay-150 ease-out
+             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
+    >
+      Revista de Ensayo y Creación
+    </p>
 
     <!-- Mission Statement -->
     <p
-      class="mt-12 md:mt-16 max-w-3xl font-[var(--font-display)] text-sm sm:text-base md:text-lg leading-relaxed text-white
+      class="mt-12 md:mt-16 max-w-3xl mx-auto font-[var(--font-display)] text-sm sm:text-base md:text-lg leading-relaxed text-white text-center
              transition-all duration-700 delay-200 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      [viaje] Revista de Ensayo y Creación, es un medio digital chileno con publicaciones semanales sobre el mundo que habitamos <s>y otros mundos posibles</s>.
+      Revista viaje es un medio digital chileno con publicaciones semanales sobre el mundo que habitamos
+    </p>
+    <p
+      class="mt-2 text-center font-[var(--font-display)] text-lg md:text-xl text-white/80
+             transition-all duration-700 delay-200 ease-out
+             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
+    >
+      <s class="line-through decoration-1">y otros mundos posibles</s>.
     </p>
 
     <!-- CTA Button -->
     <div
-      class="mt-12 md:mt-16 transition-all duration-700 delay-300 ease-out
+      class="mt-12 md:mt-16 flex justify-center transition-all duration-700 delay-300 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
       <a

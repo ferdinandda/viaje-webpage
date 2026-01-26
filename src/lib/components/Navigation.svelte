@@ -1,28 +1,16 @@
 <script>
   import { page } from '$app/stores';
   import { onMount, onDestroy } from 'svelte';
+  import { navItems } from '$lib/navItems.js';
 
   let mobileMenuOpen = $state(false);
   let scrolled = $state(false);
 
-    const navItems = [
-
-      { href: '/', label: 'Inicio' },
-
-      { href: '/ensayistas', label: 'Autores Cardinales' },
-
-      { href: '/derivas-del-hoy', label: 'Derivas del Hoy' },
-
-      { href: '/equipo', label: 'Equipo' },
-
-      { href: '/convocatoria', label: 'Convocatoria' }
-
-    ];
-
   let isHomepage = $derived($page.url.pathname === '/');
   let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
 
-  let useLightNav = $derived((isHomepage && !scrolled) || isSangreTierraYSilencio);
+  let useBlackBg = $derived(isSangreTierraYSilencio || !isHomepage);
+  let useLightNav = $derived(useBlackBg || (isHomepage && !scrolled));
 
   $effect(() => {
     const handleScroll = () => {
@@ -43,7 +31,7 @@
 
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
-         {isSangreTierraYSilencio
+         {useBlackBg
            ? 'bg-black'
            : (isHomepage && !scrolled
                ? 'bg-[#8B0000]'
@@ -103,7 +91,7 @@
     <!-- Mobile Menu -->
     {#if mobileMenuOpen}
       <div
-        class="md:hidden absolute top-full left-0 right-0 {isSangreTierraYSilencio || isHomepage ? 'bg-black' : 'bg-[var(--color-cream)]'} border-b border-[var(--color-rule)]
+        class="md:hidden absolute top-full left-0 right-0 bg-black border-b border-[var(--color-rule)]
                animate-in slide-in-from-top-2 duration-200"
       >
         <ul class="py-6 px-[var(--spacing-editorial)] space-y-4">
@@ -112,9 +100,7 @@
               <a
                 href={item.href}
                 onclick={closeMobileMenu}
-                class="block font-[var(--font-body)] text-base tracking-wide {useLightNav
-                         ? ($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')
-                         : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors ' + ($page.url.pathname === item.href ? 'text-[var(--color-ink)] font-medium' : '')}"
+                class="block font-[var(--font-body)] text-base tracking-wide {($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')}"
               >
                 {item.label}
               </a>

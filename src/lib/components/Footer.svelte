@@ -1,4 +1,5 @@
 <script>
+  import { navItems } from '$lib/navItems.js';
   const currentYear = new Date().getFullYear();
   let { footerTheme = 'light' } = $props(); // 'light', 'dark', or 'dark-red'
 </script>
@@ -28,22 +29,13 @@
           Secciones
         </h4>
         <ul class="space-y-2">
-          <li><a href="/ensayos" class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'} hover:text-[var(--color-terracotta)] transition-colors">Ensayos</a></li>
+          {#each navItems as item}
+            <li><a href={item.href} class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'} hover:text-[var(--color-terracotta)] transition-colors">{item.label}</a></li>
+          {/each}
         </ul>
       </div>
 
-      <!-- Revista -->
-      <div class="space-y-4">
-        <h4 class="font-[var(--font-body)] text-xs uppercase tracking-widest {footerTheme.startsWith('dark') ? 'text-white' : 'text-[var(--color-ink-muted)]'}">
-          Revista
-        </h4>
-        <ul class="space-y-2">
-          <li><a href="/equipo" class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'} hover:text-[var(--color-terracotta)] transition-colors">Equipo Editorial</a></li>
-          <li><a href="/convocatoria" class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'} hover:text-[var(--color-terracotta)] transition-colors">Convocatoria 2026</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
+<!-- Contact -->
       <div class="space-y-4">
         <h4 class="font-[var(--font-body)] text-xs uppercase tracking-widest {footerTheme.startsWith('dark') ? 'text-white' : 'text-[var(--color-ink-muted)]'}">
           Contacto
@@ -54,10 +46,10 @@
           </a>
         </p>
         <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
-          Santiago, Chile
+          Tarapacá, Chile
         </p>
         <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
-          Publicación trimestral
+          Valparaíso, Chile
         </p>
       </div>
     </div>
@@ -68,9 +60,7 @@
         <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
           &copy; {currentYear} Revista Viaje. Todos los derechos reservados.
         </p>
-        <p class="text-xs {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'} font-[var(--font-display)] italic">
-          ISSN 0000-0000
-        </p>
+
       </div>
     </div>
   </div>

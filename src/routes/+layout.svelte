@@ -11,7 +11,7 @@
   let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
 
   // Determine footer theme based on the page
-  let footerTheme = $derived(isSangreTierraYSilencio ? 'dark' : (isHomepage ? 'dark-red' : 'light'));
+  let footerTheme = $derived(isHomepage ? 'dark-red' : 'dark');
 </script>
 
 <svelte:head>
