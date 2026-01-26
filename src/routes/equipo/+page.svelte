@@ -8,6 +8,13 @@
       inicial: 'FM'
     },
     {
+      nombre: 'Sofía Quevedo Quevedo',
+      rol: 'Rol por confirmar',
+      locacion_ano: '(Ciudad, Año)',
+      descripcion: 'Descripción por confirmar.',
+      inicial: 'SQ'
+    },
+    {
       nombre: 'Javiera Zumelzu',
       rol: 'Diseñadora de Redes',
       locacion_ano: '(Iquique, 1999)',
