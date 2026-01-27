@@ -1,91 +1,119 @@
-<div class="font-[var(--font-body)] p-8 pt-24">
-
-  <div class="bg-[#000080] p-8 mb-12 text-white">
-    <a href="mailto:viajerevista@gmail.com" class="flex justify-center mb-4">
-      <svg
-        class="w-8 h-8 transform -rotate-15 transition-all duration-300 hover:rotate-0"
-        viewBox="0 0 100 40"
-        fill="white"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polygon points="0,20 100,0 90,20 100,40" />
-      </svg>
+<div style="font-family: 'Jost', sans-serif;">
+  <div class="bg-black w-full flex flex-col items-center justify-center pt-44 pb-32 md:pt-56 md:pb-48 overflow-hidden min-h-[50vh]">
+    <h1 class="text-white text-4xl md:text-7xl font-bold uppercase text-center max-w-4xl leading-tight animate-blur-reveal px-4">
+      Get this from the depths of your fucking soul, man.
+    </h1>
+    <a 
+      href="https://www.reddit.com/r/twinpeaks/comments/1i5xz0k/david_lynch_directing_tom_sizemore_in_twin_peaks/" 
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-white/30 hover:text-[#D24843] text-[10px] mt-12 animate-blur-reveal-delayed transition-colors uppercase tracking-widest"
+    >
+      Ver referencia
     </a>
-    <h1 class="text-3xl font-bold mb-4 text-center">Convocatoria abierta</h1>
-    <p class="text-lg text-center mb-0">
-      <a href="mailto:viajerevista@gmail.com" class="hover:underline">Envíos a viajerevista@gmail.com</a>
+  </div>
+
+<style>
+  @keyframes blurReveal {
+    0% {
+      filter: blur(20px);
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-blur-reveal {
+    animation: blurReveal 5s ease-out forwards;
+  }
+
+  .animate-blur-reveal-delayed {
+    animation: blurReveal 5s ease-out 2s forwards;
+    opacity: 0;
+  }
+</style>
+
+  <div class="px-8 max-w-7xl mx-auto mt-12">
+
+  <div class="mb-16 text-[var(--color-ink)] text-center">
+    <h1 class="text-5xl font-bold mb-4">Convocatoria abierta</h1>
+    <p class="text-xl">
+      <a href="mailto:viajerevista@gmail.com" class="hover:underline text-[#D24843]">Envíos a viajerevista@gmail.com</a>
     </p>
   </div>
 
-  <h2 class="text-xl font-bold mb-2">Tipos de colaboraciones</h2>
-  <p class="mb-4 text-justify">La revista recibe colaboraciones vinculadas al ensayo como forma crítica y creativa, entendido como un modo de pensamiento situado, experimental y reflexivo, en diálogo con la tradición del ensayo moderno y contemporáneo, tal como fue pensada por autores como Lukács, Adorno y Bense: una forma no sistemática, fragmentaria y especulativa, que ensaya ideas sin clausurarlas y que se define por su relación analítica con, sobre todo, la experiencia de quien escribe.</p>
-  
-  <h2 class="text-xl font-bold mb-2">Modalidades aceptadas</h2>
-  <ol class="list-decimal list-inside mb-4">
-    <li><p class="inline font-bold">Textos ensayísticos</p>
-      <ul class="list-disc list-inside ml-4">
-        <li class="text-justify">Ensayos inéditos sobre cultura, filosofía, política, estética o prácticas contemporáneas.</li>
-        <li class="text-justify">Ensayos breves o series de ensayos articulados sobre un mismo tema.</li>
-      </ul>
-    </li>
-    <li><p class="inline font-bold">Entrevistas</p>
-      <ul class="list-disc list-inside ml-4">
-        <li class="text-justify">A autoras y autores que trabajen el ensayo como género central.</li>
-        <li class="text-justify">Conversaciones sobre escritura, pensamiento crítico, obras o proyectos.</li>
-      </ul>
-    </li>
-    <li><p class="inline font-bold">Conversaciones públicas</p>
-      <ul class="list-disc list-inside ml-4">
-        <li class="text-justify">Entrevistas o ensayos leídos en charlas, seminarios o presentaciones, vinculados al ensayo como forma de pensamiento.</li>
-      </ul>
-    </li>
-    <li><p class="inline font-bold">Dosieres de eventos</p>
-      <ul class="list-disc list-inside ml-4">
-        <li class="text-justify">Conjuntos de textos producidos en encuentros o jornadas dedicadas al ensayo.</li>
-      </ul>
-    </li>
-  </ol>
+  <div class="mb-24 text-[var(--color-ink)]">
+    <h2 class="text-2xl font-bold mb-4 border-b border-gray-100 pb-2">Tipos de colaboraciones</h2>
+    <p class="mb-4 text-justify">La revista recibe ensayos de carácter crítico y creativo. Buscamos textos que piensen el mundo desde la propia experiencia de quien escribe, con libertad formal y apertura a la experimentación.</p>
+    
+    <h2 class="text-xl font-bold mb-2">Modalidades aceptadas</h2>
+    <ol class="list-decimal list-inside mb-4 marker:text-[#D24843]">
+      <li><p class="inline font-bold">Textos ensayísticos</p>
+        <ul class="list-none ml-4 space-y-1">
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos inéditos sobre cultura, literatura, política o estética (NO ACADÉMICOS).</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos breves o series de ensayos articulados sobre un mismo tema.</li>
+        </ul>
+      </li>
+      <li><p class="inline font-bold">Entrevistas</p>
+        <ul class="list-none ml-4 space-y-1">
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Entrevistas a autoras y autores que trabajen el ensayo como género central de su práctica intelectual o literaria, así como conversaciones que aborden sus procesos de escritura, pensamiento, obra publicada o proyectos en desarrollo.</li>
+        </ul>
+      </li>
+      <li><p class="inline font-bold">Conversaciones públicas</p>
+        <ul class="list-none ml-4 space-y-1">
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Entrevistas o ensayos leídos en charlas, seminarios o presentaciones, vinculados al ensayo como forma de pensamiento.</li>
+        </ul>
+      </li>
+      <li><p class="inline font-bold">Dosieres de eventos</p>
+        <ul class="list-none ml-4 space-y-1">
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Conjuntos de textos producidos en encuentros o jornadas dedicadas al ensayo.</li>
+        </ul>
+      </li>
+    </ol>
 
-  <h2 class="text-xl font-bold mb-2">Formato de envío</h2>
-  <ul class="list-disc list-inside mb-4">
-    <li class="text-justify">Archivo Word (.doc o .docx) con nombre del autor/a.</li>
-    <li class="text-justify">Times New Roman, tamaño 12.</li>
-    <li class="text-justify">Interlineado 1,5.</li>
-    <li class="text-justify">Texto justificado.</li>
-    <li class="text-justify">Sin sangrías ni espacio extra entre párrafos (separar con un renglón en blanco).</li>
-    <li class="text-justify">Citas en bloque con sangría izquierda de 1 cm.</li>
-  </ul>
+    <h2 class="text-xl font-bold mb-2">Formato de envío <span class="font-normal text-gray-500 text-sm">(dentro de lo posible)</span></h2>
+    <ul class="list-none mb-4 space-y-1">
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Archivo Word (.doc o .docx) con nombre del autor/a.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Times New Roman, tamaño 12.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Interlineado 1,5.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Texto justificado.</li>
+    </ul>
 
-  <h2 class="text-xl font-bold mb-2">Material complementario</h2>
-  <ul class="list-disc list-inside mb-4">
-    <li class="text-justify">Ensayos y entrevistas: imagen opcional.</li>
-    <li class="text-justify">Presentaciones: al menos un material visual en alta resolución.</li>
-    <li class="text-justify">Dosieres:
-      <ul class="list-disc list-inside ml-4">
-        <li class="text-justify">Introducción del evento (lugar, fecha, motivo).</li>
-        <li class="text-justify">Índice con orden de textos, autorías y citas destacadas.</li>
-      </ul>
-    </li>
-  </ul>
+    <h2 class="text-xl font-bold mb-2">Material complementario</h2>
+    <ul class="list-none mb-4 space-y-1">
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos y entrevistas: imagen opcional.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Presentaciones: al menos un material visual en alta resolución.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Dosieres:
+        <ul class="list-none ml-4 space-y-1">
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Introducción del evento (lugar, fecha, motivo).</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Índice con orden de textos, autorías y citas destacadas.</li>
+        </ul>
+      </li>
+    </ul>
 
-  <h2 class="text-xl font-bold mb-2">Extensión</h2>
-  <ul class="list-disc list-inside mb-4">
-    <li class="text-justify">Ensayos, entrevistas y presentaciones: 3 a 8 páginas (formato carta).</li>
-    <li class="text-justify">Series o entrevistas largas pueden dividirse en varios textos.</li>
-  </ul>
+    <h2 class="text-xl font-bold mb-2">Extensión</h2>
+    <ul class="list-none mb-4 space-y-1">
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos, entrevistas y presentaciones: 3 a 8 páginas (formato carta).</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Series o entrevistas largas pueden dividirse en varios textos.</li>
+    </ul>
 
-  <h2 class="text-xl font-bold mb-2">Criterios editoriales</h2>
-  <p class="mb-4 text-justify">Se evaluará: </p>
-  <ul class="list-disc list-inside mb-4">
-    <li class="text-justify">Originalidad y enfoque crítico.</li>
-    <li class="text-justify">Calidad de escritura y rigor reflexivo.</li>
-    <li class="text-justify">Pertinencia temática contemporánea.</li>
-    <li class="text-justify">Claridad de estructura y desarrollo.</li>
-    <li class="text-justify">Afinidad con la política editorial (no se aceptan textos que promuevan odio, discriminación o violencia).</li>
-  </ul>
+    <h2 class="text-xl font-bold mb-2">Criterios editoriales</h2>
+    <p class="mb-4 text-justify">Se evaluará: </p>
+    <ul class="list-none mb-4 space-y-1">
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Originalidad y enfoque crítico.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Calidad de escritura y rigor reflexivo.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Claridad de estructura y desarrollo.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Afinidad con la política editorial (no se aceptan textos que promuevan odio, discriminación o violencia).</li>
+    </ul>
 
-  <h2 class="text-xl font-bold mb-2">Derechos de publicación</h2>
-  <p class="mb-4 text-justify">La publicación es no exclusiva. Los derechos de autor permanecen en todo momento en manos de quien escribe. Toda publicación posterior debe mencionar la aparición original en Revista [Viaje].</p>
+    <h2 class="text-xl font-bold mb-2">Derechos de publicación</h2>
+    <p class="mb-4 text-justify">La publicación es no exclusiva. Los derechos de autor permanecen en todo momento en manos de quien escribe. No obstante, pedimos que toda publicación posterior mencione la aparición original en Revista Viaje.</p>
+  </div>
 
 
+</div>
 </div>

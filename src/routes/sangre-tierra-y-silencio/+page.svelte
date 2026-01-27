@@ -1,11 +1,16 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
+  import { readerModeActive } from '$lib/stores';
 
   let showReferences = false;
   let atBottom = false;
 
   function toggleReferences() {
     showReferences = !showReferences;
+  }
+
+  function toggleReaderMode() {
+    $readerModeActive = !$readerModeActive;
   }
 
   function handleScroll() {
@@ -24,21 +29,31 @@
   });
 </script>
 
-<div class="pt-20 md:pt-24">
-  <section class="bg-black h-16 w-full"></section>
+<div class="min-h-screen transition-all duration-500 {$readerModeActive ? 'pt-12 bg-[#FAF9F6] text-gray-800' : 'pt-32 md:pt-40 bg-white'}">
 
-  <main class="bg-white">
-    <div class="container mx-auto px-4 py-8">
-      <p class="text-xs font-bold text-center text-[#8B0000] mb-2 font-['Jost']">Feminismos</p>
-      <h1 class="text-4xl font-bold mb-4 font-['Advent_Pro'] uppercase text-center mx-auto max-w-3xl">Sangre, tierra y silencio: el doble vínculo de la experiencia femenina</h1>
+  <main class="{$readerModeActive ? 'max-w-2xl mx-auto py-12 px-8' : 'bg-white'}">
+    <div class="{$readerModeActive ? '' : 'container mx-auto px-4 py-8'}">
+      <p class="text-xs font-bold text-center text-[#D24843] mb-2 font-['Jost']">Feminismos</p>
+      <h1 class="{$readerModeActive ? 'text-3xl font-serif text-center mb-8' : 'text-4xl font-bold mb-4 font-[\'Advent_Pro\'] uppercase text-center mx-auto max-w-3xl'}">
+        Sangre, tierra y silencio: el doble vínculo de la experiencia femenina
+      </h1>
       <p class="text-sm text-center font-['Jost'] mb-2">Por Florencia Leiva Silva</p>
-      <p class="text-xs text-center font-['Jost'] mb-4">Enero, 2025</p>
-      <img src="/Carrieee.jpg" alt="Sangre, tierra y silencio" class="w-full h-auto mb-4" />
-      <p class="text-xs text-center font-['Jost'] mb-8">Compartir en:
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A5173%2Fsangre-tierra-y-silencio&text=Sangre%2C%20tierra%20y%20silencio%3A%20el%20doble%20v%C3%ADnculo%20de%20la%20experiencia%20femenina" target="_blank" class="text-blue-600 hover:underline">X</a> /
-        <a href="https://www.instagram.com/" target="_blank" class="text-pink-600 hover:underline">Instagram</a>
-      </p>
-      <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">La matriz es el órgano interno de reproducción de las hembras de los animales vivíparos en el que
+      
+      {#if $readerModeActive}
+        <p class="text-xs text-center font-sans text-gray-500 mb-8 italic">8 min de lectura</p>
+      {/if}
+
+      {#if !$readerModeActive}
+        <p class="text-xs text-center font-['Jost'] mb-4">Enero, 2025</p>
+        <img src="/Carrieee.jpg" alt="Sangre, tierra y silencio" class="w-full h-auto mb-4" />
+        <p class="text-xs text-center font-['Jost'] mb-8">Compartir en:
+          <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A5173%2Fsangre-tierra-y-silencio&text=Sangre%2C%20tierra%20y%20silencio%3A%20el%20doble%20v%C3%ADnculo%20de%20la%20experiencia%20femenina" target="_blank" class="text-blue-600 hover:underline">X</a> /
+          <a href="https://www.instagram.com/" target="_blank" class="text-pink-600 hover:underline">Instagram</a>
+        </p>
+      {/if}
+
+      <div class="{$readerModeActive ? 'text-xl leading-loose font-serif text-justify' : 'text-lg leading-relaxed mb-4 text-justify font-[\'Jost\'] mx-auto max-w-prose'}">
+        <p class="mb-6">La matriz es el órgano interno de reproducción de las hembras de los animales vivíparos en el que
 se desarrolla el feto. Es también el molde o la entidad principal, generadora de otras. En minería,
 la matriz es la roca en cuyo interior se ha formado un mineral. En este sentido, como nos alumbra
 Mistral, la matriz original es la fuente que “todo lo toma, todo lo carga / el lomo santo de la
@@ -58,7 +73,7 @@ medioambiental. Así, con el fin de explorar el supuesto de que existe una image
 la degradación de la condición de la mujer y la de la tierra, surge la siguiente pregunta
 orientadora: ¿Es posible alinear el doble vínculo de la menstruación con el modelo de las tres
 ecologías planteado por Felix Guattari?</p>
-        <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">Para entrar en el análisis del problema, es clave plantear el sistema que Guattari (1990)
+        <p class="mb-6">Para entrar en el análisis del problema, es clave plantear el sistema que Guattari (1990)
 denomina como “ecosofía”. El autor da inicio a sus reflexiones con una descripción del problema
 contemporáneo del desequilibrio ecológico, sumado a la crítica de que “las formaciones políticas
 y las instancias ejecutivas se muestran totalmente incapaces de aprehender esta problemática en
@@ -68,7 +83,7 @@ medio ambiente, el de las relaciones sociales y el de la subjetividad humana (me
 la base de este trabajo está la idea de que el desarrollo de los procesos en torno a la menstruación
 pueden ser integrados bajo el modelo de Guattari con el fin de repensar tanto el estadio actual de
 la crisis ambiental de la tierra como la situación de la mujer en la sociedad actual.</p>
-        <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">A modo de contexto, cabe destacar que la
+        <p class="mb-6">A modo de contexto, cabe destacar que la
 concepción social de la menstruación ha
 atravesado una serie de cambios a lo largo de
 la historia. La tendencia observada por el
@@ -85,13 +100,19 @@ con la fertilidad y la abundancia de las tribus. No así, detalla Schroeder, las
 desde la conformación de lo que conocemos como civilización han construido un discurso de la
 vergüenza y la culpa en torno al ciclo femenino, relegandolo al espacio privado y al mandato del
 silencio</p>
+      </div>
+
+      {#if !$readerModeActive}
       <div class="my-8 mx-auto max-w-md text-center">
         <img src="/flo.jpg" alt="Tallados de roca en el río Yule" class="w-full h-auto" />
         <p class="text-sm mt-2 font-['Jost']">
           Fig. 1: Tallados de roca en el río Yule, Pilbara, Australia Occidental. Arte rupestre de indígenas australianos que ilustran imágenes de figuras femeninas danzando en una unión de flujos menstruales.
         </p>
       </div>
-      <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">Con esto damos paso al despliegue del vínculo explícito que identificamos entre el
+      {/if}
+
+      <div class="{$readerModeActive ? 'text-xl leading-loose font-serif text-justify' : 'text-lg leading-relaxed mb-4 text-justify font-[\'Jost\'] mx-auto max-w-prose'}">
+      <p class="mb-6">Con esto damos paso al despliegue del vínculo explícito que identificamos entre el
 ejemplo concreto de la menstruación y el problema medioambiental. Según el artículo “How
 tampons and pads became so unsustainable” de National Geographic, una sola persona utiliza un
 promedio de entre 5-15 mil tampones/toallas higiénicas a lo largo de su vida, productos que tras
@@ -107,13 +128,19 @@ sexuales naturales, su convergencia con el ritmo lunar y eventualmente es aquell
 energía vital por intentar ajustarse a un esquema de éxito diseñado por el ideal masculino del
 progreso indefinido. Esto deja a las mujeres frente a un escenario de degradación de su integridad
 y una desconexión de su matriz original.</p>
+      </div>
+
+      {#if !$readerModeActive}
       <div class="my-8 mx-auto max-w-md text-center">
         <img src="/floflo.jpg" alt="Las chicas del radio" class="w-full h-auto" />
         <p class="text-sm mt-2 font-['Jost']">
           Fig 2: Registro fotográfico de los efectos secundarios del envenenamiento por radiación de las Chicas del radio en la fábrica de relojes United States Radium Corporation (1917).
         </p>
       </div>
-      <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">Por supuesto, el fenómeno de la
+      {/if}
+
+      <div class="{$readerModeActive ? 'text-xl leading-loose font-serif text-justify' : 'text-lg leading-relaxed mb-4 text-justify font-[\'Jost\'] mx-auto max-w-prose'}">
+      <p class="mb-6">Por supuesto, el fenómeno de la
 mujer que entra en las dinámicas
 de productividad tiene su origen
 mucho antes de la creación del
@@ -128,8 +155,8 @@ es el caso de Las chicas del radio (Fig. 2). Se trata de un grupo de mujeres que
 de efectos secundarios producto del envenenamiento por el radio presente en la pintura que
 utilizaban para confeccionar relojes luminiscentes (Macho-Stadler 2020). Este caso da cuenta
 tanto de los perjuicios de la ambición ciega de los dueños de las fábricas como también del
-problema del uso indiscriminado de químicos con efectos desconocidos en la salud.</p>
-      <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">Una vez instalado el dispositivo de la ecosofía de Guattari junto al desarrollo histórico de
+problema de uso indiscriminado de químicos con efectos desconocidos en la salud.</p>
+      <p class="mb-6">Una vez instalado el dispositivo de la ecosofía de Guattari junto al desarrollo histórico de
 la menstruación, es posible evidenciar la manera en que el problema aquí planteado puede ser
 pensado en torno a los tres registros ecológicos. Primero, es evidente el problema ambiental que
 suscita el aumento exponencial del plástico en los productos de higiene y su eventual desecho en
@@ -141,7 +168,7 @@ favor de la industria. Por último, en el nivel de la subjetividad, la urgencia 
 paradigma de éxito moldeado a la medida del hombre, las mujeres suscriben al ritmo de la
 hiperproductividad y a la utilización de estos productos que dañan tanto su cuerpo como su
 entorno natural.</p>
-      <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">Finalmente, a modo de recapitulación, cabe recordar en primer lugar que en el nivel social
+      <p class="mb-6">Finalmente, a modo de recapitulación, cabe recordar en primer lugar que en el nivel social
 la norma histórica ha sido la instalación del imperativo de la vergüenza y el silencio en torno a la
 menstruación y solo contadas culturas honraban colectivamente este momento en la vida de la
 mujer. Actualmente, el ideal del progreso y la hiperproductividad han impulsado a la mujer a
@@ -151,7 +178,7 @@ Lo que encontramos al otro lado de este movimiento de emancipación es a una muj
 por la negación del dolor, la sangre y el cambio energético y hormonal. Es por esto que la mujer
 ha tomado distancia de su conexión con la tierra y en paralelo, la naturaleza ha seguido la curva
 de degradación facilitada por el modelo de consumo y producción actual.</p>
-      <p class="text-lg leading-relaxed mb-4 text-justify font-['Jost'] mx-auto max-w-prose">A pesar de que el problema aquí desarrollado es uno que se arrastra
+      <p class="mb-6">A pesar de que el problema aquí desarrollado es uno que se arrastra
 desde los inicios de la configuración de la civilización, tomamos la propuesta de la ecosofía de
 Guattari como una invitación a pensar una nueva configuración de los tres registros ecológicos.
 Gracias al análisis que facilita el modelo, podemos asimilar los lineamientos del problema y dar
@@ -167,7 +194,9 @@ comprendemos que sanar a la mujer es sanar a la tierra. A partir de esto, comien
 el histórico anquilosamiento de los ciclos naturales femeninos y retornamos poco a poco a
 sistemas inspirados en tribus indígenas como modelos de experiencia de la menstruación para
 recalibrar el desbalance ecológico.</p>
+      </div>
 
+      {#if !$readerModeActive}
       <button
         onclick={toggleReferences}
         class="text-xl font-bold mb-4 text-center mt-12 font-['Advent_Pro'] text-gray-600 w-full"
@@ -185,8 +214,32 @@ recalibrar el desbalance ecológico.</p>
         <p class="mb-1">Macho-Stadler, Marta. “Las chicas del radio y los riesgos de la radiación”. National Geographic España, 2020.</p>
       </div>
       {/if}
+      {/if}
     </div>
   </main>
+
+  <!-- Reader Mode Toggle Button -->
+  <button
+    onclick={toggleReaderMode}
+    class="fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+    class:bg-black={!$readerModeActive}
+    class:text-white={!$readerModeActive}
+    class:bg-gray-200={$readerModeActive}
+    class:text-gray-800={$readerModeActive}
+    aria-label="Toggle Reader Mode"
+  >
+    {#if $readerModeActive}
+      <!-- Exit Reader Mode Icon (X) -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    {:else}
+      <!-- Enter Reader Mode Icon (Book/Eye) -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    {/if}
+  </button>
 </div>
 
 <style>

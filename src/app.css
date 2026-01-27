@@ -1,6 +1,27 @@
 @font-face {
   font-family: 'Bebas Neue';
-  src: url('/BebasNeue-Regular.ttf') format('truetype');
+  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stoke';
+  src: url('/fonts/Stoke-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stoke Light';
+  src: url('/fonts/Stoke-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,6 +34,8 @@
   /* Typography */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Courier New", Courier, monospace;
+  --font-title: "Stoke", serif;
+  --font-jost: "Jost", sans-serif;
 
   /* Editorial Color Palette */
   --color-cream: #FAF8F5;
@@ -49,3 +72,4 @@
     color: var(--color-cream);
   }
 }
+

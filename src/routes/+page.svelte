@@ -4,9 +4,16 @@
   import TabbedContent from '$lib/components/TabbedContent.svelte';
 
   let mounted = $state(false);
+  let visitCount = $state('0000000');
 
   onMount(() => {
     mounted = true;
+    
+    // Simple visit counter simulation using localStorage
+    const currentVisits = parseInt(localStorage.getItem('pageVisits') || '0');
+    const newVisits = currentVisits + 1;
+    localStorage.setItem('pageVisits', newVisits.toString());
+    visitCount = newVisits.toString().padStart(7, '0');
   });
 </script>
 
@@ -16,29 +23,26 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[#8B0000] text-white">
+<section class="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[#D24843] text-[var(--color-ink)]">
 
 
-  <div class="relative z-10 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 py-32 md:py-40">
+  <div class="relative z-10 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 pt-48 pb-32 md:pt-60 md:pb-40">
     <!-- Main Title -->
     <h1
       class="transition-all duration-700 delay-100 ease-out text-center
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      <span class="block font-[var(--font-display)] text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight leading-[0.9]">
-        <span class="text-white">[</span><span class="text-white">Viaje</span><span class="text-white">]</span>
+      <span class="block text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight leading-[0.9]" style="font-family: 'Stoke', serif;">
+        <span class="text-[var(--color-ink)]">[</span><span class="text-[var(--color-ink)]">viaje</span><span class="text-[var(--color-ink)]">]</span>
       </span>
     </h1>
+    <br>
     <p
-      class="mt-4 text-center font-[var(--font-display)] text-base md:text-lg text-white/80 leading-relaxed
+      class="mt-4 text-center text-base md:text-lg text-[var(--color-ink)] leading-relaxed
              transition-all duration-700 delay-150 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      Revista de Ensayo y Creación<br><br>
-      Revista Viaje es un medio digital chileno con publicaciones mensuales sobre el mundo que habitamos<br><br>
-      <s class="line-through decoration-[0.5px]">y sobre las cosas que nos rompen las pelotas,</s><br>
-      <s class="line-through decoration-[0.5px]">esas situaciones que nos recuerdan que somos humanos,</s><br><br>
-      y otros mundos posibles.
+      <span style="font-family: 'Stoke', serif;">Revista de Ensayo y Creación</span>
     </p>
 
     <!-- CTA Button -->
@@ -51,13 +55,32 @@
         class="group inline-flex items-center gap-3 px-8 py-4 border-2 border-[var(--color-ink)] bg-transparent
                hover:bg-[var(--color-ink)] transition-all duration-300"
       >
-        <span class="font-[var(--font-body)] text-sm uppercase tracking-widest text-white group-hover:text-white transition-colors">
+        <span 
+          class="text-sm uppercase tracking-widest text-[var(--color-ink)] group-hover:text-white transition-colors"
+          style="font-family: 'Jost', sans-serif;"
+        >
           Convocatoria abierta
         </span>
-        <svg class="w-4 h-4 text-white group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 text-[var(--color-ink)] group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </a>
+    </div>
+
+    <div 
+      class="mt-32 md:mt-40 mx-auto max-w-4xl bg-black p-8 text-center text-sm md:text-base leading-relaxed transition-all duration-700 delay-200 ease-out
+             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
+      style="font-family: 'Jost', sans-serif; color: #D24843;"
+    >
+      Revista Viaje es un medio digital chileno con publicaciones sobre <s class="line-through decoration-[1px]">las situaciones que nos tienen podridxs</s>, el mundo que habitamos <s class="line-through decoration-[1px]">y otros mundos posibles.</s>
+    </div>
+
+    <div 
+      class="mt-4 text-center text-[10px] uppercase tracking-[0.2em] opacity-40 transition-all duration-700 delay-300
+             {mounted ? 'opacity-40' : 'opacity-0'}"
+      style="font-family: 'Jost', sans-serif;"
+    >
+      Visitas: {visitCount}
     </div>
   </div>
 

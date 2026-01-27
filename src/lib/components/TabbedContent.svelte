@@ -6,20 +6,35 @@
   ];
 </script>
 
-<div class="p-4">
-  <h2 class="text-5xl font-bold text-center mb-8 font-['Advent_Pro']">Últimas Publicaciones</h2>
-  <div class="flex flex-row flex-wrap justify-center gap-4">
+<div class="p-4 max-w-7xl mx-auto">
+  <h2 class="text-4xl font-bold text-center mb-12 text-[var(--color-ink)] uppercase tracking-widest" style="font-family: 'Jost', sans-serif;">Últimas Publicaciones</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {#each tabs as tab}
       <a
         href={tab.href}
-        class="block w-full sm:w-1/2 md:w-[32%]"
+        class="group block bg-white shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col border border-gray-200"
       >
-        <div class="border border-gray-300">
-            <img src={tab.img} alt="Image for {tab.title}" class="w-full h-64 object-cover" />
-          <div class="p-4">
-            <h3 class="font-bold text-center font-['Advent_Pro'] text-xl uppercase">{tab.title}</h3>
-            <p class="font-['Jost'] text-center">{tab.author}</p>
+        <!-- Image Container -->
+        <div class="relative h-64 overflow-hidden">
+          <img 
+            src={tab.img} 
+            alt="Image for {tab.title}" 
+            class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105" 
+          />
+        </div>
+        
+        <!-- Content Container -->
+        <div class="p-8 flex flex-col flex-grow justify-between text-center">
+          <div>
+            <h3 class="font-bold text-lg uppercase text-[var(--color-ink)] leading-tight tracking-wide mb-4 line-clamp-3" style="font-family: 'Jost', sans-serif;">
+              {tab.title}
+            </h3>
+            <div class="w-8 h-px bg-[#D24843] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
+          <p class="text-[var(--color-ink-muted)] text-sm mt-auto" style="font-family: 'Stoke Light', serif;">
+            {tab.author}
+          </p>
         </div>
       </a>
     {/each}
