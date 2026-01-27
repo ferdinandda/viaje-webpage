@@ -31,12 +31,7 @@
 </script>
 
 <header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
-         {useBlackBg
-           ? 'bg-black'
-           : (isHomepage && !scrolled
-               ? 'bg-[#8B0000]'
-               : 'bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-rule)]')}"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out bg-[#8B0000]"
 >
   <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
     <div class="flex items-center justify-between h-20 md:h-24">

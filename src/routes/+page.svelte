@@ -1,4 +1,4 @@
-<!-- Trigger Vercel deploy: 2026-01-26 v2 -->
+<!-- Trigger Vercel deploy: 2026-01-26 -->
 <script>
   import { onMount } from 'svelte';
   import TabbedContent from '$lib/components/TabbedContent.svelte';
@@ -26,31 +26,19 @@
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
       <span class="block font-[var(--font-display)] text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight leading-[0.9]">
-        <span class="text-white">[</span><span class="text-white">viaje</span><span class="text-white">]</span>
+        <span class="text-white">[</span><span class="text-white">Viaje</span><span class="text-white">]</span>
       </span>
     </h1>
     <p
-      class="mt-4 text-center font-[var(--font-display)] text-lg md:text-xl text-white/80
+      class="mt-4 text-center font-[var(--font-display)] text-base md:text-lg text-white/80 leading-relaxed
              transition-all duration-700 delay-150 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
     >
-      Revista de Ensayo y Creación
-    </p>
-
-    <!-- Mission Statement -->
-    <p
-      class="mt-12 md:mt-16 max-w-3xl mx-auto font-[var(--font-display)] text-sm sm:text-base md:text-lg leading-relaxed text-white text-center
-             transition-all duration-700 delay-200 ease-out
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
-    >
-      Revista Viaje es un medio digital chileno con publicaciones mensuales sobre el mundo que habitamos
-    </p>
-    <p
-      class="mt-2 text-center font-[var(--font-display)] text-lg md:text-xl text-white/80
-             transition-all duration-700 delay-200 ease-out
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
-    >
-      <s class="line-through decoration-1">y otros mundos posibles</s>.
+      Revista de Ensayo y Creación<br><br>
+      Revista Viaje es un medio digital chileno con publicaciones mensuales sobre el mundo que habitamos<br><br>
+      <s class="line-through decoration-[0.5px]">y sobre las cosas que nos rompen las pelotas,</s><br>
+      <s class="line-through decoration-[0.5px]">esas situaciones que nos recuerdan que somos humanos,</s><br><br>
+      y otros mundos posibles.
     </p>
 
     <!-- CTA Button -->
