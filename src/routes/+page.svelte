@@ -6,7 +6,7 @@
   let mounted = $state(false);
   let visitCount = $state('0000000');
 
-  onMount(() => {
+  onMount(async () => {
     mounted = true;
     
     // Global visit counter using countapi.xyz
