@@ -5,57 +5,53 @@
   let { footerTheme = 'light' } = $props(); // 'light', 'dark', or 'dark-red'
 </script>
 
-<footer class="border-t {footerTheme === 'dark'
-  ? 'border-white/20 bg-black text-white'
-  : (footerTheme === 'dark-red'
-    ? 'border-white/20 bg-black text-white'
-    : 'border-[var(--color-rule)] bg-[var(--color-paper)]')}"
+<footer class="border-t border-white/10 bg-black text-[#D24843]"
   style="font-family: 'Jost', sans-serif;"
 >
   <div class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 py-16 md:py-20">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
       <!-- Brand -->
       <div class="flex flex-col items-start gap-4">
-        <Logo useLightNav={footerTheme.startsWith('dark')} />
-        <p class="font-[var(--font-display)] {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'} text-base italic leading-relaxed">
+        <Logo useLightNav={true} />
+        <p class="font-[var(--font-display)] text-[#D24843]/70 text-base italic leading-relaxed">
           Revista de Ensayo y Creación
         </p>
       </div>
 
       <!-- Secciones -->
       <div class="flex flex-col items-start gap-4">
-        <h4 class="font-bold text-xs uppercase tracking-widest {footerTheme.startsWith('dark') ? 'text-white' : 'text-[var(--color-ink-muted)]'}">
+        <h4 class="font-bold text-xs uppercase tracking-widest text-[#D24843]">
           Secciones
         </h4>
         <ul class="space-y-2">
           {#each navItems as item}
-            <li><a href={item.href} class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'} hover:text-[var(--color-terracotta)] transition-colors">{item.label}</a></li>
+            <li><a href={item.href} class="text-[#D24843]/80 hover:text-white transition-colors">{item.label}</a></li>
           {/each}
         </ul>
       </div>
 
 <!-- Contact -->
       <div class="flex flex-col items-start gap-4">
-        <h4 class="font-bold text-xs uppercase tracking-widest {footerTheme.startsWith('dark') ? 'text-white' : 'text-[var(--color-ink-muted)]'}">
+        <h4 class="font-bold text-xs uppercase tracking-widest text-[#D24843]">
           Contacto
         </h4>
         <div class="space-y-1">
-          <p class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'}">
-            <a href="mailto:viajerevista@gmail.com" class="hover:text-[var(--color-terracotta)] transition-colors">
+          <p class="text-[#D24843]/80">
+            <a href="mailto:viajerevista@gmail.com" class="hover:text-white transition-colors">
               viajerevista@gmail.com
             </a>
           </p>
-          <p class="{footerTheme.startsWith('dark') ? 'text-white/80' : 'text-[var(--color-ink-light)]'}">
-            <a href="https://www.instagram.com/revistaviajecl/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-terracotta)] transition-colors">
+          <p class="text-[#D24843]/80">
+            <a href="https://www.instagram.com/revistaviajecl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
               Instagram
             </a>
           </p>
         </div>
         <div class="space-y-1 mt-2">
-          <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
+          <p class="text-sm text-[#D24843]/70">
             Tarapacá, Chile
           </p>
-          <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
+          <p class="text-sm text-[#D24843]/70">
             Valparaíso, Chile
           </p>
         </div>
@@ -63,9 +59,9 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="mt-16 pt-8 border-t {footerTheme.startsWith('dark') ? 'border-white/30' : 'border-[var(--color-rule-light)]'}">
+    <div class="mt-16 pt-8 border-t border-white/10">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm {footerTheme.startsWith('dark') ? 'text-white/70' : 'text-[var(--color-ink-muted)]'}">
+        <p class="text-sm text-[#D24843]/70">
           &copy; {currentYear} Revista Viaje. Todos los derechos reservados.
         </p>
 

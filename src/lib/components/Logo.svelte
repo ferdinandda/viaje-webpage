@@ -8,7 +8,7 @@
   class="group flex items-center font-semibold tracking-tight"
   style="font-family: 'Stoke', serif;"
 >
-  <span class="{customClass} {useLightNav ? 'text-white' : 'text-[var(--color-ink)]'} transition-colors">
+  <span class="{customClass} {useLightNav ? 'text-[#D24843]' : 'text-[var(--color-ink)]'} transition-colors">
     [viaje]
   </span>
 </a>
