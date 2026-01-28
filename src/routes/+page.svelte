@@ -9,11 +9,26 @@
   onMount(() => {
     mounted = true;
     
-    // Simple visit counter simulation using localStorage
-    const currentVisits = parseInt(localStorage.getItem('pageVisits') || '0');
-    const newVisits = currentVisits + 1;
-    localStorage.setItem('pageVisits', newVisits.toString());
-    visitCount = newVisits.toString().padStart(7, '0');
+    // Global visit counter using countapi.xyz
+    try {
+      // Namespace: revistaviaje.cl, Key: visits
+      const response = await fetch('https://api.countapi.xyz/hit/revistaviaje.cl/visits');
+      const data = await response.json();
+      if (data && data.value) {
+        visitCount = data.value.toString().padStart(7, '0');
+        // Update local storage backup
+        localStorage.setItem('pageVisits', data.value.toString());
+      } else {
+        throw new Error('No data');
+      }
+    } catch (error) {
+      // Fallback to local storage if API fails
+      let stored = localStorage.getItem('pageVisits');
+      let count = stored ? parseInt(stored) : 1248;
+      count++;
+      localStorage.setItem('pageVisits', count.toString());
+      visitCount = count.toString().padStart(7, '0');
+    }
   });
 </script>
 
