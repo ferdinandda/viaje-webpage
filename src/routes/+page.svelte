@@ -77,13 +77,15 @@
   </div>
 </section>
 
-<div class="py-24 px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
-  <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-ink)] font-light text-justify" style="font-family: 'Jost', sans-serif;">
-    “Me gusta pensar que quienes escriben ensayo tienen el pulso malo de los viajeros, mal estibados, empujados siempre a trasbordar y recomenzar sus maletas. Viaja Martí, viaja Mistral, viaja Benjamin, viaja Paz. Hubo y hay tal vez una noche: los focos iluminan el andén con aquella luz anaranjada de los sitios que no existen más que para los otros. El andén es igual a otros andenes; sin embargo, tan distinto en la nitidez con que los ojos del extranjero intentan atraparlo.”
-  </blockquote>
-  <p class="mt-6 text-sm uppercase tracking-widest text-[#D24843]" style="font-family: 'Stoke', serif;">
-    [Guadalupe Santa Cruz, El espesor de las palabras]
-  </p>
+<div class="bg-[#1A1A1A] py-32 md:py-48 transition-colors duration-500">
+  <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
+    <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify" style="font-family: 'Jost', sans-serif;">
+      “Me gusta pensar que quienes escriben ensayo tienen el pulso malo de los viajeros, mal estibados, empujados siempre a trasbordar y recomenzar sus maletas. Viaja Martí, viaja Mistral, viaja Benjamin, viaja Paz. Hubo y hay tal vez una noche: los focos iluminan el andén con aquella luz anaranjada de los sitios que no existen más que para los otros. El andén es igual a otros andenes; sin embargo, tan distinto en la nitidez con que los ojos del extranjero intentan atraparlo.”
+    </blockquote>
+    <p class="mt-8 text-sm uppercase tracking-widest text-[#D24843]" style="font-family: 'Stoke', serif;">
+      [Guadalupe Santa Cruz, El espesor de las palabras]
+    </p>
+  </div>
 </div>
 
 <main class="pt-12">

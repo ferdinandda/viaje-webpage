@@ -55,7 +55,7 @@
 /* Base layer styles */
 @layer base {
   html {
-    background-color: var(--color-cream);
+    background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
