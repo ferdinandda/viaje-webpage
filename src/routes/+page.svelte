@@ -4,31 +4,9 @@
   import TabbedContent from '$lib/components/TabbedContent.svelte';
 
   let mounted = $state(false);
-  let visitCount = $state('0000000');
 
-  onMount(async () => {
+  onMount(() => {
     mounted = true;
-    
-    // Global visit counter using countapi.xyz
-    try {
-      // Namespace: revistaviaje.cl, Key: visits
-      const response = await fetch('https://api.countapi.xyz/hit/revistaviaje.cl/visits');
-      const data = await response.json();
-      if (data && data.value) {
-        visitCount = data.value.toString().padStart(7, '0');
-        // Update local storage backup
-        localStorage.setItem('pageVisits', data.value.toString());
-      } else {
-        throw new Error('No data');
-      }
-    } catch (error) {
-      // Fallback to local storage if API fails
-      let stored = localStorage.getItem('pageVisits');
-      let count = stored ? parseInt(stored) : 1248;
-      count++;
-      localStorage.setItem('pageVisits', count.toString());
-      visitCount = count.toString().padStart(7, '0');
-    }
   });
 </script>
 
@@ -83,25 +61,56 @@
     </div>
 
     <div 
-      class="mt-32 md:mt-40 mx-auto max-w-4xl bg-black p-8 text-center text-sm md:text-base leading-relaxed transition-all duration-700 delay-200 ease-out
+      class="mt-32 md:mt-40 mx-auto max-w-2xl text-center text-sm md:text-base leading-relaxed transition-all duration-700 delay-200 ease-out
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
-      style="font-family: 'Jost', sans-serif; color: #D24843;"
+      style="font-family: 'Jost', sans-serif; color: var(--color-ink);"
     >
-      Revista Viaje es un medio digital chileno con publicaciones sobre <s class="line-through decoration-[1px]">las situaciones que nos tienen podridxs</s>, el mundo que habitamos <s class="line-through decoration-[1px]">y otros mundos posibles.</s>
-    </div>
-
-    <div 
-      class="mt-4 text-center text-[10px] uppercase tracking-[0.2em] opacity-40 transition-all duration-700 delay-300
-             {mounted ? 'opacity-40' : 'opacity-0'}"
-      style="font-family: 'Jost', sans-serif;"
-    >
-      Visitas: {visitCount}
+      <span class="marker-highlight">Revista Viaje es un medio digital nacido en Chile que busca reunir escrituras sobre</span> 
+      <span class="relative inline-block text-[10px] md:text-xs opacity-60 px-1 italic">
+        las materias que nos rompen las pelotas,
+        <svg class="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 pointer-events-none" viewBox="0 0 100 2" preserveAspectRatio="none">
+          <path d="M0,1 L10,0.8 L25,1.2 L50,0.9 L75,1.1 L100,1" stroke="currentColor" stroke-width="0.5" fill="none" stroke-linecap="round" class="opacity-90" />
+        </svg>
+      </span>
+      <span class="marker-highlight">el mundo que habitamos u otros mundos posibles.</span>
     </div>
   </div>
-
-
-
 </section>
-<main class="pt-24">
+
+<div class="py-24 px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
+  <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-ink)] font-light text-justify" style="font-family: 'Jost', sans-serif;">
+    “Me gusta pensar que quienes escriben ensayo tienen el pulso malo de los viajeros, mal estibados, empujados siempre a trasbordar y recomenzar sus maletas. Viaja Martí, viaja Mistral, viaja Benjamin, viaja Paz. Hubo y hay tal vez una noche: los focos iluminan el andén con aquella luz anaranjada de los sitios que no existen más que para los otros. El andén es igual a otros andenes; sin embargo, tan distinto en la nitidez con que los ojos del extranjero intentan atraparlo.”
+  </blockquote>
+  <p class="mt-6 text-sm uppercase tracking-widest text-[#D24843]" style="font-family: 'Stoke', serif;">
+    [Guadalupe Santa Cruz, El espesor de las palabras]
+  </p>
+</div>
+
+<main class="pt-12">
   <TabbedContent />
 </main>
+
+<style>
+  .marker-highlight {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0 0.3em;
+    color: #D24843; /* Hero background color for text */
+    margin: 0 2px;
+  }
+
+  .marker-highlight::before {
+    content: "";
+    position: absolute;
+    top: 2%;
+    left: -1px;
+    right: -1px;
+    bottom: 2%;
+    background-color: var(--color-ink); /* Ink color for highlighter */
+    z-index: -1;
+    transform: rotate(-0.8deg) skew(-2deg);
+    border-radius: 3px 15px 5px 18px / 15px 5px 18px 3px;
+    pointer-events: none;
+  }
+</style>

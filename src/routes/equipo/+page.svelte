@@ -2,24 +2,17 @@
   const equipo = [
     {
       nombre: 'Fernanda Moreno Gutiérrez',
-      rol: 'Fundadora y Directora Editorial',
+      rol: '',
       locacion_ano: '(Iquique, 1999)',
       descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'FM'
     },
     {
-      nombre: 'Sofía Quevedo Quevedo',
-      rol: 'Rol por confirmar',
+      nombre: 'Sofía Quevedo',
+      rol: '',
       locacion_ano: '(Ciudad, Año)',
       descripcion: 'Descripción por confirmar.',
       inicial: 'SQ'
-    },
-    {
-      nombre: 'Javiera Zumelzu',
-      rol: 'Diseñadora de Redes',
-      locacion_ano: '(Iquique, 1999)',
-      descripcion: 'Estudió Diseño Gráfico con Mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales; y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
-      inicial: 'JZ'
     },
     {
       nombre: 'Florencia Leiva Silva',
@@ -41,6 +34,13 @@
       locacion_ano: '(Nashville, 1998)',
       descripcion: 'Estudió Castellano en Princeton y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'HS'
+    },
+    {
+      nombre: 'Javiera Zumelzu',
+      rol: '',
+      locacion_ano: '(Iquique, 1999)',
+      descripcion: 'Estudió Diseño Gráfico con Mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales; y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
+      inicial: 'JZ'
     }
   ];
 </script>
@@ -55,21 +55,6 @@
 
     <section class="mb-16">
       <h2 class="text-2xl font-bold mb-4 text-[var(--color-ink)]">Nota editorial:</h2>
-      <p class="text-[var(--color-ink)] text-justify">
-        Revista Viaje toma su nombre de una imagen propuesta por Guadalupe Santa Cruz para pensar la escritura ensayística: 
-      </p>
-      <p class="text-[var(--color-ink)] text-justify my-4 pl-8 border-l-2 border-[#D24843]">
-        “Me gusta pensar que quienes escriben ensayo tienen el pulso malo de los viajeros, mal estibados, empujados siempre a trasbordar y recomenzar sus maletas. Viaja Martí, viaja Mistral, viaja Benjamin, viaja Paz. Hubo y hay tal vez una noche: los focos iluminan el andén con aquella luz anaranjada de los sitios que no existen más que para los otros. El andén es igual a otros andenes; sin embargo, tan distinto en la nitidez con que los ojos del extranjero intentan atraparlo.” <strong>[El espesor de las palabras]</strong>
-      </p>
-      <p class="text-[var(--color-ink)] text-justify">
-        Este proyecto comienza a cuajar durante el verano de 2026 en el desierto de Atacama, más precisamente en la región de Tarapacá. Es posible, sin embargo, que se haya estado gestando ya en 2025, cuando nos conocimos en Valparaíso. 
-      </p>
-      <p class="text-[var(--color-ink)] text-justify">
-        Sin tener del todo claro el lugar que ocupamos en el mundo, buscamos crear un espacio donde la escritura pudiera hacerse desde el desajuste, pero sin perder de vista el lugar desde el que se enuncia. Nos referimos a esa dislocación en el modo de ser y estar que toda escritura ensayística implica.
-      </p>
-      <p class="text-[var(--color-ink)] text-justify">
-        La revista se propone como un espacio abierto a quienes entienden la creación como un modo [siempre inestable] de estar en el mundo.
-      </p>
     </section>
 
 
@@ -77,8 +62,11 @@
     <!-- Team List -->
     <div class="mb-24">
       {#each equipo as miembro}
-        {#if miembro.nombre === 'Florencia Leiva Silva'}
+        {#if miembro.nombre === 'Fernanda Moreno Gutiérrez'}
           <p class="mt-12 mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
+        {/if}
+        {#if miembro.nombre === 'Javiera Zumelzu'}
+          <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
         {/if}
         <div class="group mb-8 last:mb-0">
           <div class="mt-2">
