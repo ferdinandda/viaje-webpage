@@ -1,4 +1,4 @@
-<!-- Trigger Vercel deploy: 2026-01-28 v6 -->
+<!-- Trigger Vercel deploy: 2026-01-29 v7 -->
 <script>
   import { onMount } from 'svelte';
   import TabbedContent from '$lib/components/TabbedContent.svelte';
