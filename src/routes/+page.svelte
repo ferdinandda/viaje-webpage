@@ -72,7 +72,13 @@
           <path d="M0,1 L10,0.8 L25,1.2 L50,0.9 L75,1.1 L100,1" stroke="currentColor" stroke-width="0.5" fill="none" stroke-linecap="round" class="opacity-90" />
         </svg>
       </span>
-      <span class="marker-highlight">el mundo que habitamos u otros mundos posibles.</span>
+      <span class="marker-highlight">el mundo que habitamos</span> 
+      <span class="relative inline-block text-[10px] md:text-xs opacity-60 px-1 italic">
+        y otros mundos posibles.
+        <svg class="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 pointer-events-none" viewBox="0 0 100 2" preserveAspectRatio="none">
+          <path d="M0,1 L10,1.2 L25,0.8 L50,1.1 L75,0.9 L100,1" stroke="currentColor" stroke-width="0.5" fill="none" stroke-linecap="round" class="opacity-90" />
+        </svg>
+      </span>
     </div>
   </div>
 </section>

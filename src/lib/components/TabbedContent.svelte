@@ -7,7 +7,7 @@
 </script>
 
 <div class="p-4 max-w-7xl mx-auto">
-  <h2 class="text-4xl font-bold text-center mb-12 text-[var(--color-ink)] uppercase tracking-widest" style="font-family: 'Jost', sans-serif;">Últimas Publicaciones</h2>
+  <h2 class="text-3xl md:text-5xl text-center mb-16 text-[var(--color-ink)] leading-none" style="font-family: 'Stoke', serif;">Últimas Publicaciones</h2>
   
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {#each tabs as tab}
