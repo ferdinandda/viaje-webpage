@@ -56,9 +56,9 @@
           <p class="text-sm text-right font-['Jost'] italic leading-relaxed">
             en el inminente contacto que delimita la fotografía: odiosa dedicación.<br>
             <br>
-		Deseamos fabular <br>
-la quimérica posibilidad <br>
-que ahí comienza.
+            Deseamos fabular<br>
+            &nbsp;&nbsp;&nbsp;la quimérica posibilidad<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;que ahí comienza.
           </p>
         </div>
       {/if}
