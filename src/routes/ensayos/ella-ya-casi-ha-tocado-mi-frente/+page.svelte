@@ -55,9 +55,8 @@
         <div class="max-w-prose mx-auto mb-12">
           <p class="text-sm text-right font-['Jost'] italic leading-relaxed">
             en el inminente contacto que delimita la fotografía: odiosa dedicación.<br>
-            	Queremos pensar en el intercambio de dar,<br>
-            recibir<br>
-            y también fracasar.
+            <br>
+				Deseamos fabular una posibilidad.
           </p>
         </div>
       {/if}
