@@ -1,5 +1,6 @@
 <script>
   let tabs = [
+    { id: 7, title: '<i>Ella ya casi ha tocado mi frente</i>: fabulaciones del roce entre Rodig y Mistral', author: 'Fernanda Moreno y Florencia Silva', href: "/ensayos/ella-ya-casi-ha-tocado-mi-frente", img: "/MISTRAL.jpg" },
     { id: 1, title: 'Sangre, tierra y silencio: el doble vínculo de la experiencia femenina', author: 'Florencia Leiva Silva', href: "/sangre-tierra-y-silencio", img: "/Carrieee.jpg" },
     { id: 2, title: 'El arte de la memoria: una reflexión', author: 'Juan Pérez', href: "/articulo-dos", img: "/david_lynch.jpg" },
     { id: 3, title: 'Territorios invisibles: exploraciones urbanas', author: 'Ana Gómez', href: "/articulo-tres", img: "/my-image.jpg" },
@@ -20,7 +21,7 @@
         <div class="relative h-64 overflow-hidden">
           <img 
             src={tab.img} 
-            alt="Image for {tab.title}" 
+            alt="Image for {tab.title.replace(/<[^>]*>?/gm, '')}" 
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
           />
         </div>
@@ -29,7 +30,7 @@
         <div class="p-8 flex flex-col flex-grow justify-between text-center">
           <div>
             <h3 class="font-bold text-lg uppercase text-[var(--color-ink)] leading-tight tracking-wide mb-4 line-clamp-3">
-              {tab.title}
+              {@html tab.title}
             </h3>
             <div class="w-8 h-px bg-[#D24843] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
