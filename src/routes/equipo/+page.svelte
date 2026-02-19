@@ -61,13 +61,13 @@
 </div>
 
 <!-- Team List Section (Light) -->
-<section class="py-24" style="font-family: 'Jost', sans-serif;">
+<section class="pt-12 pb-24" style="font-family: 'Jost', sans-serif;">
   <div class="mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
     <!-- Team List -->
     <div class="mb-24">
       {#each equipo as miembro}
         {#if miembro.nombre === 'Fernanda Moreno Gutiérrez'}
-          <p class="mt-12 mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
+          <p class="mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
         {/if}
         {#if miembro.nombre === 'Javiera Zumelzu'}
           <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
