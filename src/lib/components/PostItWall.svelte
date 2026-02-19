@@ -85,7 +85,7 @@
       class="pointer-events-auto border border-black/10 text-black/40 bg-white/30 backdrop-blur-sm px-6 py-2 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-[0.2em] text-[9px]"
       style="font-family: 'Jost', sans-serif;"
     >
-      {showForm ? 'Cerrar' : 'Dejar huella'}
+      {showForm ? 'Cerrar' : 'ANOTA'}
     </button>
   </div>
 
