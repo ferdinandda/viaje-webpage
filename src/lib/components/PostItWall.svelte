@@ -52,7 +52,7 @@
 
   <!-- Subtitle / Motto (Centered & Styled like button) -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none text-center px-4 w-full">
-    <div class="inline-block border border-black/10 text-black/50 bg-white/40 backdrop-blur-sm px-6 py-3 uppercase tracking-[0.2em] text-[10px] md:text-xs font-['Jost'] shadow-sm rounded-sm">
+    <div class="inline-block border border-black/10 text-black/50 bg-white/40 backdrop-blur-sm px-4 py-2 uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-['Jost'] shadow-sm rounded-sm">
       Un lugar para anotar lo que no se nos puede pasar.
     </div>
   </div>
@@ -82,7 +82,7 @@
   <div class="absolute bottom-12 left-0 right-0 z-50 flex justify-center pointer-events-none">
     <button 
       onclick={() => showForm = !showForm}
-      class="pointer-events-auto border border-black/10 text-black/40 bg-white/30 backdrop-blur-sm px-6 py-2 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-[0.2em] text-[9px]"
+      class="pointer-events-auto bg-black text-white px-8 py-3 hover:bg-black/80 transition-all duration-300 uppercase tracking-[0.2em] text-[10px] shadow-lg rounded-sm"
       style="font-family: 'Jost', sans-serif;"
     >
       {showForm ? 'Cerrar' : 'ANOTA'}
