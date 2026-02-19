@@ -37,6 +37,7 @@
     const stringsToFilter = [
       "holiwi",
       "jacker",
+      "jaquer",
       "mejor novia"
     ];
 
