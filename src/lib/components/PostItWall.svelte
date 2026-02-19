@@ -90,23 +90,33 @@
     </button>
   </div>
 
-  <!-- Minimalist Input Modal (Pro) -->
+  <!-- Minimalist Input Modal (Card Style) -->
   {#if showForm}
-    <div transition:fade class="absolute inset-0 z-50 bg-white/95 flex items-center justify-center p-6 backdrop-blur-sm">
-      <div class="w-full max-w-md text-center" transition:scale={{duration: 400, start: 0.95}}>
-        <p class="text-gray-500 mb-2 font-['Jost'] text-sm tracking-wide">
-          Deja una nota
-        </p>
-        <p class="text-gray-400 mb-2 font-['Jost'] text-[10px] uppercase tracking-widest">
+    <div transition:fade class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-md">
+      <!-- Click outside to close -->
+      <div 
+        class="absolute inset-0" 
+        onclick={() => { showForm = false; newNoteText = ''; }}
+        role="button"
+        tabindex="0"
+        onkeydown={(e) => { if(e.key === 'Escape') showForm = false; }}
+        aria-label="Cerrar modal"
+      ></div>
+
+      <div class="relative bg-white/95 shadow-2xl rounded-sm p-8 md:p-12 w-full max-w-lg border border-white/50" transition:scale={{duration: 300, start: 0.95}}>
+        
+        <h3 class="text-gray-900 font-['Jost'] text-lg font-light tracking-wide mb-1 text-center">Deja una nota</h3>
+        <p class="text-gray-400 mb-6 font-['Jost'] text-[10px] uppercase tracking-widest text-center">
           (40 - 180 caracteres)
         </p>
-        <p class="text-gray-400 mb-10 font-['Jost'] text-[10px] italic">
+        
+        <p class="text-gray-500 mb-8 font-['Jost'] text-xs italic text-center border-l-2 border-gray-200 pl-4 mx-auto max-w-xs bg-gray-50 py-2 rounded-r-sm">
           Lo único que filtramos son mensajes de odio.
         </p>
 
         <textarea
           bind:value={newNoteText}
-          class="w-full bg-transparent border-b border-gray-200 text-black text-xl md:text-2xl font-light text-center focus:outline-none focus:border-black resize-none h-40 placeholder-gray-200 font-['Jost'] leading-normal"
+          class="w-full bg-transparent border-b border-gray-200 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-gray-300 font-['Jost'] leading-normal"
           placeholder="Escribe aquí..."
           maxlength="180"
         ></textarea>
@@ -118,17 +128,17 @@
           {/if}
         </div>
 
-        <div class="mt-12 flex justify-center gap-12">
+        <div class="mt-10 flex justify-center gap-12 items-center">
           <button 
             onclick={() => { showForm = false; newNoteText = ''; }}
-            class="text-gray-400 uppercase tracking-widest text-[10px] border-b border-transparent hover:border-gray-300 transition-colors"
+            class="text-gray-400 uppercase tracking-widest text-[10px] border-b border-transparent hover:border-gray-300 transition-colors hover:text-gray-600"
           >
             Cancelar
           </button>
           <button 
             onclick={addNote}
             disabled={newNoteText.length < 40}
-            class="text-black border-b border-black pb-1 hover:border-gray-400 hover:text-gray-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-[0.2em] text-[10px]"
+            class="bg-black text-white px-8 py-3 rounded-sm hover:bg-gray-800 transition-colors disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-[0.2em] text-[10px] shadow-lg"
           >
             Publicar
           </button>
