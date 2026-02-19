@@ -4,12 +4,15 @@
   import Footer from '$lib/components/Footer.svelte';
   import { page } from '$app/stores'; // Import page store
   import '../app.css';
-  import { setupConvex } from "convex-svelte";
-  import { client } from "$lib/convex";
+  import { onMount } from 'svelte';
 
-  if (client) {
-    setupConvex(client);
-  }
+  onMount(async () => {
+    const { client } = await import('$lib/convex');
+    if (client) {
+      const { setupConvex } = await import('convex-svelte');
+      setupConvex(client);
+    }
+  });
 
   let { children } = $props();
 
