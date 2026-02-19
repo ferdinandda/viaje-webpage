@@ -47,6 +47,16 @@
     style="background-image: url('/siluetas.jpg'); background-size: 400px auto;"
   ></div>
   
+  <!-- White overlay to fade out the background slightly if needed -->
+  <div class="absolute inset-0 z-0 bg-white/40 pointer-events-none mix-blend-lighten"></div>
+
+  <!-- Subtitle / Motto -->
+  <div class="absolute top-24 left-0 right-0 z-20 text-center pointer-events-none px-4">
+    <p class="text-black/30 text-[10px] md:text-xs tracking-[0.2em] uppercase font-['Jost']">
+      Un lugar para anotar lo que no se nos puede pasar.
+    </p>
+  </div>
+
   <!-- Interactive Area -->
   <div class="absolute inset-0 z-10 overflow-hidden">
     {#each notes as note (note.id)}
