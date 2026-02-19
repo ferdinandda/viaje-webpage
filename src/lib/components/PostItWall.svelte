@@ -5,36 +5,23 @@
   let notes = [];
   let newNoteText = '';
   let showForm = false;
-  
-  // Pastel colors for the post-its
-  const colors = [
-    'bg-[#fff740]', // Classic Yellow
-    'bg-[#ff7eb9]', // Pink
-    'bg-[#7afcff]', // Blue
-    'bg-[#feff9c]', // Light Yellow
-    'bg-[#fff740]', // Classic Yellow
-  ];
+  let containerWidth = 0;
+  let containerHeight = 0;
 
-  // Random rotation for organic feel
-  const rotations = [
-    '-rotate-2',
-    'rotate-1',
-    '-rotate-1',
-    'rotate-2',
-    'rotate-3',
-    '-rotate-3'
-  ];
+  // Aesthetic: Street/Crowd photography (Black & White Motion Blur)
+  // Using a specific Unsplash ID for a crowd/motion blur effect
+  const bgImage = "https://images.unsplash.com/photo-1496348323742-936a537f1712?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3";
 
   onMount(() => {
-    // Load notes from localStorage if available
+    // Load notes
     const savedNotes = localStorage.getItem('viaje_wall_notes');
     if (savedNotes) {
       notes = JSON.parse(savedNotes);
     } else {
-        // Add some initial placeholder notes
         notes = [
-            { id: 1, text: '¡Bienvenidos al muro!', color: 'bg-[#fff740]', rotation: '-rotate-2', date: new Date().toLocaleDateString() },
-            { id: 2, text: 'Dejen sus pensamientos aquí...', color: 'bg-[#ff7eb9]', rotation: 'rotate-1', date: new Date().toLocaleDateString() }
+            { id: 1, text: 'Todos caminamos hacia el mismo lugar.', x: 20, y: 30 },
+            { id: 2, text: '¿Quién eres cuando nadie mira?', x: 60, y: 50 },
+            { id: 3, text: 'El ruido de la ciudad es mi silencio.', x: 40, y: 70 }
         ];
     }
   });
@@ -42,11 +29,15 @@
   function addNote() {
     if (!newNoteText.trim()) return;
 
+    // Random position between 10% and 90% to keep away from extreme edges
+    const x = Math.floor(Math.random() * 80) + 10;
+    const y = Math.floor(Math.random() * 80) + 10;
+
     const note = {
       id: Date.now(),
       text: newNoteText,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      rotation: rotations[Math.floor(Math.random() * rotations.length)],
+      x, 
+      y,
       date: new Date().toLocaleDateString()
     };
 
@@ -55,91 +46,78 @@
     newNoteText = '';
     showForm = false;
   }
-
-  function deleteNote(id) {
-    notes = notes.filter(n => n.id !== id);
-    localStorage.setItem('viaje_wall_notes', JSON.stringify(notes));
-  }
 </script>
 
-<section class="min-h-screen py-12 bg-[#F5F2ED] relative overflow-hidden">
-  <!-- Title Section -->
-  <div class="max-w-6xl mx-auto px-6 mb-12 text-center relative z-10">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-ink)]" style="font-family: 'Jost', sans-serif;">
-      El Muro
-    </h2>
-    <p class="text-lg text-[var(--color-ink-muted)] mb-8 font-light" style="font-family: 'Jost', sans-serif;">
-      Deja una nota, un pensamiento o un saludo.
-    </p>
-    
+<section class="relative w-full h-screen overflow-hidden bg-black flex flex-col items-center justify-center">
+  
+  <!-- Background Image with Overlay -->
+  <div 
+    class="absolute inset-0 z-0 bg-cover bg-center grayscale opacity-60 contrast-125 pointer-events-none transition-transform duration-[20s] ease-linear hover:scale-105"
+    style="background-image: url('https://images.unsplash.com/photo-1496348323742-936a537f1712?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+  ></div>
+  
+  <!-- Dark overlay to make text readable -->
+  <div class="absolute inset-0 z-0 bg-black/40 pointer-events-none mix-blend-multiply"></div>
+
+  <!-- Interactive Area -->
+  <div class="absolute inset-0 z-10 overflow-hidden">
+    {#each notes as note (note.id)}
+      <!-- 
+        Note Container 
+        - Default: A subtle "ghost" light or blur
+        - Hover: Expands to reveal text
+      -->
+      <div 
+        class="absolute group cursor-pointer transition-all duration-500 ease-out p-4"
+        style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
+      >
+        <!-- The "Ghost" indicator (visible when not hovering) -->
+        <div class="w-2 h-2 rounded-full bg-white/40 blur-[2px] group-hover:opacity-0 transition-opacity duration-300 animate-pulse mx-auto"></div>
+
+        <!-- The Content (Revealed on Hover) -->
+        <div class="opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 min-w-[200px] max-w-[300px] text-center pointer-events-none group-hover:pointer-events-auto">
+          <p class="text-white text-xl md:text-2xl font-light leading-snug drop-shadow-lg italic tracking-wide mix-blend-overlay group-hover:mix-blend-normal" style="font-family: 'Jost', sans-serif;">
+            "{note.text}"
+          </p>
+          <div class="w-8 h-[1px] bg-white/30 mx-auto mt-4 transition-all duration-500 group-hover:w-full group-hover:bg-white/80"></div>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-white/50 mt-2">{note.date}</p>
+        </div>
+      </div>
+    {/each}
+  </div>
+
+  <!-- Controls (Bottom) -->
+  <div class="absolute bottom-12 left-0 right-0 z-50 flex justify-center pointer-events-none">
     <button 
       onclick={() => showForm = !showForm}
-      class="bg-[var(--color-ink)] text-white px-8 py-3 rounded-full hover:bg-[var(--color-terracotta)] transition-colors duration-300 shadow-lg font-medium tracking-wide text-sm uppercase"
-      style="font-family: 'Jost', sans-serif;"
+      class="pointer-events-auto bg-black/20 backdrop-blur-md border border-white/20 text-white px-8 py-3 rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 uppercase tracking-[0.2em] text-xs font-light"
     >
-      {showForm ? 'Cancelar' : 'Escribir una nota'}
+      {showForm ? 'Cerrar' : 'Dejar huella'}
     </button>
   </div>
 
-  <!-- Note Input Form -->
+  <!-- Minimalist Input Modal -->
   {#if showForm}
-    <div transition:scale class="max-w-md mx-auto mb-16 px-6 relative z-20">
-      <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-100 transform rotate-1">
+    <div transition:fade class="absolute inset-0 z-40 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6">
+      <div class="w-full max-w-lg text-center" transition:scale>
+        <p class="text-white/60 mb-6 font-serif italic">Escribe tu pensamiento...</p>
         <textarea
           bind:value={newNoteText}
-          placeholder="Escribe algo aquí..."
-          class="w-full h-32 p-4 mb-4 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-terracotta)] resize-none font-['Jost'] text-lg"
+          class="w-full bg-transparent border-b border-white/30 text-white text-2xl md:text-3xl font-light text-center focus:outline-none focus:border-white resize-none h-40 placeholder-white/20"
+          placeholder="..."
           maxlength="140"
         ></textarea>
-        <div class="flex justify-between items-center text-xs text-gray-400">
-            <span>{newNoteText.length}/140</span>
-            <button 
+        
+        <div class="mt-8 flex justify-center gap-4">
+          <button 
             onclick={addNote}
-            class="bg-[var(--color-terracotta)] text-white px-6 py-2 rounded hover:bg-[var(--color-terracotta-dark)] transition-colors"
-            >
+            class="text-white uppercase tracking-widest text-sm border border-white px-8 py-2 hover:bg-white hover:text-black transition-colors"
+          >
             Publicar
-            </button>
+          </button>
         </div>
       </div>
     </div>
   {/if}
 
-  <!-- The Wall -->
-  <div class="max-w-7xl mx-auto px-6 pb-12">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
-      {#each notes as note (note.id)}
-        <div 
-          in:scale={{ duration: 300, delay: 100 }}
-          class="aspect-square relative group {note.rotation} hover:rotate-0 hover:z-10 transition-all duration-300 hover:scale-105 cursor-pointer"
-        >
-          <!-- Post-it Body -->
-          <div class="{note.color} w-full h-full p-6 shadow-md flex flex-col justify-between relative transform origin-top-left">
-            <!-- Pin/Tape effect (optional visual detail) -->
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 opacity-20 bg-black blur-sm rounded-full"></div>
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-800 shadow-inner z-20 border border-white/20"></div>
-
-            <p class="text-[var(--color-ink)] text-lg md:text-xl leading-snug font-['Stoke'] break-words text-center flex items-center justify-center flex-grow">
-              "{note.text}"
-            </p>
-            <div class="mt-4 text-[10px] text-[var(--color-ink-muted)] text-right font-mono opacity-60 uppercase tracking-widest border-t border-black/10 pt-2">
-              {note.date}
-            </div>
-          </div>
-        </div>
-      {/each}
-    </div>
-    
-    {#if notes.length === 0}
-      <div class="text-center py-20 opacity-50">
-        <p>El muro está vacío. ¡Sé el primero en escribir!</p>
-      </div>
-    {/if}
-  </div>
 </section>
-
-<style>
-  /* Add specific shadows for depth */
-  .aspect-square > div {
-    box-shadow: 2px 4px 6px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.05);
-  }
-</style>
