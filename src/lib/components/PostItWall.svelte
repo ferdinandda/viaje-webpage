@@ -16,7 +16,8 @@
     // Otros ejemplos
     const defaultNotes = [
         { id: 'default-2', text: 'caminar sin rumbo por la ciudad', x: 75, y: 30 },
-        { id: 'default-3', text: 'somos sombras que pasan sin dejar rastro', x: 20, y: 80 }
+        { id: 'default-3', text: 'somos sombras que pasan sin dejar rastro', x: 20, y: 80 },
+        { id: 'default-4', text: 'Luna toma agua del bebedero cuando no la veo pero cuando la veo no toma', x: 30, y: 25 }
     ];
 
     if (userNotes.length > 0) {
