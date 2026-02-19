@@ -18,19 +18,22 @@
 
   // Derived notes list: combine database notes with mandatory ones
   let displayNotes = $derived.by(() => {
+    // If database is loading (undefined) or empty, start with empty array
     const dbNotes = notesQuery.data || [];
-    // If database is completely empty (loading or just empty), we show mandatory notes
-    if (dbNotes.length === 0) {
-      return [mandatoryNote, defaultNote];
-    }
     
-    // Check if the mandatory notes are already in the DB (by text matching)
-    const hasMandatory = dbNotes.some(n => n.text === mandatoryNote.text);
-    const hasDefault = dbNotes.some(n => n.text === defaultNote.text);
-    
+    // Always start with the DB notes
     let combined = [...dbNotes];
-    if (!hasMandatory) combined.push(mandatoryNote);
-    if (!hasDefault) combined.push(defaultNote);
+
+    // Helper to add fixed notes if they aren't already in the DB list
+    const addIfNotExists = (fixedNote) => {
+        if (!combined.some(n => n.text === fixedNote.text)) {
+            combined.push(fixedNote);
+        }
+    };
+
+    // Always ensure these exist
+    addIfNotExists(mandatoryNote);
+    addIfNotExists(defaultNote);
     
     return combined;
   });
