@@ -10,13 +10,13 @@
     const savedNotes = localStorage.getItem('viaje_wall_notes');
     let userNotes = savedNotes ? JSON.parse(savedNotes) : [];
     
-    // Nota obligatoria solicitada por el usuario
-    const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 50, y: 60 };
+    // Nota obligatoria solicitada por el usuario (ajustada para caer sobre una silueta probable)
+    const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
     
     // Otros ejemplos por defecto
     const defaultNotes = [
-        { id: 'default-2', text: 'caminar sin rumbo por la ciudad', x: 65, y: 35 },
-        { id: 'default-3', text: 'somos sombras que pasan sin dejar rastro', x: 35, y: 75 }
+        { id: 'default-2', text: 'caminar sin rumbo por la ciudad', x: 75, y: 30 },
+        { id: 'default-3', text: 'somos sombras que pasan sin dejar rastro', x: 20, y: 80 }
     ];
 
     // Combinar: Nota obligatoria + Notas guardadas + Otros ejemplos (si no hay guardadas)
@@ -63,7 +63,7 @@
   <!-- Subtitle / Motto (Centered & Styled like button) -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none text-center px-4 w-full">
     <div class="inline-block border border-black/10 text-black/50 bg-white/40 backdrop-blur-sm px-4 py-2 uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-['Jost'] shadow-sm rounded-sm">
-      Un lugar para anotar lo que no se nos puede pasar.
+      anota lo que no se te puede pasar
     </div>
   </div>
 
