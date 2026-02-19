@@ -41,16 +41,12 @@
 
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col items-center justify-center">
   
-  <!-- Background Image with High Contrast/Grayscale to simulate Silhouettes -->
-  <!-- mix-blend-multiply helps dark parts show through and white parts disappear if overlaying -->
+  <!-- Background Image with Extreme Contrast for Silhouette Effect -->
   <div 
-    class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[60s] ease-linear hover:scale-110 pointer-events-none grayscale contrast-[1.2] brightness-110 opacity-60"
-    style="background-image: url('https://images.unsplash.com/photo-1496348323742-936a537f1712?q=80&w=2070&auto=format&fit=crop');"
+    class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[60s] ease-linear hover:scale-110 pointer-events-none"
+    style="background-image: url('https://images.unsplash.com/photo-1444065707204-12decac917e8?q=80&w=2073&auto=format&fit=crop'); filter: grayscale(100%) contrast(300%) brightness(150%); opacity: 0.15;"
   ></div>
   
-  <!-- White overlay to fade out the background slightly if needed -->
-  <div class="absolute inset-0 z-0 bg-white/40 pointer-events-none mix-blend-lighten"></div>
-
   <!-- Interactive Area -->
   <div class="absolute inset-0 z-10 overflow-hidden">
     {#each notes as note (note.id)}
