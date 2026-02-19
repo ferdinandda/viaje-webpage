@@ -12,7 +12,7 @@
   let scrolled = $state(false);
   let searchOpen = $state(false);
   let searchQuery = $state('');
-  let headerVisible = $state(false); // Controlled by hover when autoHide is true
+  let mouseNearTop = $state(false);
 
   let isHomepage = $derived($page.url.pathname === '/');
   let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
@@ -20,9 +20,11 @@
   let useBlackBg = $derived(isSangreTierraYSilencio || !isHomepage);
   let useLightNav = $derived(false);
 
-  // When autoHide is true, we only show if headerVisible is true (or menu/search open)
-  // When autoHide is false, we always show (translate-y-0)
-  let shouldShow = $derived(!autoHide || headerVisible || mobileMenuOpen || searchOpen);
+  // Show header if:
+  // 1. autoHide is false (normal behavior)
+  // 2. OR mouse is near top (if autoHide is true)
+  // 3. OR menus/search are open
+  let shouldShow = $derived(!autoHide || mouseNearTop || mobileMenuOpen || searchOpen);
 
   let searchResults = $derived(
     searchQuery.length < 2 
@@ -39,6 +41,18 @@
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  $effect(() => {
+    if (!autoHide) return;
+
+    const handleMouseMove = (e) => {
+        // Show if mouse is within top 100px
+        mouseNearTop = e.clientY < 100;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   });
 
   function toggleMobileMenu() {
@@ -61,21 +75,10 @@
 
 {#if !$readerModeActive}
 
-<!-- Auto-hide Trigger Zone (Only when autoHide is true) -->
-{#if autoHide}
-  <div 
-    class="fixed top-0 left-0 right-0 h-4 z-[60] bg-transparent"
-    onmouseenter={() => headerVisible = true}
-    role="banner"
-    aria-label="Show navigation"
-  ></div>
-{/if}
-
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out 
          {isHomepage ? (scrolled ? 'bg-[#D24843]/70 backdrop-blur-md shadow-sm' : 'bg-transparent') : (scrolled ? 'bg-[#D24843]/70 backdrop-blur-md shadow-sm' : 'bg-[#D24843]')}
          {autoHide && !shouldShow ? '-translate-y-full' : 'translate-y-0'}"
-  onmouseleave={() => { if(autoHide) headerVisible = false; }}
 >
     <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
       
