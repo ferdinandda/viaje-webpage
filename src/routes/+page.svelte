@@ -2,6 +2,7 @@
 <script>
   import { onMount } from 'svelte';
   import TabbedContent from '$lib/components/TabbedContent.svelte';
+  import PostItWall from '$lib/components/PostItWall.svelte';
 
   let mounted = $state(false);
 
@@ -86,6 +87,7 @@
 
 <main class="pt-12">
   <TabbedContent />
+  <PostItWall />
 </main>
 
 <style>
