@@ -33,6 +33,17 @@
   let displayNotes = $derived.by(() => {
     let combined = [...dbNotes];
 
+    // Moderation: Filter out specific notes requested by user
+    const stringsToFilter = [
+      "holiwi jijijij",
+      "fernanda es jacker"
+    ];
+
+    combined = combined.filter(n => {
+      const text = n.text.toLowerCase();
+      return !stringsToFilter.some(s => text.includes(s));
+    });
+
     const addIfNotExists = (fixedNote) => {
         if (!combined.some(n => n.text === fixedNote.text)) {
             combined.push(fixedNote);
