@@ -86,10 +86,6 @@
               <p class="mt-1 text-sm text-[var(--color-ink-muted)] opacity-80">
                 {miembro.locacion_ano}
               </p>
-            {#if miembro.locacion_ano}
-              <p class="mt-1 text-sm text-[var(--color-ink-muted)] opacity-80">
-                {miembro.locacion_ano}
-              </p>
             {/if}
             <p class="mt-3 text-sm text-[var(--color-ink)] leading-relaxed text-justify opacity-80">
               {miembro.descripcion}
