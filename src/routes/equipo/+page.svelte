@@ -50,18 +50,19 @@
   <meta name="description" content="Conoce al equipo editorial de Revista Viaje. Dirección, diseño y comité editorial." />
 </svelte:head>
 
-<section class="pt-32 pb-24 md:pt-40 md:pb-32" style="font-family: 'Jost', sans-serif;">
+<!-- Editorial Note Section (Dark) -->
+<div class="bg-[#1A1A1A] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
+  <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
+    <h2 class="text-2xl font-bold mb-8 text-[var(--color-paper)]" style="font-family: 'Jost', sans-serif;">Nota editorial:</h2>
+    <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify" style="font-family: 'Jost', sans-serif;">
+      Este proyecto comienza a cuajar durante el verano del 2026 en el desierto de Atacama, más precisamente en la región de Tarapacá. Es posible, sin embargo, que se haya estado gestando ya en 2025, cuando nos conocimos en Valparaíso. Sin tener del todo claro el lugar que ocupamos en el mundo, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Nos referimos a esa dislocación en el modo de ser y estar que toda escritura ensayística implica. La revista se propone como un espacio abierto a quienes entienden la creación como un modo [siempre inestable] de estar en el mundo.
+    </blockquote>
+  </div>
+</div>
+
+<!-- Team List Section (Light) -->
+<section class="py-24" style="font-family: 'Jost', sans-serif;">
   <div class="mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
-
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-4 text-[var(--color-ink)]">Nota editorial:</h2>
-      <p class="text-lg leading-relaxed text-justify font-['Jost'] max-w-prose">
-        Este proyecto comienza a cuajar durante el verano del 2026 en el desierto de Atacama, más precisamente en la región de Tarapacá. Es posible, sin embargo, que se haya estado gestando ya en 2025, cuando nos conocimos en Valparaíso. Sin tener del todo claro el lugar que ocupamos en el mundo, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Nos referimos a esa dislocación en el modo de ser y estar que toda escritura ensayística implica. La revista se propone como un espacio abierto a quienes entienden la creación como un modo [siempre inestable] de estar en el mundo.
-      </p>
-    </section>
-
-
-
     <!-- Team List -->
     <div class="mb-24">
       {#each equipo as miembro}
@@ -93,7 +94,5 @@
         </div>
       {/each}
     </div>
-
-    
   </div>
 </section>
