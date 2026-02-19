@@ -141,7 +141,7 @@
           onclick={toggleReferences}
           class="px-8 py-3 border border-gray-300 text-gray-500 font-['Jost'] text-[10px] md:text-xs uppercase tracking-[0.25em] hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-sm"
         >
-          {showReferences ? 'Ocultar obras citadas' : 'Obras citadas'}
+          Obras citadas
         </button>
       </div>
 
