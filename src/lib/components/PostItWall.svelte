@@ -45,6 +45,8 @@
     return combined;
   });
 
+  let activeNote = $derived(displayNotes.find(n => (n.id || n._id) === activeNoteId));
+
   async function addNote() {
     if (!newNoteText.trim() || newNoteText.length < 40) return;
     
@@ -115,22 +117,24 @@
               "{note.text}"
             </p>
           </div>
-
-          <!-- The Content (Active Tap) - Mobile Fixed Center -->
-          {#if activeNoteId === (note.id || note._id)}
-            <div 
-              class="sm:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-xs text-center z-[100]" 
-              transition:scale={{duration: 200, start: 0.9}}
-            >
-              <p class="text-black text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-xl bg-white/95 backdrop-blur-md p-6 rounded-sm shadow-2xl border border-gray-200">
-                "{note.text}"
-              </p>
-            </div>
-          {/if}
         </div>
       {/each}
     </div>
   </div>
+
+  <!-- Mobile Active Note Overlay (Global Fixed) -->
+  {#if activeNote}
+    <div 
+      class="sm:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-xs text-center z-[100] pointer-events-none" 
+      transition:scale={{duration: 200, start: 0.9}}
+    >
+      <div class="pointer-events-auto bg-white/95 backdrop-blur-md p-6 rounded-sm shadow-2xl border border-gray-200">
+        <p class="text-black text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-xl">
+          "{activeNote.text}"
+        </p>
+      </div>
+    </div>
+  {/if}
 
   <!-- Unified Bottom Panel (Translucent Button) -->
   <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center w-full max-w-md px-4 pointer-events-none">
