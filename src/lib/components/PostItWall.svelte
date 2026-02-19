@@ -105,13 +105,13 @@
 
       <div class="relative bg-white/95 shadow-2xl rounded-sm p-8 md:p-12 w-full max-w-lg border border-white/50" transition:scale={{duration: 300, start: 0.95}}>
         
-        <h3 class="text-gray-900 font-['Jost'] text-lg font-light tracking-wide mb-1 text-center">Deja una nota</h3>
-        <p class="text-gray-400 mb-6 font-['Jost'] text-[10px] uppercase tracking-widest text-center">
-          (40 - 180 caracteres)
+        <h3 class="text-gray-900 font-['Jost'] text-sm font-light tracking-wide mb-2 text-center">Esto es solo un ejercicio:</h3>
+        <p class="text-gray-600 mb-4 font-['Jost'] text-[11px] md:text-xs leading-relaxed text-center px-4">
+          deja una nota [entre 40 y 180 caracteres] sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
         </p>
         
-        <p class="text-gray-500 mb-8 font-['Jost'] text-xs italic text-center border-l-2 border-gray-200 pl-4 mx-auto max-w-xs bg-gray-50 py-2 rounded-r-sm">
-          Lo único que filtramos son mensajes de odio.
+        <p class="text-gray-400 mb-8 font-['Jost'] text-[10px] italic text-center uppercase tracking-widest">
+          Solo filtramos mensajes de odio.
         </p>
 
         <textarea
