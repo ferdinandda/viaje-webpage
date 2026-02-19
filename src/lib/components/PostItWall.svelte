@@ -82,10 +82,10 @@
   <div class="absolute bottom-12 left-0 right-0 z-50 flex justify-center pointer-events-none">
     <button 
       onclick={() => showForm = !showForm}
-      class="pointer-events-auto bg-black text-white px-8 py-3 hover:bg-black/80 transition-all duration-300 uppercase tracking-[0.2em] text-[10px] shadow-lg rounded-sm"
+      class="pointer-events-auto bg-black text-white px-5 py-2 hover:bg-black/80 transition-all duration-300 uppercase tracking-[0.2em] text-[8.5px] shadow-lg rounded-sm"
       style="font-family: 'Jost', sans-serif;"
     >
-      {showForm ? 'Cerrar' : 'ANOTA'}
+      {showForm ? 'Cerrar' : 'Deja un mensaje'}
     </button>
   </div>
 
