@@ -68,24 +68,23 @@
           <!-- Trigger Area (Subtle highlight) -->
           <div class="w-4 h-4 rounded-full bg-black/20 group-hover:bg-transparent transition-colors duration-500 mx-auto blur-sm"></div>
 
-          <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
-          <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
-            <p class="text-black text-sm md:text-base font-['Jost'] font-medium leading-relaxed tracking-wide drop-shadow-md bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
-              "{note.text}"
-            </p>
-          </div>
+        <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
+        <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
+          <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
+            {note.text}
+          </p>
         </div>
-      {/each}
-    </div>
+      </div>
+    {/each}
   </div>
 
   <!-- Unified Bottom Panel (Translucent Button) -->
   <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center w-full max-w-md px-4 pointer-events-none">
     <button 
       onclick={() => showForm = !showForm}
-      class="bg-white/40 backdrop-blur-md border border-white/40 shadow-xl rounded-sm px-10 py-5 text-center pointer-events-auto transition-all hover:bg-white/60 hover:-translate-y-0.5 group"
+      class="bg-white/50 backdrop-blur-md border border-white/40 shadow-xl rounded-sm px-10 py-5 text-center pointer-events-auto transition-all hover:bg-white/70 hover:-translate-y-0.5 group"
     >
-      <span class="text-black/70 text-[10px] md:text-xs uppercase tracking-[0.25em] font-['Jost'] font-light group-hover:text-black transition-colors">
+      <span class="text-black text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-['Jost'] font-normal group-hover:opacity-70 transition-all">
         {showForm ? 'Cerrar' : 'anota lo que no se te puede pasar'}
       </span>
     </button>
