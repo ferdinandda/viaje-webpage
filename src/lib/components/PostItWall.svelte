@@ -1,48 +1,60 @@
 <script>
   import { onMount } from 'svelte';
   import { fade, scale } from 'svelte/transition';
+  import { useQuery, useMutation } from "convex-svelte";
+  import { api } from "../../../convex/_generated/api";
+  import { client } from "../convex"; // Initialize convex
 
-  let notes = [];
   let newNoteText = '';
   let showForm = false;
 
-  onMount(() => {
-    const savedNotes = localStorage.getItem('viaje_wall_notes');
-    let userNotes = savedNotes ? JSON.parse(savedNotes) : [];
-    
-    // Nota obligatoria
-    const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
-    
-    // Otros ejemplos
-    const defaultNotes = [
-        { id: 'default-4', text: 'Luna toma agua del bebedero cuando no la veo pero cuando la veo no toma', x: 30, y: 25 }
-    ];
+  // Convex Query and Mutation
+  const notesQuery = useQuery(api.notes.list, {});
+  const createNoteMutation = useMutation(api.notes.create);
 
-    if (userNotes.length > 0) {
-        const filteredUserNotes = userNotes.filter(n => n.text !== mandatoryNote.text);
-        notes = [mandatoryNote, ...filteredUserNotes];
-    } else {
-        notes = [mandatoryNote, ...defaultNotes];
+  // Mandatory notes to show as fallbacks or seeds
+  const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
+  const defaultNote = { id: 'default-4', text: 'Luna toma agua del bebedero cuando no la veo pero cuando la veo no toma', x: 30, y: 25 };
+
+  // Derived notes list: combine database notes with mandatory ones
+  let displayNotes = $derived.by(() => {
+    const dbNotes = notesQuery.data || [];
+    // If database is completely empty (loading or just empty), we show mandatory notes
+    if (dbNotes.length === 0) {
+      return [mandatoryNote, defaultNote];
     }
+    
+    // Check if the mandatory notes are already in the DB (by text matching)
+    const hasMandatory = dbNotes.some(n => n.text === mandatoryNote.text);
+    const hasDefault = dbNotes.some(n => n.text === defaultNote.text);
+    
+    let combined = [...dbNotes];
+    if (!hasMandatory) combined.push(mandatoryNote);
+    if (!hasDefault) combined.push(defaultNote);
+    
+    return combined;
   });
 
-  function addNote() {
+  async function addNote() {
     if (!newNoteText.trim() || newNoteText.length < 40) return;
+    
     const x = Math.floor(Math.random() * 80) + 10;
     const y = Math.floor(Math.random() * 80) + 10;
+    const date = new Date().toLocaleDateString();
 
-    const note = {
-      id: Date.now(),
-      text: newNoteText,
-      x, 
-      y,
-      date: new Date().toLocaleDateString()
-    };
-
-    notes = [note, ...notes];
-    localStorage.setItem('viaje_wall_notes', JSON.stringify(notes));
-    newNoteText = '';
-    showForm = false;
+    try {
+      await createNoteMutation({
+        text: newNoteText,
+        x,
+        y,
+        date
+      });
+      newNoteText = '';
+      showForm = false;
+    } catch (err) {
+      console.error("Error creating note:", err);
+      alert("Error al guardar la nota. Inténtalo de nuevo.");
+    }
   }
 </script>
 
@@ -53,13 +65,13 @@
     
     <!-- Background Image: siluetas2.jpg (Tiled) - Darker -->
     <div 
-      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.80] contrast-125 mt-20"
+      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.60] contrast-125 mt-20"
       style="background-image: url('/siluetas2.jpg'); background-size: 400px auto;"
     ></div>
     
     <!-- Notes Loop -->
     <div class="absolute inset-0 z-10 overflow-hidden mt-20">
-      {#each notes as note (note.id)}
+      {#each displayNotes as note (note.id || note._id)}
         <div 
           class="absolute group cursor-pointer p-16"
           style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
@@ -67,14 +79,15 @@
           <!-- Trigger Area (Subtle highlight) -->
           <div class="w-4 h-4 rounded-full bg-black/20 group-hover:bg-transparent transition-colors duration-500 mx-auto blur-sm"></div>
 
-        <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
-        <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
-          <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
-            "{note.text}"
-          </p>
+          <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
+          <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
+            <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
+              "{note.text}"
+            </p>
+          </div>
         </div>
-      </div>
-    {/each}
+      {/each}
+    </div>
   </div>
 
   <!-- Unified Bottom Panel (Translucent Button) -->
