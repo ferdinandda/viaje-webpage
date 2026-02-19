@@ -12,9 +12,9 @@
       notes = JSON.parse(savedNotes);
     } else {
         notes = [
-            { id: 1, text: 'caminar sin rumbo', x: 20, y: 30 },
-            { id: 2, text: 'el ruido blanco', x: 60, y: 50 },
-            { id: 3, text: 'somos sombras', x: 40, y: 70 }
+            { id: 1, text: 'caminar sin rumbo', x: 25, y: 40 },
+            { id: 2, text: 'el ruido blanco de la ciudad', x: 65, y: 55 },
+            { id: 3, text: 'somos sombras que pasan', x: 45, y: 75 }
         ];
     }
   });
@@ -41,26 +41,27 @@
 
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col items-center justify-center">
   
-  <!-- Background Image: Clear People Walking (Black on White) -->
+  <!-- Background Image: siluetas.jpg (User provided) -->
   <div 
-    class="absolute inset-0 z-0 bg-contain bg-center bg-no-repeat transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none"
-    style="background-image: url('https://static.vecteezy.com/system/resources/previews/024/703/941/non_2x/people-walking-silhouettes-vector.jpg'); opacity: 0.15; filter: grayscale(100%);"
+    class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-10"
+    style="background-image: url('/siluetas.jpg');"
   ></div>
   
   <!-- Interactive Area -->
   <div class="absolute inset-0 z-10 overflow-hidden">
     {#each notes as note (note.id)}
       <div 
-        class="absolute group cursor-pointer p-6"
+        class="absolute group cursor-pointer p-8"
         style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
       >
-        <!-- The Trigger Area (invisible but interactive) -->
-        <div class="w-8 h-8 rounded-full bg-transparent group-hover:bg-black/5 transition-colors duration-300 mx-auto border border-transparent group-hover:border-black/10"></div>
+        <!-- The Trigger Area (very subtle) -->
+        <div class="w-2 h-2 rounded-full bg-black/5 group-hover:bg-black/10 transition-colors duration-300 mx-auto"></div>
 
         <!-- The Content (Revealed on Hover) -->
-        <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 text-center pointer-events-none z-20">
-          <p class="text-black text-[10px] md:text-xs font-light leading-relaxed tracking-wider bg-white/80 backdrop-blur-sm p-3 shadow-sm border border-black/5" style="font-family: 'Jost', sans-serif;">
-            "{note.text}"
+        <!-- Letra muy pequeña como pidió el usuario -->
+        <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 text-center pointer-events-none z-20">
+          <p class="text-black text-[9px] md:text-[10px] font-light leading-relaxed tracking-wider bg-white/60 backdrop-blur-[2px] p-2" style="font-family: 'Jost', sans-serif;">
+            {note.text}
           </p>
         </div>
       </div>
@@ -71,7 +72,7 @@
   <div class="absolute bottom-12 left-0 right-0 z-50 flex justify-center pointer-events-none">
     <button 
       onclick={() => showForm = !showForm}
-      class="pointer-events-auto border border-black/20 text-black/60 bg-white/50 backdrop-blur-sm px-6 py-2 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-[0.15em] text-[10px]"
+      class="pointer-events-auto border border-black/10 text-black/40 bg-white/30 backdrop-blur-sm px-6 py-2 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-[0.2em] text-[9px]"
       style="font-family: 'Jost', sans-serif;"
     >
       {showForm ? 'Cerrar' : 'Dejar huella'}
@@ -80,20 +81,20 @@
 
   <!-- Minimalist Input Modal (Light Theme) -->
   {#if showForm}
-    <div transition:fade class="absolute inset-0 z-40 bg-white/90 backdrop-blur-md flex items-center justify-center p-6">
-      <div class="w-full max-w-md text-center" transition:scale>
-        <p class="text-black/40 mb-6 font-serif italic text-sm">Escribe...</p>
+    <div transition:fade class="absolute inset-0 z-40 bg-white/95 flex items-center justify-center p-6">
+      <div class="w-full max-w-sm text-center" transition:scale>
+        <p class="text-black/30 mb-8 font-serif italic text-xs uppercase tracking-widest">Escribir pensamiento</p>
         <textarea
           bind:value={newNoteText}
-          class="w-full bg-transparent border-b border-black/10 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-black/10"
+          class="w-full bg-transparent border-b border-black/10 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-black/5"
           placeholder="..."
           maxlength="140"
         ></textarea>
         
-        <div class="mt-8 flex justify-center gap-4">
+        <div class="mt-12 flex justify-center gap-4">
           <button 
             onclick={addNote}
-            class="text-black uppercase tracking-widest text-xs border border-black/20 px-6 py-2 hover:bg-black hover:text-white transition-colors"
+            class="text-black uppercase tracking-widest text-[10px] border border-black/20 px-8 py-2 hover:bg-black hover:text-white transition-colors"
           >
             Publicar
           </button>
