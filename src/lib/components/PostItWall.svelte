@@ -50,11 +50,11 @@
   <!-- White overlay to fade out the background slightly if needed -->
   <div class="absolute inset-0 z-0 bg-white/40 pointer-events-none mix-blend-lighten"></div>
 
-  <!-- Subtitle / Motto -->
-  <div class="absolute top-24 left-0 right-0 z-20 text-center pointer-events-none px-4">
-    <p class="text-black/30 text-[10px] md:text-xs tracking-[0.2em] uppercase font-['Jost']">
+  <!-- Subtitle / Motto (Centered & Styled like button) -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none text-center px-4 w-full">
+    <div class="inline-block border border-black/10 text-black/50 bg-white/40 backdrop-blur-sm px-6 py-3 uppercase tracking-[0.2em] text-[10px] md:text-xs font-['Jost'] shadow-sm rounded-sm">
       Un lugar para anotar lo que no se nos puede pasar.
-    </p>
+    </div>
   </div>
 
   <!-- Interactive Area -->
