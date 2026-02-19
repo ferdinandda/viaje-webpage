@@ -8,9 +8,19 @@
   let newNoteText = '';
   let showForm = false;
 
-  // Convex Query and Mutation
-  const notesQuery = useQuery(api.notes.list, {});
-  const createNoteMutation = useMutation(api.notes.create);
+  // Convex Query and Mutation (Safe Initialization)
+  let notesQuery = { data: [] };
+  let createNoteMutation = async () => { console.warn("Modo offline: No se puede guardar en la nube."); };
+
+  // Only use Convex hooks if client is initialized
+  if (client) {
+    try {
+      notesQuery = useQuery(api.notes.list, {});
+      createNoteMutation = useMutation(api.notes.create);
+    } catch (e) {
+      console.error("Error initializing Convex hooks:", e);
+    }
+  }
 
   // Mandatory notes to show as fallbacks or seeds
   const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
