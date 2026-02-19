@@ -79,16 +79,16 @@
     </div>
   </div>
 
-  <!-- Unified Bottom Panel -->
+  <!-- Unified Bottom Panel (Translucent Button) -->
   <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center w-full max-w-md px-4 pointer-events-none">
-    <div class="bg-white/40 backdrop-blur-md border border-white/40 shadow-xl rounded-sm p-6 text-center pointer-events-auto flex flex-col items-center gap-4 transition-all hover:bg-white/50">
-      <button 
-        onclick={() => showForm = !showForm}
-        class="bg-black text-white px-8 py-3 hover:bg-gray-900 transition-all duration-300 font-['Jost'] text-[10px] tracking-[0.2em] uppercase shadow-md rounded-sm hover:-translate-y-0.5"
-      >
+    <button 
+      onclick={() => showForm = !showForm}
+      class="bg-white/40 backdrop-blur-md border border-white/40 shadow-xl rounded-sm px-10 py-5 text-center pointer-events-auto transition-all hover:bg-white/60 hover:-translate-y-0.5 group"
+    >
+      <span class="text-black/70 text-[10px] md:text-xs uppercase tracking-[0.25em] font-['Jost'] font-light group-hover:text-black transition-colors">
         {showForm ? 'Cerrar' : 'anota lo que no se te puede pasar'}
-      </button>
-    </div>
+      </span>
+    </button>
   </div>
 
   <!-- Minimalist Input Modal (Pro) -->
