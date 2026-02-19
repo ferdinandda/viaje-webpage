@@ -97,8 +97,11 @@
         <p class="text-gray-500 mb-2 font-['Jost'] text-sm tracking-wide">
           Deja una nota
         </p>
-        <p class="text-gray-400 mb-10 font-['Jost'] text-[10px] uppercase tracking-widest">
+        <p class="text-gray-400 mb-2 font-['Jost'] text-[10px] uppercase tracking-widest">
           (40 - 180 caracteres)
+        </p>
+        <p class="text-gray-400 mb-10 font-['Jost'] text-[10px] italic">
+          Lo único que filtramos son mensajes de odio.
         </p>
 
         <textarea
@@ -115,7 +118,13 @@
           {/if}
         </div>
 
-        <div class="mt-12 flex justify-center">
+        <div class="mt-12 flex justify-center gap-12">
+          <button 
+            onclick={() => { showForm = false; newNoteText = ''; }}
+            class="text-gray-400 uppercase tracking-widest text-[10px] border-b border-transparent hover:border-gray-300 transition-colors"
+          >
+            Cancelar
+          </button>
           <button 
             onclick={addNote}
             disabled={newNoteText.length < 40}
