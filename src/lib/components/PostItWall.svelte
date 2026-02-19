@@ -41,10 +41,10 @@
 
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col items-center justify-center">
   
-  <!-- Background Image: People Silhouettes -->
+  <!-- Background Image: Clear People Walking (Black on White) -->
   <div 
-    class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[60s] ease-linear hover:scale-110 pointer-events-none"
-    style="background-image: url('https://images.unsplash.com/photo-1517502884422-41eaace01e29?q=80&w=2000&auto=format&fit=crop'); filter: grayscale(100%) contrast(500%) brightness(140%) invert(0); opacity: 0.15;"
+    class="absolute inset-0 z-0 bg-contain bg-center bg-no-repeat transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none"
+    style="background-image: url('https://static.vecteezy.com/system/resources/previews/024/703/941/non_2x/people-walking-silhouettes-vector.jpg'); opacity: 0.15; filter: grayscale(100%);"
   ></div>
   
   <!-- Interactive Area -->
