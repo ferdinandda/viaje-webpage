@@ -1,4 +1,5 @@
 <script>
+  // Deploy trigger: 2026-02-19
   import Navigation from '$lib/components/Navigation.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { page } from '$app/stores'; // Import page store
