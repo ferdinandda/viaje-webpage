@@ -1,47 +1,42 @@
 <script>
   import { onMount } from 'svelte';
   import { fade, scale } from 'svelte/transition';
-  import { useQuery, useMutation } from "convex-svelte";
+  import { ConvexHttpClient } from "convex/browser";
   import { api } from "../../../convex/_generated/api";
-  import { client } from "../convex"; 
 
-  let newNoteText = '';
-  let showForm = false;
+  let newNoteText = $state('');
+  let showForm = $state(false);
+  let client;
+  let dbNotes = $state([]);
 
-  // Convex Query and Mutation (Safe Initialization)
-  let notesQuery = { data: [] };
-  let createNoteMutation = async () => { console.warn("Modo offline: No se puede guardar en la nube."); };
-
-  // Only use Convex hooks if client is initialized
-  if (client) {
-    try {
-      notesQuery = useQuery(api.notes.list, {});
-      createNoteMutation = useMutation(api.notes.create);
-    } catch (e) {
-      console.error("Error initializing Convex hooks:", e);
-    }
-  }
-
-  // Mandatory notes to show as fallbacks or seeds
+  // Mandatory notes
   const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
   const defaultNote = { id: 'default-4', text: 'Luna toma agua del bebedero cuando no la veo pero cuando la veo no toma', x: 30, y: 25 };
 
-  // Derived notes list: combine database notes with mandatory ones
+  onMount(async () => {
+    try {
+        const url = import.meta.env.PUBLIC_CONVEX_URL;
+        if (url) {
+            client = new ConvexHttpClient(url);
+            // Fetch initial notes
+            const result = await client.query(api.notes.list);
+            dbNotes = result || [];
+        }
+    } catch (e) {
+        console.error("Error connecting to Convex:", e);
+    }
+  });
+
+  // Derived notes list
   let displayNotes = $derived.by(() => {
-    // If database is loading (undefined) or empty, start with empty array
-    const dbNotes = notesQuery.data || [];
-    
-    // Always start with the DB notes
     let combined = [...dbNotes];
 
-    // Helper to add fixed notes if they aren't already in the DB list
     const addIfNotExists = (fixedNote) => {
         if (!combined.some(n => n.text === fixedNote.text)) {
             combined.push(fixedNote);
         }
     };
 
-    // Always ensure these exist
     addIfNotExists(mandatoryNote);
     addIfNotExists(defaultNote);
     
@@ -56,17 +51,24 @@
     const date = new Date().toLocaleDateString();
 
     try {
-      await createNoteMutation({
-        text: newNoteText,
-        x,
-        y,
-        date
-      });
+      if (client) {
+          await client.mutation(api.notes.create, {
+            text: newNoteText,
+            x,
+            y,
+            date
+          });
+          // Refresh list
+          const result = await client.query(api.notes.list);
+          dbNotes = result || [];
+      } else {
+          alert("No hay conexión con la base de datos.");
+      }
       newNoteText = '';
       showForm = false;
     } catch (err) {
       console.error("Error creating note:", err);
-      alert("Error al guardar la nota. Inténtalo de nuevo.");
+      alert("Error al guardar la nota.");
     }
   }
 </script>
