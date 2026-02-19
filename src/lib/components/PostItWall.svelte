@@ -116,8 +116,7 @@
 
         <textarea
           bind:value={newNoteText}
-          class="w-full bg-transparent border-b border-gray-200 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-gray-300 font-['Jost'] leading-normal"
-          placeholder="Escribe aquí..."
+          class="w-full bg-transparent border-b border-gray-200 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-transparent font-['Jost'] leading-normal"
           maxlength="180"
         ></textarea>
         
