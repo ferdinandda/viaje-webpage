@@ -25,7 +25,7 @@
         <!-- Content Container -->
         <div class="p-8 flex flex-col flex-grow justify-between text-center">
           <div>
-            <h3 class="font-bold text-lg uppercase text-[var(--color-ink)] leading-tight tracking-wide mb-4 line-clamp-3" style="font-family: 'Jost', sans-serif;">
+            <h3 class="font-bold text-lg uppercase text-[var(--color-ink)] leading-tight tracking-wide mb-4" style="font-family: 'Jost', sans-serif;">
               {@html tab.title}
             </h3>
             <div class="w-8 h-px bg-[#D24843] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
