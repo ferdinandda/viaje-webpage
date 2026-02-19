@@ -20,7 +20,7 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-  <Navigation autoHide={isNotas} />
+  <Navigation />
 
   <main class="flex-1">
     {@render children()}

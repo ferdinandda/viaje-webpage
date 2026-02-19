@@ -49,24 +49,17 @@
 
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col">
 
-  <!-- Header Space with Minimalist Title -->
-  <div class="h-32 w-full bg-white flex items-end justify-center pb-6 z-30 relative shadow-[0_10px_40px_-10px_rgba(255,255,255,1)]">
-     <h2 class="text-black/70 font-['Jost'] text-[11px] md:text-xs tracking-[0.25em] uppercase font-light">
-       anota lo que no se te puede pasar
-     </h2>
-  </div>
-  
   <!-- Interactive Area with Silhouettes -->
   <div class="relative flex-grow w-full overflow-hidden bg-white">
     
     <!-- Background Image: siluetas2.jpg (Tiled) - Darker -->
     <div 
-      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.80] contrast-125"
+      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.80] contrast-125 mt-20"
       style="background-image: url('/siluetas2.jpg'); background-size: 400px auto;"
     ></div>
     
     <!-- Notes Loop -->
-    <div class="absolute inset-0 z-10 overflow-hidden">
+    <div class="absolute inset-0 z-10 overflow-hidden mt-20">
       {#each notes as note (note.id)}
         <div 
           class="absolute group cursor-pointer p-16"
@@ -77,7 +70,7 @@
 
           <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
           <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
-            <p class="text-black text-sm md:text-base font-['Jost'] font-medium leading-relaxed tracking-wide drop-shadow-md bg-white/80 backdrop-blur-[2px] p-4 rounded-sm">
+            <p class="text-black text-sm md:text-base font-['Jost'] font-medium leading-relaxed tracking-wide drop-shadow-md bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
               "{note.text}"
             </p>
           </div>
@@ -86,14 +79,20 @@
     </div>
   </div>
 
-  <!-- Floating Action Button (More "Pro") -->
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-50">
-    <button 
-      onclick={() => showForm = !showForm}
-      class="bg-black text-white px-8 py-3 hover:bg-gray-900 transition-all duration-300 font-['Jost'] text-[10px] tracking-[0.2em] uppercase shadow-xl hover:shadow-2xl hover:-translate-y-1 rounded-sm"
-    >
-      {showForm ? 'Cerrar' : 'Deja un mensaje'}
-    </button>
+  <!-- Unified Bottom Panel -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center w-full max-w-md px-4 pointer-events-none">
+    <div class="bg-white/40 backdrop-blur-md border border-white/40 shadow-xl rounded-sm p-6 text-center pointer-events-auto flex flex-col items-center gap-4 transition-all hover:bg-white/50">
+      <p class="text-black/70 text-[10px] md:text-xs uppercase tracking-[0.25em] font-['Jost'] font-light">
+        anota lo que no se te puede pasar
+      </p>
+      
+      <button 
+        onclick={() => showForm = !showForm}
+        class="bg-black text-white px-8 py-3 hover:bg-gray-900 transition-all duration-300 font-['Jost'] text-[10px] tracking-[0.2em] uppercase shadow-md rounded-sm hover:-translate-y-0.5"
+      >
+        {showForm ? 'Cerrar' : 'Deja un mensaje'}
+      </button>
+    </div>
   </div>
 
   <!-- Minimalist Input Modal (Pro) -->
