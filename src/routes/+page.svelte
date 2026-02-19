@@ -67,7 +67,7 @@
     >
       <span class="marker-highlight">Revista Viaje es un medio digital nacido en Chile que busca reunir escrituras sobre el mundo que habitamos</span>
       <div class="mt-2">
-        <span class="line-through opacity-40">y otros mundos posibles.</span>
+        <span class="line-through opacity-70">y otros mundos posibles.</span>
       </div>
     </div>
   </div>
