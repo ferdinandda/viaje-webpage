@@ -8,14 +8,24 @@
 
   onMount(() => {
     const savedNotes = localStorage.getItem('viaje_wall_notes');
-    if (savedNotes) {
-      notes = JSON.parse(savedNotes);
+    let userNotes = savedNotes ? JSON.parse(savedNotes) : [];
+    
+    // Nota obligatoria solicitada por el usuario
+    const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 50, y: 60 };
+    
+    // Otros ejemplos por defecto
+    const defaultNotes = [
+        { id: 'default-2', text: 'caminar sin rumbo por la ciudad', x: 65, y: 35 },
+        { id: 'default-3', text: 'somos sombras que pasan sin dejar rastro', x: 35, y: 75 }
+    ];
+
+    // Combinar: Nota obligatoria + Notas guardadas + Otros ejemplos (si no hay guardadas)
+    if (userNotes.length > 0) {
+        // Filtrar para no repetir la nota obligatoria si ya se guardó
+        const filteredUserNotes = userNotes.filter(n => n.text !== mandatoryNote.text);
+        notes = [mandatoryNote, ...filteredUserNotes];
     } else {
-        notes = [
-            { id: 1, text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 30, y: 45 },
-            { id: 2, text: 'caminar sin rumbo por la ciudad', x: 65, y: 35 },
-            { id: 3, text: 'somos sombras que pasan sin dejar rastro', x: 50, y: 70 }
-        ];
+        notes = [mandatoryNote, ...defaultNotes];
     }
   });
 
