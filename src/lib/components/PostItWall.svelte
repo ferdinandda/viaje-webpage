@@ -3,7 +3,6 @@
   import { fade, scale } from 'svelte/transition';
   import { ConvexHttpClient } from "convex/browser";
   import { api } from "../../../convex/_generated/api";
-  import { PUBLIC_CONVEX_URL } from "$env/static/public";
 
   let newNoteText = $state('');
   let showForm = $state(false);
@@ -16,8 +15,10 @@
 
   onMount(async () => {
     try {
-        if (PUBLIC_CONVEX_URL) {
-            client = new ConvexHttpClient(PUBLIC_CONVEX_URL);
+        // Hardcoded production URL to ensure connection on Vercel
+        const url = "https://aromatic-aardvark-340.convex.cloud";
+        if (url) {
+            client = new ConvexHttpClient(url);
             // Fetch initial notes
             const result = await client.query(api.notes.list);
             dbNotes = result || [];
