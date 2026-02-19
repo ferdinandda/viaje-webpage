@@ -62,7 +62,7 @@
   }
 </script>
 
-<section class="py-24 bg-[#f0f0f0] border-t border-gray-200 relative overflow-hidden">
+<section class="min-h-screen py-12 bg-[#F5F2ED] relative overflow-hidden">
   <!-- Title Section -->
   <div class="max-w-6xl mx-auto px-6 mb-12 text-center relative z-10">
     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-ink)]" style="font-family: 'Jost', sans-serif;">
