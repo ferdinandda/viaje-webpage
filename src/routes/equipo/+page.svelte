@@ -10,8 +10,8 @@
     {
       nombre: 'Sofía Quevedo',
       rol: '',
-      locacion_ano: '(Ciudad, Año)',
-      descripcion: 'Descripción por confirmar.',
+      locacion_ano: '(Rancagua, 2001)',
+      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile, diplomada en Literaturas del mundo. Actualmente cursa el Magister en escritura Narrativa de la Universidad Alberto Hurtado.',
       inicial: 'SQ'
     },
     {
