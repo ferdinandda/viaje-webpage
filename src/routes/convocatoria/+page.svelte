@@ -48,14 +48,13 @@
 
   <div class="mb-24 text-[var(--color-ink)]">
     <h2 class="text-2xl font-bold mb-4 border-b border-gray-100 pb-2">Tipos de colaboraciones</h2>
-    <p class="mb-4 text-justify">La revista recibe ensayos de carácter crítico y creativo. Buscamos textos que piensen el mundo desde la propia experiencia de quien escribe, con libertad formal y apertura a la experimentación.</p>
+    <p class="mb-4 text-justify">La revista recibe ensayos de carácter crítico y creativo. Nos interesan especialmente aquellos textos que piensen el mundo desde la propia experiencia de quien escribe, con libertad formal y apertura a la experimentación.</p>
     
     <h2 class="text-xl font-bold mb-2">Modalidades aceptadas</h2>
     <ol class="list-decimal list-inside mb-4 marker:text-[#D24843]">
       <li><p class="inline font-bold">Textos ensayísticos</p>
         <ul class="list-none ml-4 space-y-1">
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos inéditos sobre cultura, literatura, política o estética (NO ACADÉMICOS).</li>
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos breves o series de ensayos articulados sobre un mismo tema.</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos inéditos sobre cultura, literatura, política, estética y filosofía, entre otros campos, escritos en un registro no académico.</li>
         </ul>
       </li>
       <li><p class="inline font-bold">Entrevistas</p>
@@ -98,16 +97,14 @@
     <h2 class="text-xl font-bold mb-2">Extensión</h2>
     <ul class="list-none mb-4 space-y-1">
       <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Ensayos, entrevistas y presentaciones: 3 a 8 páginas (formato carta).</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Series o entrevistas largas pueden dividirse en varios textos.</li>
     </ul>
 
     <h2 class="text-xl font-bold mb-2">Criterios editoriales</h2>
-    <p class="mb-4 text-justify">Se evaluará: </p>
+    <p class="mb-4 text-justify">Al momento de revisar los textos, consideramos especialmente:</p>
     <ul class="list-none mb-4 space-y-1">
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Originalidad y enfoque crítico.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Calidad de escritura y rigor reflexivo.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Claridad de estructura y desarrollo.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">Afinidad con la política editorial (no se aceptan textos que promuevan odio, discriminación o violencia).</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">La presencia de un enfoque crítico.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">La claridad en la estructura y el desarrollo.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D24843]">La afinidad con la política editorial (no se publican textos que promuevan odio, discriminación o violencia).</li>
     </ul>
 
     <h2 class="text-xl font-bold mb-2">Derechos de publicación</h2>
