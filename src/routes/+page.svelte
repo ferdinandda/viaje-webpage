@@ -65,11 +65,7 @@
              {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
       style="font-family: 'Jost', sans-serif; color: var(--color-ink);"
     >
-      <span class="marker-highlight">Revista Viaje es un medio digital nacido en Chile que busca reunir escrituras sobre</span> 
-      <span class="marker-highlight">el mundo que habitamos</span> 
-      <div class="mt-2">
-        <span class="line-through">y otros mundos posibles.</span>
-      </div>
+      <span class="marker-highlight">Revista Viaje es un medio digital nacido en Chile que busca reunir escrituras sobre el mundo que habitamos</span>
     </div>
   </div>
 </section>
