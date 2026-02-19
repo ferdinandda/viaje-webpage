@@ -88,7 +88,7 @@
     
     <!-- Background Image: siluetas2.jpg (Tiled) - Darker -->
     <div 
-      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.60] contrast-125 mt-20"
+      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.85] contrast-125 mt-20"
       style="background-image: url('/siluetas2.jpg'); background-size: 400px auto;"
     ></div>
     
