@@ -107,7 +107,7 @@
         
         <h3 class="text-gray-900 font-['Jost'] text-sm font-light tracking-wide mb-2 text-center">Esto es solo un ejercicio:</h3>
         <p class="text-gray-600 mb-4 font-['Jost'] text-[11px] md:text-xs leading-relaxed text-center px-4">
-          deja una nota [entre 40 y 180 caracteres] sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
+          Deja una nota [entre 40 y 180 caracteres] sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
         </p>
         
         <p class="text-gray-400 mb-8 font-['Jost'] text-[10px] italic text-center uppercase tracking-widest">
