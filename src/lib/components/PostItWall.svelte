@@ -8,6 +8,7 @@
   let showForm = $state(false);
   let client;
   let dbNotes = $state([]);
+  let activeNoteId = $state(null); // For mobile tap interaction
 
   // Mandatory notes
   const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
@@ -77,7 +78,13 @@
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col">
 
   <!-- Interactive Area with Silhouettes -->
-  <div class="relative flex-grow w-full overflow-hidden bg-white">
+  <div 
+    class="relative flex-grow w-full overflow-hidden bg-white"
+    onclick={() => activeNoteId = null}
+    role="button"
+    tabindex="0"
+    onkeydown={() => {}}
+  >
     
     <!-- Background Image: siluetas2.jpg (Tiled) - Darker -->
     <div 
@@ -91,12 +98,19 @@
         <div 
           class="absolute group cursor-pointer p-16"
           style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
+          onclick={(e) => { 
+            e.stopPropagation(); 
+            activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id)); 
+          }}
+          role="button"
+          tabindex="0"
+          onkeydown={(e) => { if(e.key === 'Enter') activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id)); }}
         >
           <!-- Trigger Area (Subtle highlight) -->
           <div class="w-4 h-4 rounded-full bg-black/20 group-hover:bg-transparent transition-colors duration-500 mx-auto blur-sm"></div>
 
-          <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
-          <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
+          <!-- The Content (Revealed on Hover OR Active Click) - Organic Text (No Box) -->
+          <div class="opacity-0 group-hover:opacity-100 {activeNoteId === (note.id || note._id) ? '!opacity-100' : ''} transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
             <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
               "{note.text}"
             </p>
