@@ -20,7 +20,7 @@
   });
 
   function addNote() {
-    if (!newNoteText.trim()) return;
+    if (!newNoteText.trim() || newNoteText.length < 40) return;
     const x = Math.floor(Math.random() * 80) + 10;
     const y = Math.floor(Math.random() * 80) + 10;
 
@@ -92,19 +92,33 @@
   <!-- Minimalist Input Modal (Light Theme) -->
   {#if showForm}
     <div transition:fade class="absolute inset-0 z-40 bg-white/95 flex items-center justify-center p-6">
-      <div class="w-full max-w-sm text-center" transition:scale>
-        <p class="text-black/30 mb-8 font-serif italic text-xs uppercase tracking-widest">Escribir pensamiento</p>
+      <div class="w-full max-w-md text-center" transition:scale>
+        <p class="text-black/60 mb-2 font-['Jost'] text-sm">
+          Deja una nota entre 40 y 180 caracteres.
+        </p>
+        <p class="text-black/40 mb-8 font-['Jost'] text-xs italic">
+          Tu mensaje aparecerá en alguna de las siluetas. Lo único que filtramos son mensajes de odio.
+        </p>
+
         <textarea
           bind:value={newNoteText}
-          class="w-full bg-transparent border-b border-black/10 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-black/5"
+          class="w-full bg-transparent border-b border-black/10 text-black text-lg font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-black/5"
           placeholder="..."
-          maxlength="140"
+          maxlength="180"
         ></textarea>
         
-        <div class="mt-12 flex justify-center gap-4">
+        <div class="mt-2 text-[10px] text-black/30 flex justify-between px-2">
+          <span>{newNoteText.length} / 180</span>
+          {#if newNoteText.length > 0 && newNoteText.length < 40}
+             <span class="text-red-400">Mínimo 40 caracteres</span>
+          {/if}
+        </div>
+
+        <div class="mt-8 flex justify-center gap-4">
           <button 
             onclick={addNote}
-            class="text-black uppercase tracking-widest text-[10px] border border-black/20 px-8 py-2 hover:bg-black hover:text-white transition-colors"
+            disabled={newNoteText.length < 40}
+            class="text-black uppercase tracking-widest text-[10px] border border-black/20 px-8 py-2 hover:bg-black hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             Publicar
           </button>
