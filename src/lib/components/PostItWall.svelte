@@ -59,33 +59,27 @@
   <!-- Interactive Area with Silhouettes -->
   <div class="relative flex-grow w-full overflow-hidden bg-white">
     
-    <!-- Background Image: siluetas2.jpg (Tiled) -->
+    <!-- Background Image: siluetas2.jpg (Tiled) - Darker -->
     <div 
-      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.60]"
+      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.80] contrast-125"
       style="background-image: url('/siluetas2.jpg'); background-size: 400px auto;"
     ></div>
     
-    <!-- White overlay blend -->
-    <div class="absolute inset-0 z-0 bg-white/20 pointer-events-none mix-blend-lighten"></div>
-
     <!-- Notes Loop -->
     <div class="absolute inset-0 z-10 overflow-hidden">
       {#each notes as note (note.id)}
         <div 
-          class="absolute group cursor-pointer p-10"
+          class="absolute group cursor-pointer p-16"
           style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
         >
-          <!-- Trigger Area (Invisible but clickable) -->
-          <div class="w-12 h-12 rounded-full bg-transparent mx-auto"></div>
+          <!-- Trigger Area (Subtle highlight) -->
+          <div class="w-4 h-4 rounded-full bg-black/20 group-hover:bg-transparent transition-colors duration-500 mx-auto blur-sm"></div>
 
-          <!-- The Content (Revealed on Hover) - More Aesthetic -->
-          <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 text-center pointer-events-none z-50">
-            <div class="bg-white px-6 py-4 shadow-2xl rounded-sm border border-gray-100 transform scale-95 group-hover:scale-100 transition-transform duration-300">
-              <p class="text-black text-xs md:text-sm font-['Jost'] leading-relaxed tracking-wide font-light text-gray-800">
-                "{note.text}"
-              </p>
-              <div class="w-6 h-[1px] bg-gray-200 mx-auto mt-3"></div>
-            </div>
+          <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
+          <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
+            <p class="text-black text-sm md:text-base font-['Jost'] font-medium leading-relaxed tracking-wide drop-shadow-md bg-white/80 backdrop-blur-[2px] p-4 rounded-sm">
+              "{note.text}"
+            </p>
           </div>
         </div>
       {/each}
