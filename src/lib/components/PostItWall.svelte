@@ -82,15 +82,11 @@
   <!-- Unified Bottom Panel -->
   <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center w-full max-w-md px-4 pointer-events-none">
     <div class="bg-white/40 backdrop-blur-md border border-white/40 shadow-xl rounded-sm p-6 text-center pointer-events-auto flex flex-col items-center gap-4 transition-all hover:bg-white/50">
-      <p class="text-black/70 text-[10px] md:text-xs uppercase tracking-[0.25em] font-['Jost'] font-light">
-        anota lo que no se te puede pasar
-      </p>
-      
       <button 
         onclick={() => showForm = !showForm}
         class="bg-black text-white px-8 py-3 hover:bg-gray-900 transition-all duration-300 font-['Jost'] text-[10px] tracking-[0.2em] uppercase shadow-md rounded-sm hover:-translate-y-0.5"
       >
-        {showForm ? 'Cerrar' : 'Deja un mensaje'}
+        {showForm ? 'Cerrar' : 'anota lo que no se te puede pasar'}
       </button>
     </div>
   </div>
