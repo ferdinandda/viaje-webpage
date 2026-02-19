@@ -43,7 +43,7 @@
   
   <!-- Background Image: siluetas2.jpg (Tiled for crowd effect) -->
   <div 
-    class="absolute inset-0 z-0 bg-repeat transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.25]"
+    class="absolute inset-0 z-0 bg-repeat transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.40]"
     style="background-image: url('/siluetas2.jpg'); background-size: 400px auto;"
   ></div>
   
