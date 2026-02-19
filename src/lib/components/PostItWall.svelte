@@ -107,7 +107,7 @@
         
         <h3 class="text-gray-900 font-['Jost'] text-sm font-light tracking-wide mb-2 text-center">Esto es solo un ejercicio:</h3>
         <p class="text-gray-600 mb-4 font-['Jost'] text-[11px] md:text-xs leading-relaxed text-center px-4">
-          Deja una nota [entre 40 y 180 caracteres] sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
+          Deja una nota sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
         </p>
         
         <p class="text-gray-400 mb-8 font-['Jost'] text-[10px] italic text-center uppercase tracking-widest">
@@ -121,7 +121,7 @@
         ></textarea>
         
         <div class="mt-4 flex justify-between px-2 text-[9px] text-gray-400 uppercase tracking-widest font-['Jost']">
-          <span>{newNoteText.length} / 180</span>
+          <span>{newNoteText.length}/180 caracteres</span>
           {#if newNoteText.length > 0 && newNoteText.length < 40}
              <span class="text-red-400">Muy corto</span>
           {/if}
