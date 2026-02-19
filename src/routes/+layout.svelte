@@ -3,6 +3,12 @@
   import Footer from '$lib/components/Footer.svelte';
   import { page } from '$app/stores'; // Import page store
   import '../app.css';
+  import { setupConvex } from "convex-svelte";
+  import { client } from "$lib/convex";
+
+  if (client) {
+    setupConvex(client);
+  }
 
   let { children } = $props();
 

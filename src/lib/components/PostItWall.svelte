@@ -3,7 +3,7 @@
   import { fade, scale } from 'svelte/transition';
   import { useQuery, useMutation } from "convex-svelte";
   import { api } from "../../../convex/_generated/api";
-  import { client } from "../convex"; // Initialize convex
+  import { client } from "../convex"; 
 
   let newNoteText = '';
   let showForm = false;
