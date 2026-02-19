@@ -41,10 +41,10 @@
 
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col items-center justify-center">
   
-  <!-- Background Image: siluetas.jpg (User provided) -->
+  <!-- Background Image: siluetas.jpg (Tiled for crowd effect) -->
   <div 
-    class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-10"
-    style="background-image: url('/siluetas.jpg');"
+    class="absolute inset-0 z-0 bg-repeat transition-transform duration-[60s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.06]"
+    style="background-image: url('/siluetas.jpg'); background-size: 400px auto;"
   ></div>
   
   <!-- Interactive Area -->
