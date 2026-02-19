@@ -109,12 +109,24 @@
           <!-- Trigger Area (Subtle highlight) -->
           <div class="w-4 h-4 rounded-full bg-black/20 group-hover:bg-transparent transition-colors duration-500 mx-auto blur-sm"></div>
 
-          <!-- The Content (Revealed on Hover OR Active Click) - Organic Text (No Box) -->
-          <div class="opacity-0 group-hover:opacity-100 {activeNoteId === (note.id || note._id) ? '!opacity-100' : ''} transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
+          <!-- The Content (Revealed on Hover) - Desktop -->
+          <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
             <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
               "{note.text}"
             </p>
           </div>
+
+          <!-- The Content (Active Tap) - Mobile Fixed Center -->
+          {#if activeNoteId === (note.id || note._id)}
+            <div 
+              class="md:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-xs text-center z-[100]" 
+              transition:scale={{duration: 200, start: 0.9}}
+            >
+              <p class="text-black text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-xl bg-white/95 backdrop-blur-md p-6 rounded-sm shadow-2xl border border-gray-200">
+                "{note.text}"
+              </p>
+            </div>
+          {/if}
         </div>
       {/each}
     </div>
