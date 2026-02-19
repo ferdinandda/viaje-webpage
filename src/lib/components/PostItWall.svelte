@@ -37,7 +37,8 @@
     const stringsToFilter = [
       "holiwi jijijij",
       "fernanda es jacker",
-      "mejor novia del mundo mundial"
+      "mejor novia del mundo mundial",
+      "fernanda moreno es jacker"
     ];
 
     combined = combined.filter(n => {
