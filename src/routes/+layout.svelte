@@ -20,9 +20,7 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-  {#if !isPostIt}
-    <Navigation />
-  {/if}
+  <Navigation autoHide={isPostIt} />
 
   <main class="flex-1">
     {@render children()}
