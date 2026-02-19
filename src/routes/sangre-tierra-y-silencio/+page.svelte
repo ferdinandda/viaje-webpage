@@ -136,15 +136,17 @@
         <a href="https://www.instagram.com/" target="_blank" class="text-gray-800 hover:text-black hover:underline mx-1">Instagram</a>
       </p>
 
-      <button
-        onclick={toggleReferences}
-        class="text-xl font-bold mb-4 text-center mt-12 font-['Advent_Pro'] text-gray-600 w-full"
-        class:bounce={atBottom}
-      >
-        Obras citadas:
-      </button>
+      <div class="flex justify-center mt-16 mb-12">
+        <button
+          onclick={toggleReferences}
+          class="px-8 py-3 border border-gray-300 text-gray-500 font-['Jost'] text-[10px] md:text-xs uppercase tracking-[0.25em] hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-sm"
+        >
+          {showReferences ? 'Ocultar obras citadas' : 'Obras citadas'}
+        </button>
+      </div>
+
       {#if showReferences}
-      <div class="mx-auto max-w-prose text-justify font-['Jost'] text-base text-gray-600 mb-20">
+      <div class="mx-auto max-w-prose text-justify font-['Jost'] text-base text-gray-600 mb-24 animate-in fade-in duration-500">
         <p class="mb-1">Bachofen, Johann Jakob. El matriarcado: Una investigación sobre la ginecocracia en el mundo antiguo según su naturaleza religiosa y jurídica. Traducido por María del Mar Llinares García, Lectulandia, 2016.</p>
         <p class="mb-1">Borunda, Alejandra. “How Tampons and Pads Became So Unsustainable.” National Geographic, 2019.</p>
         <p class="mb-1">Canevari, Cecilia. “La expoliación capitalista de los cuerpos: mujeres y medicina.” Americanía. Revista de Estudios Latinoamericanos, no. 17, 2018, pp. 101–122.</p>
