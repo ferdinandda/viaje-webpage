@@ -71,7 +71,7 @@
         <!-- The Content (Revealed on Hover) - Organic Text (No Box) -->
         <div class="opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
           <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
-            {note.text}
+            "{note.text}"
           </p>
         </div>
       </div>
