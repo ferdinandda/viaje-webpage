@@ -8,6 +8,7 @@
 
   // Derived states to check current page
   let isHomepage = $derived($page.url.pathname === '/');
+  let isPostIt = $derived($page.url.pathname === '/post-it');
   let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
 
   // Determine footer theme based on the page
@@ -19,11 +20,15 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-  <Navigation />
+  {#if !isPostIt}
+    <Navigation />
+  {/if}
 
   <main class="flex-1">
     {@render children()}
   </main>
 
-  <Footer {footerTheme} />
+  {#if !isPostIt}
+    <Footer {footerTheme} />
+  {/if}
 </div>
