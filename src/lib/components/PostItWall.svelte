@@ -12,9 +12,9 @@
       notes = JSON.parse(savedNotes);
     } else {
         notes = [
-            { id: 1, text: 'caminar sin rumbo', x: 25, y: 40 },
-            { id: 2, text: 'el ruido blanco de la ciudad', x: 65, y: 55 },
-            { id: 3, text: 'somos sombras que pasan', x: 45, y: 75 }
+            { id: 1, text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 30, y: 45 },
+            { id: 2, text: 'caminar sin rumbo por la ciudad', x: 65, y: 35 },
+            { id: 3, text: 'somos sombras que pasan sin dejar rastro', x: 50, y: 70 }
         ];
     }
   });
