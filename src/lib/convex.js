@@ -1,9 +1,8 @@
 import { ConvexClient } from "convex/browser";
 import { setupConvex } from "convex-svelte";
+import { PUBLIC_CONVEX_URL } from "$env/static/public";
 
-const convexUrl = import.meta.env.PUBLIC_CONVEX_URL;
-
-export const client = convexUrl ? new ConvexClient(convexUrl) : null;
+export const client = PUBLIC_CONVEX_URL ? new ConvexClient(PUBLIC_CONVEX_URL) : null;
 
 if (client) {
   setupConvex(client);

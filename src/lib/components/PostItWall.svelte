@@ -3,6 +3,7 @@
   import { fade, scale } from 'svelte/transition';
   import { ConvexHttpClient } from "convex/browser";
   import { api } from "../../../convex/_generated/api";
+  import { PUBLIC_CONVEX_URL } from "$env/static/public";
 
   let newNoteText = $state('');
   let showForm = $state(false);
@@ -15,9 +16,8 @@
 
   onMount(async () => {
     try {
-        const url = import.meta.env.PUBLIC_CONVEX_URL;
-        if (url) {
-            client = new ConvexHttpClient(url);
+        if (PUBLIC_CONVEX_URL) {
+            client = new ConvexHttpClient(PUBLIC_CONVEX_URL);
             // Fetch initial notes
             const result = await client.query(api.notes.list);
             dbNotes = result || [];
