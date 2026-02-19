@@ -41,10 +41,10 @@
 
 <section class="relative w-full h-screen overflow-hidden bg-white flex flex-col items-center justify-center">
   
-  <!-- Background Image with Extreme Contrast for Silhouette Effect -->
+  <!-- Background Image: People Silhouettes -->
   <div 
     class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[60s] ease-linear hover:scale-110 pointer-events-none"
-    style="background-image: url('https://images.unsplash.com/photo-1444065707204-12decac917e8?q=80&w=2073&auto=format&fit=crop'); filter: grayscale(100%) contrast(300%) brightness(150%); opacity: 0.15;"
+    style="background-image: url('https://images.unsplash.com/photo-1517502884422-41eaace01e29?q=80&w=2000&auto=format&fit=crop'); filter: grayscale(100%) contrast(500%) brightness(140%) invert(0); opacity: 0.15;"
   ></div>
   
   <!-- Interactive Area -->
