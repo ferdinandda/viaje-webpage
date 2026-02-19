@@ -35,10 +35,9 @@
 
     // Moderation: Filter out specific notes requested by user
     const stringsToFilter = [
-      "holiwi jijijij",
-      "fernanda es jacker",
-      "mejor novia del mundo mundial",
-      "fernanda moreno es jacker"
+      "holiwi",
+      "jacker",
+      "mejor novia"
     ];
 
     combined = combined.filter(n => {
