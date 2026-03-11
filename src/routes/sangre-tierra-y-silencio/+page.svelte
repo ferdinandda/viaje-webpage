@@ -33,8 +33,11 @@
 
   <main class="{$readerModeActive ? 'max-w-2xl mx-auto py-12 px-8' : 'bg-[var(--color-paper)]'}">
     <div class="{$readerModeActive ? '' : 'container mx-auto px-4 py-8'}">
-      <p class="text-xs font-bold text-center text-[#D4A5A2] mb-2 font-['Jost']">Feminismos</p>
-      <h1 class="{$readerModeActive ? 'text-3xl font-serif text-center mb-8' : 'text-4xl font-bold mb-4 font-[\'Advent_Pro\'] uppercase text-center mx-auto max-w-3xl'}">
+      <p class="text-xs font-bold text-center text-[#9C9C9C] mb-2 font-['Jost']">Feminismos</p>
+      <h1 
+        class="{$readerModeActive ? 'text-3xl font-serif text-center mb-8' : 'text-5xl md:text-6xl lg:text-7xl font-normal mb-6 uppercase text-center mx-auto max-w-5xl tracking-tight leading-none'}"
+        style="font-family: 'Bebas Neue', sans-serif;"
+      >
         Cuando la sangre toca la tierra: el doble vínculo de la mujer
       </h1>
       <p class="text-sm text-center font-['Jost'] mb-2">Por Florencia Leiva Silva</p>
@@ -46,14 +49,14 @@
       {#if !$readerModeActive}
         <p class="text-xs text-center font-['Jost'] mb-4">Enero, 2025</p>
         
-        <div class="relative max-w-4xl mx-auto overflow-hidden shadow-lg mb-8">
-          <img src="/Carrieee.jpg" alt="Cuando la sangre toca la tierra" class="w-full h-auto" />
+        <div class="relative max-w-4xl mx-auto overflow-hidden shadow-lg mb-8 eink-image-container">
+          <img src="/Carrieee.jpg" alt="Cuando la sangre toca la tierra" class="w-full h-auto color-eink-filter" />
           <div class="absolute bottom-3 right-4 text-[9px] md:text-[10px] text-white/70 font-['Jost'] uppercase tracking-[0.2em] bg-black/30 px-3 py-1 backdrop-blur-sm">
             Carrie, Brian de Palma, 1976
           </div>
         </div>
 
-        <div class="max-w-prose mx-auto mb-12 text-[#D4A5A2] flex justify-end">
+        <div class="max-w-prose mx-auto mb-12 text-[#9C9C9C] flex justify-end">
           <p class="text-sm text-right font-['Jost'] italic leading-relaxed font-bold max-w-md">
             The suffering of women is the true story of the universe
             <br>
@@ -79,8 +82,8 @@
       </div>
 
       {#if !$readerModeActive}
-      <div class="my-8 mx-auto max-w-md text-center">
-        <img src="/flo.jpg" alt="Tallados de roca en el río Yule" class="w-full h-auto" />
+      <div class="my-8 mx-auto max-w-md text-center eink-image-container">
+        <img src="/flo.jpg" alt="Tallados de roca en el río Yule" class="w-full h-auto color-eink-filter" />
         <p class="text-sm mt-2 font-['Jost']">
           Fig. 1: Tallados de roca en el río Yule, Pilbara, Australia Occidental. Arte rupestre de indígenas australianos que ilustran imágenes de figuras femeninas danzando en una unión de flujos menstruales.
         </p>
@@ -92,8 +95,8 @@
       </div>
 
       {#if !$readerModeActive}
-      <div class="my-8 mx-auto max-w-md text-center">
-        <img src="/Williams.jpg" alt="Publicidad Tampax Serena Williams" class="w-full h-auto" />
+      <div class="my-8 mx-auto max-w-md text-center eink-image-container">
+        <img src="/Williams.jpg" alt="Publicidad Tampax Serena Williams" class="w-full h-auto color-eink-filter" />
         <p class="text-sm mt-2 font-['Jost']">
           Fig. 2: publicidad de tampones con la tenista Serena Williams como rostro de Tampax Pearl (2009-2010).
         </p>
@@ -109,8 +112,8 @@
       </div>
 
       {#if !$readerModeActive}
-      <div class="my-8 mx-auto max-w-md text-center">
-        <img src="/floflo.jpg" alt="Las chicas del radio" class="w-full h-auto" />
+      <div class="my-8 mx-auto max-w-md text-center eink-image-container">
+        <img src="/floflo.jpg" alt="Las chicas del radio" class="w-full h-auto color-eink-filter" />
         <p class="text-sm mt-2 font-['Jost']">
           Fig 3: Registro fotográfico de los efectos secundarios del envenenamiento por radiación de las Chicas del radio en la fábrica de relojes United States Radium Corporation (1917).
         </p>
@@ -190,6 +193,24 @@
 </div>
 
 <style>
+  .color-eink-filter {
+    filter: sepia(0.15) saturate(0.6) contrast(1.1) brightness(1.02);
+  }
+
+  .eink-image-container {
+    position: relative;
+  }
+
+  .eink-image-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.95%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');
+    pointer-events: none;
+    opacity: 0.1;
+    z-index: 5;
+  }
+
   @keyframes bounce-letters {
     0%, 20%, 50%, 80%, 100% {
       transform: translateY(0);

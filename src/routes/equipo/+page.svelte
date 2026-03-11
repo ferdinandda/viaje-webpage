@@ -51,7 +51,7 @@
 </svelte:head>
 
 <!-- Editorial Note Section (Dark) -->
-<div class="bg-[#1A1A1A] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
+<div class="bg-[#1C1C1C] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
   <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
     <h2 class="text-2xl font-bold mb-8 text-[var(--color-paper)] opacity-90" style="font-family: 'Jost', sans-serif;">Nota editorial:</h2>
     <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
@@ -67,15 +67,15 @@
     <div class="mb-24">
       {#each equipo as miembro}
         {#if miembro.nombre === 'Fernanda Moreno Gutiérrez'}
-          <p class="mb-8 text-sm uppercase tracking-widest text-[#D4A5A2] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
+          <p class="mb-8 text-sm uppercase tracking-widest text-[#9C9C9C] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
         {/if}
         {#if miembro.nombre === 'Javiera Zumelzu'}
-          <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#D4A5A2] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
+          <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#9C9C9C] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
         {/if}
         <div class="group mb-8 last:mb-0">
           <div class="mt-2">
             {#if miembro.rol}
-              <p class="mt-1 text-sm uppercase tracking-widest text-[#D4A5A2] opacity-90">
+              <p class="mt-1 text-sm uppercase tracking-widest text-[#9C9C9C] opacity-90">
                 {miembro.rol}
               </p>
             {/if}

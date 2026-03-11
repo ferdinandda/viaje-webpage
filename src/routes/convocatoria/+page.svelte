@@ -7,7 +7,7 @@
       href="https://www.reddit.com/r/twinpeaks/comments/1i5xz0k/david_lynch_directing_tom_sizemore_in_twin_peaks/" 
       target="_blank"
       rel="noopener noreferrer"
-      class="text-white/30 hover:text-[#D4A5A2] text-[10px] mt-12 animate-blur-reveal-delayed transition-colors uppercase tracking-widest"
+      class="text-white/30 hover:text-[#9C9C9C] text-[10px] mt-12 animate-blur-reveal-delayed transition-colors uppercase tracking-widest"
     >
       Ver referencia
     </a>
@@ -42,7 +42,7 @@
   <div class="mb-16 text-[var(--color-ink)] text-center">
     <h1 class="text-5xl font-bold mb-4">Convocatoria abierta</h1>
     <p class="text-xl">
-      <a href="mailto:viajerevista@gmail.com" class="hover:underline text-[#D4A5A2]">Envíos a viajerevista@gmail.com</a>
+      <a href="mailto:viajerevista@gmail.com" class="hover:underline text-[#9C9C9C]">Envíos a viajerevista@gmail.com</a>
     </p>
   </div>
 
@@ -51,60 +51,60 @@
     <p class="mb-4 text-justify">La revista recibe ensayos de carácter crítico y creativo. Nos interesan especialmente aquellos textos que piensen el mundo desde la propia experiencia de quien escribe, con libertad formal y apertura a la experimentación.</p>
     
     <h2 class="text-xl font-bold mb-2">Modalidades aceptadas</h2>
-    <ol class="list-decimal list-inside mb-4 marker:text-[#D4A5A2]">
+    <ol class="list-decimal list-inside mb-4 marker:text-[#9C9C9C]">
       <li><p class="inline font-bold">Textos ensayísticos</p>
         <ul class="list-none ml-4 space-y-1">
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Ensayos inéditos sobre cultura, literatura, política, estética y filosofía, entre otros campos, escritos en un registro no académico.</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Ensayos inéditos sobre cultura, literatura, política, estética y filosofía, entre otros campos, escritos en un registro no académico.</li>
         </ul>
       </li>
       <li><p class="inline font-bold">Entrevistas</p>
         <ul class="list-none ml-4 space-y-1">
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Entrevistas a autoras y autores que trabajen el ensayo como género central de su práctica intelectual o literaria, así como conversaciones que aborden sus procesos de escritura, pensamiento, obra publicada o proyectos en desarrollo.</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Entrevistas a autoras y autores que trabajen el ensayo como género central de su práctica intelectual o literaria, así como conversaciones que aborden sus procesos de escritura, pensamiento, obra publicada o proyectos en desarrollo.</li>
         </ul>
       </li>
       <li><p class="inline font-bold">Conversaciones públicas</p>
         <ul class="list-none ml-4 space-y-1">
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Entrevistas o ensayos leídos en charlas, seminarios o presentaciones, vinculados al ensayo como forma de pensamiento.</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Entrevistas o ensayos leídos en charlas, seminarios o presentaciones, vinculados al ensayo como forma de pensamiento.</li>
         </ul>
       </li>
       <li><p class="inline font-bold">Dosieres de eventos</p>
         <ul class="list-none ml-4 space-y-1">
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Conjuntos de textos producidos en encuentros o jornadas dedicadas al ensayo.</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Conjuntos de textos producidos en encuentros o jornadas dedicadas al ensayo.</li>
         </ul>
       </li>
     </ol>
 
     <h2 class="text-xl font-bold mb-2">Formato de envío <span class="font-normal text-gray-500 text-sm">(dentro de lo posible)</span></h2>
     <ul class="list-none mb-4 space-y-1">
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Archivo Word (.doc o .docx) con nombre del autor/a.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Times New Roman, tamaño 12.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Interlineado 1,5.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Texto justificado.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Archivo Word (.doc o .docx) con nombre del autor/a.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Times New Roman, tamaño 12.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Interlineado 1,5.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Texto justificado.</li>
     </ul>
 
     <h2 class="text-xl font-bold mb-2">Material complementario</h2>
     <ul class="list-none mb-4 space-y-1">
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Ensayos y entrevistas: imagen opcional.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Presentaciones: al menos un material visual en alta resolución.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Dosieres:
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Ensayos y entrevistas: imagen opcional.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Presentaciones: al menos un material visual en alta resolución.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Dosieres:
         <ul class="list-none ml-4 space-y-1">
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Introducción del evento (lugar, fecha, motivo).</li>
-          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Índice con orden de textos, autorías y citas destacadas.</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Introducción del evento (lugar, fecha, motivo).</li>
+          <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Índice con orden de textos, autorías y citas destacadas.</li>
         </ul>
       </li>
     </ul>
 
     <h2 class="text-xl font-bold mb-2">Extensión</h2>
     <ul class="list-none mb-4 space-y-1">
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">Ensayos, entrevistas y presentaciones: 3 a 8 páginas (formato carta).</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">Ensayos, entrevistas y presentaciones: 3 a 8 páginas (formato carta).</li>
     </ul>
 
     <h2 class="text-xl font-bold mb-2">Criterios editoriales</h2>
     <p class="mb-4 text-justify">Al momento de revisar los textos, consideramos especialmente:</p>
     <ul class="list-none mb-4 space-y-1">
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">La presencia de un enfoque crítico.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">La claridad en la estructura y el desarrollo.</li>
-      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#D4A5A2]">La afinidad con la política editorial (no se publican textos que promuevan odio, discriminación o violencia).</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">La presencia de un enfoque crítico.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">La claridad en la estructura y el desarrollo.</li>
+      <li class="relative pl-4 text-justify before:content-['-'] before:absolute before:left-0 before:text-[#9C9C9C]">La afinidad con la política editorial (no se publican textos que promuevan odio, discriminación o violencia).</li>
     </ul>
 
     <h2 class="text-xl font-bold mb-2">Derechos de publicación</h2>

@@ -37,16 +37,16 @@
   --font-title: "Stoke", serif;
   --font-jost: "Jost", sans-serif;
 
-  /* Editorial Color Palette */
-  --color-cream: #FAF8F5;
-  --color-paper: #F5F2ED;
-  --color-ink: #1A1A1A;
-  --color-ink-light: #3D3D3D;
-  --color-ink-muted: #6B6B6B;
-  --color-terracotta: #D4A5A2;
-  --color-terracotta-dark: #8B4E35;
-  --color-rule: #D4CFC7;
-  --color-rule-light: #E8E4DD;
+  /* Kindle E-Ink Palette */
+  --color-cream: #e5e5e5;
+  --color-paper: #e5e5e5;
+  --color-ink: #121212; 
+  --color-ink-light: #333333;
+  --color-ink-muted: #666666;
+  --color-terracotta: #cccccc; /* Used for subtle rules */
+  --color-terracotta-dark: #121212;
+  --color-rule: #b3b3b3;
+  --color-rule-light: #d9d9d9;
 
   /* Spacing */
   --spacing-editorial: 8vw;

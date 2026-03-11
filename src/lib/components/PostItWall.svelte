@@ -90,11 +90,11 @@
   }
 </script>
 
-<section class="relative w-full h-screen overflow-hidden bg-white flex flex-col">
+<section class="relative w-full h-screen overflow-hidden bg-[#e5e5e5] flex flex-col">
 
   <!-- Interactive Area with Silhouettes -->
   <div 
-    class="relative flex-grow w-full overflow-hidden bg-white"
+    class="relative flex-grow w-full overflow-hidden bg-[#e5e5e5]"
     onclick={() => activeNoteId = null}
     role="button"
     tabindex="0"

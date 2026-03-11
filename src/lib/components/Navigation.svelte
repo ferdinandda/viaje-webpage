@@ -77,7 +77,7 @@
 
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out 
-         {isHomepage ? (scrolled ? 'bg-[#D4A5A2]/70 backdrop-blur-md shadow-sm' : 'bg-transparent') : (scrolled ? 'bg-[#D4A5A2]/70 backdrop-blur-md shadow-sm' : 'bg-[#D4A5A2]')}
+         {isHomepage ? (scrolled ? 'bg-[#e5e5e5]/70 backdrop-blur-md shadow-sm' : 'bg-transparent') : (scrolled ? 'bg-[#e5e5e5]/70 backdrop-blur-md shadow-sm' : 'bg-[#e5e5e5]')}
          {autoHide && !shouldShow ? '-translate-y-full' : 'translate-y-0'}"
 >
     <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
@@ -221,7 +221,7 @@
     <div class="relative w-full max-w-2xl bg-white/95 backdrop-blur-md shadow-2xl p-8 md:p-12 rounded-lg transform animate-in slide-in-from-bottom-4 duration-300">
       <button 
         onclick={toggleSearch} 
-        class="absolute top-4 right-4 text-gray-400 hover:text-[#D4A5A2] transition-colors"
+        class="absolute top-4 right-4 text-gray-400 hover:text-[#D1D1D1] transition-colors"
         aria-label="Close search"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,7 +235,7 @@
           type="text"
           bind:value={searchQuery}
           placeholder="Buscar ensayo o autor..."
-          class="w-full bg-transparent border-b border-gray-200 text-2xl md:text-3xl font-['Jost'] pb-2 focus:outline-none focus:border-[#D4A5A2] placeholder-gray-400 text-gray-800"
+          class="w-full bg-transparent border-b border-gray-200 text-2xl md:text-3xl font-['Jost'] pb-2 focus:outline-none focus:border-[#D1D1D1] placeholder-gray-400 text-gray-800"
           autocomplete="off"
         />
 
@@ -246,7 +246,7 @@
               onclick={toggleSearch}
               class="block group"
             >
-              <h3 class="text-xl text-gray-800 group-hover:text-[#D4A5A2] transition-colors font-['Jost'] font-bold leading-tight">
+              <h3 class="text-xl text-gray-800 group-hover:text-[#D1D1D1] transition-colors font-['Jost'] font-bold leading-tight">
                 {result.title}
               </h3>
               <p class="text-sm text-gray-500 font-['Stoke Light'] group-hover:text-gray-800 transition-colors mt-1">
