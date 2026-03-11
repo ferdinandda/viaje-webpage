@@ -2,9 +2,9 @@
   const equipo = [
     {
       nombre: 'Fernanda Moreno Gutiérrez',
-      rol: '',
-      locacion_ano: '(Iquique, 1999)',
-      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
+      rol: 'Dirección editorial',
+      locacion_ano: '(Santiago, 2000)',
+      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile. Su trabajo gira en torno a la teoría literaria, la edición y la investigación académica.',
       inicial: 'FM'
     },
     {
@@ -50,49 +50,50 @@
   <meta name="description" content="Conoce al equipo editorial de Revista Viaje. Dirección, diseño y comité editorial." />
 </svelte:head>
 
-<!-- Editorial Note Section (Dark) -->
-<div class="bg-[#1C1C1C] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
-  <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-8 text-[var(--color-paper)] opacity-90" style="font-family: 'Jost', sans-serif;">Nota editorial:</h2>
-    <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
-      Este proyecto comienza a cuajar durante el verano del 2026 en el desierto de Atacama, más precisamente en la región de Tarapacá. Es posible, sin embargo, que se haya estado gestando ya en 2025, cuando nos conocimos en Valparaíso. Sin tener del todo claro el lugar que ocupamos en el mundo, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Nos interesa esa dislocación en el modo de ser y estar que toda escritura ensayística implica. La revista se propone como una apertura para quienes entienden la creación como un modo [siempre inestable] de estar en el mundo.
-    </blockquote>
-  </div>
-</div>
-
-<!-- Team List Section (Light) -->
-<section class="pt-12 pb-24" style="font-family: 'Jost', sans-serif;">
-  <div class="mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
-    <!-- Team List -->
-    <div class="mb-24">
-      {#each equipo as miembro}
-        {#if miembro.nombre === 'Fernanda Moreno Gutiérrez'}
-          <p class="mb-8 text-sm uppercase tracking-widest text-[#9C9C9C] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
-        {/if}
-        {#if miembro.nombre === 'Javiera Zumelzu'}
-          <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#9C9C9C] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
-        {/if}
-        <div class="group mb-8 last:mb-0">
-          <div class="mt-2">
-            {#if miembro.rol}
-              <p class="mt-1 text-sm uppercase tracking-widest text-[#9C9C9C] opacity-90">
-                {miembro.rol}
-              </p>
-            {/if}
-            <h3 class="text-xl font-semibold text-[var(--color-ink)] mt-1 opacity-90">
-              {miembro.nombre}
-            </h3>
-            {#if miembro.locacion_ano}
-              <p class="mt-1 text-sm text-[var(--color-ink-muted)] opacity-80">
-                {miembro.locacion_ano}
-              </p>
-            {/if}
-            <p class="mt-3 text-sm text-[var(--color-ink)] leading-relaxed text-justify opacity-80">
-              {miembro.descripcion}
-            </p>
-          </div>
-        </div>
-      {/each}
+<div class="bg-[#e5e5e5]">
+  <!-- Editorial Note Section (Static) -->
+  <div class="bg-[#1C1C1C] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
+    <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold mb-8 text-[var(--color-paper)] opacity-90" style="font-family: 'Jost', sans-serif;">Nota editorial:</h2>
+      <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
+        <span class="editorial-strike">Este proyecto comienza a cuajar durante el verano del 2026 en el desierto de Atacama. Es posible, sin embargo, que se haya estado gestando ya en 2025, cuando nos conocimos en Valparaíso.</span> Sin tener del todo claro el lugar que ocupamos en la academia, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Nos interesa esa dislocación en el modo de ser y estar que toda composición ensayística implica. Por ello, la revista se propone como una apertura para quienes entienden el acto creativo como un modo [siempre inestable] de estar en el mundo.
+      </blockquote>
     </div>
   </div>
-</section>
+
+  <!-- Team List Section -->
+  <section class="pt-12 pb-24 bg-[#e5e5e5]" style="font-family: 'Jost', sans-serif;">
+    <div class="mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
+      <div class="mb-24">
+        {#each equipo as miembro}
+          {#if miembro.nombre === 'Fernanda Moreno Gutiérrez'}
+            <p class="mb-8 text-sm uppercase tracking-widest text-[#9C9C9C] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
+          {/if}
+          {#if miembro.nombre === 'Javiera Zumelzu'}
+            <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#9C9C9C] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
+          {/if}
+          <div class="group mb-8 last:mb-0">
+            <div class="mt-2">
+              {#if miembro.rol}
+                <p class="mt-1 text-sm uppercase tracking-widest text-[#9C9C9C] opacity-90">{miembro.rol}</p>
+              {/if}
+              <h3 class="text-xl font-semibold text-[var(--color-ink)] mt-1 opacity-90">{miembro.nombre}</h3>
+              {#if miembro.locacion_ano}
+                <p class="mt-1 text-sm text-[var(--color-ink-muted)] opacity-80">{miembro.locacion_ano}</p>
+              {/if}
+              <p class="mt-3 text-sm text-[var(--color-ink)] leading-relaxed text-justify opacity-80">{miembro.descripcion}</p>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .editorial-strike {
+    text-decoration: line-through;
+    text-decoration-color: white;
+    text-decoration-thickness: 1px;
+  }
+</style>

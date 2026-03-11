@@ -71,5 +71,11 @@
     background-color: var(--color-terracotta);
     color: var(--color-cream);
   }
+
+  .editorial-strike {
+    text-decoration: line-through;
+    text-decoration-color: white;
+    text-decoration-thickness: 1px;
+  }
 }
 
