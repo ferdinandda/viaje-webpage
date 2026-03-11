@@ -5,7 +5,7 @@
   let { footerTheme = 'light' } = $props(); // 'light', 'dark', or 'dark-red'
 </script>
 
-<footer class="border-t border-white/10 bg-black text-[#D24843]"
+<footer class="border-t border-white/10 bg-black text-[#D4A5A2]"
   style="font-family: 'Jost', sans-serif;"
 >
   <div class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 py-16 md:py-20">
@@ -13,45 +13,45 @@
       <!-- Brand -->
       <div class="flex flex-col items-start gap-4">
         <Logo useLightNav={true} />
-        <p class="font-[var(--font-display)] text-[#D24843]/70 text-base italic leading-relaxed">
+        <p class="font-[var(--font-display)] text-[#D4A5A2]/70 text-base italic leading-relaxed">
           Revista de Ensayo y Creación
         </p>
       </div>
 
       <!-- Secciones -->
       <div class="flex flex-col items-start gap-4">
-        <h4 class="font-bold text-xs uppercase tracking-widest text-[#D24843]">
+        <h4 class="font-bold text-xs uppercase tracking-widest text-[#D4A5A2]">
           Secciones
         </h4>
         <ul class="space-y-2">
           {#each navItems as item}
-            <li><a href={item.href} class="text-[#D24843]/80 hover:text-white transition-colors">{item.label}</a></li>
+            <li><a href={item.href} class="text-[#D4A5A2]/80 hover:text-white transition-colors">{item.label}</a></li>
           {/each}
         </ul>
       </div>
 
 <!-- Contact -->
       <div class="flex flex-col items-start gap-4">
-        <h4 class="font-bold text-xs uppercase tracking-widest text-[#D24843]">
+        <h4 class="font-bold text-xs uppercase tracking-widest text-[#D4A5A2]">
           Contacto
         </h4>
         <div class="space-y-1">
-          <p class="text-[#D24843]/80">
+          <p class="text-[#D4A5A2]/80">
             <a href="mailto:viajerevista@gmail.com" class="hover:text-white transition-colors">
               viajerevista@gmail.com
             </a>
           </p>
-          <p class="text-[#D24843]/80">
+          <p class="text-[#D4A5A2]/80">
             <a href="https://www.instagram.com/revistaviajecl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
               Instagram
             </a>
           </p>
         </div>
         <div class="space-y-1 mt-2">
-          <p class="text-sm text-[#D24843]/70">
+          <p class="text-sm text-[#D4A5A2]/70">
             Tarapacá, Chile
           </p>
-          <p class="text-sm text-[#D24843]/70">
+          <p class="text-sm text-[#D4A5A2]/70">
             Valparaíso, Chile
           </p>
         </div>
@@ -61,7 +61,7 @@
     <!-- Bottom bar -->
     <div class="mt-16 pt-8 border-t border-white/10">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-[#D24843]/70">
+        <p class="text-sm text-[#D4A5A2]/70">
           &copy; {currentYear} Revista Viaje. Todos los derechos reservados.
         </p>
 

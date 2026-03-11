@@ -25,7 +25,7 @@
             <h3 class="font-bold text-lg uppercase text-[var(--color-ink)] leading-tight tracking-wide mb-4">
               {@html tab.title}
             </h3>
-            <div class="w-8 h-px bg-[#D24843] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="w-8 h-px bg-[#D4A5A2] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           <p class="text-[var(--color-ink-muted)] text-sm mt-auto" style="font-family: 'Stoke Light', serif;">
             {tab.author}

@@ -16,7 +16,7 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[#D24843] text-[var(--color-ink)]">
+<section class="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[#D4A5A2] text-[var(--color-ink)]">
 
 
   <div class="relative z-10 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 pt-48 pb-32 md:pt-60 md:pb-40">
@@ -78,7 +78,7 @@
     <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify" style="font-family: 'Jost', sans-serif;">
       “Me gusta pensar que quienes escriben ensayo tienen el pulso malo de los viajeros, mal estibados, empujados siempre a trasbordar y recomenzar sus maletas. Viaja Martí, viaja Mistral, viaja Benjamin, viaja Paz. Hubo y hay tal vez una noche: los focos iluminan el andén con aquella luz anaranjada de los sitios que no existen más que para los otros. El andén es igual a otros andenes; sin embargo, tan distinto en la nitidez con que los ojos del extranjero intentan atraparlo.”
     </blockquote>
-    <p class="mt-8 text-sm uppercase tracking-widest text-[#D24843]" style="font-family: 'Stoke', serif;">
+    <p class="mt-8 text-sm uppercase tracking-widest text-[#D4A5A2]" style="font-family: 'Stoke', serif;">
       [Guadalupe Santa Cruz, El espesor de las palabras]
     </p>
   </div>
@@ -94,7 +94,7 @@
     z-index: 1;
     display: inline-block;
     padding: 0 0.3em;
-    color: #D24843; /* Hero background color for text */
+    color: #D4A5A2; /* Hero background color for text */
     margin: 0 2px;
   }
 

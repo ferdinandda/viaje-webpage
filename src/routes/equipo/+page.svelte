@@ -67,15 +67,15 @@
     <div class="mb-24">
       {#each equipo as miembro}
         {#if miembro.nombre === 'Fernanda Moreno Gutiérrez'}
-          <p class="mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
+          <p class="mb-8 text-sm uppercase tracking-widest text-[#D4A5A2] border-b border-[#D4CFC7] pb-2">COMITÉ EDITORIAL:</p>
         {/if}
         {#if miembro.nombre === 'Javiera Zumelzu'}
-          <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#D24843] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
+          <p class="mt-16 mb-8 text-sm uppercase tracking-widest text-[#D4A5A2] border-b border-[#D4CFC7] pb-2">DISEÑO:</p>
         {/if}
         <div class="group mb-8 last:mb-0">
           <div class="mt-2">
             {#if miembro.rol}
-              <p class="mt-1 text-sm uppercase tracking-widest text-[#D24843] opacity-90">
+              <p class="mt-1 text-sm uppercase tracking-widest text-[#D4A5A2] opacity-90">
                 {miembro.rol}
               </p>
             {/if}

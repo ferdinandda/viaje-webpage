@@ -33,7 +33,7 @@
 
   <main class="{$readerModeActive ? 'max-w-2xl mx-auto py-12 px-8' : 'bg-[var(--color-paper)]'}">
     <div class="{$readerModeActive ? '' : 'container mx-auto px-4 py-8'}">
-      <p class="text-xs font-bold text-center text-[#D24843] mb-2 font-['Jost']">Feminismos</p>
+      <p class="text-xs font-bold text-center text-[#D4A5A2] mb-2 font-['Jost']">Feminismos</p>
       <h1 class="{$readerModeActive ? 'text-3xl font-serif text-center mb-8' : 'text-4xl font-bold mb-4 font-[\'Advent_Pro\'] uppercase text-center mx-auto max-w-3xl'}">
         Cuando la sangre toca la tierra: el doble vínculo de la mujer
       </h1>
@@ -53,7 +53,7 @@
           </div>
         </div>
 
-        <div class="max-w-prose mx-auto mb-12 text-[#D24843] flex justify-end">
+        <div class="max-w-prose mx-auto mb-12 text-[#D4A5A2] flex justify-end">
           <p class="text-sm text-right font-['Jost'] italic leading-relaxed font-bold max-w-md">
             The suffering of women is the true story of the universe
             <br>
