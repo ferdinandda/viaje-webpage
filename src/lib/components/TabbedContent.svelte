@@ -5,7 +5,7 @@
 </script>
 
 <div class="p-4 max-w-7xl mx-auto">
-  <h2 class="text-3xl md:text-5xl text-center mb-16 text-[var(--color-ink)] leading-none" style="font-family: 'Stoke', serif;">Últimas Publicaciones</h2>
+  <h2 class="text-5xl md:text-7xl text-center mb-16 text-[var(--color-ink)] leading-none uppercase tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">Últimas Publicaciones</h2>
   
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {#each tabs as tab}
@@ -44,12 +44,12 @@
         <!-- Content Container -->
         <div class="p-8 flex flex-col flex-grow justify-between text-center">
           <div>
-            <h3 class="font-bold text-lg uppercase text-[var(--color-ink)] leading-tight tracking-wide mb-4" style="font-family: 'Jost', sans-serif;">
+            <h3 class="text-2xl font-normal uppercase text-[var(--color-ink)] leading-[1.1] tracking-tight mb-4" style="font-family: 'Bebas Neue', sans-serif;">
               {@html tab.title}
             </h3>
             <div class="w-8 h-px bg-[var(--color-ink)] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
-          <p class="text-[var(--color-ink-muted)] text-sm mt-auto" style="font-family: 'Stoke Light', serif;">
+          <p class="text-[var(--color-ink-muted)] text-xs uppercase tracking-widest mt-auto" style="font-family: 'Stoke Light', serif;">
             {tab.author}
           </p>
         </div>
