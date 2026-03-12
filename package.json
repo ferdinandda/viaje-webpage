@@ -22,7 +22,9 @@
   },
   "type": "module",
   "dependencies": {
+    "@vercel/blob": "^2.3.1",
     "convex": "^1.32.0",
-    "convex-svelte": "^0.0.12"
+    "convex-svelte": "^0.0.12",
+    "elevenlabs": "^1.59.0"
   }
 }
