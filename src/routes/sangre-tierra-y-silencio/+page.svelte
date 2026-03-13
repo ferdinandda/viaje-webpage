@@ -9,7 +9,6 @@
   let atBottom = $state(false);
   
   let essay = $state(null);
-  let isGenerating = $state(false);
   let audioUrl = $state(null);
   let isSeeding = $state(false);
 
@@ -22,9 +21,7 @@
       const result = await convex.query(api.notes.getEssayBySlug, { slug });
       if (result) {
         essay = result;
-        if (essay.audioUrl) {
-          audioUrl = essay.audioUrl;
-        }
+        audioUrl = essay.audioUrl || null;
       } else {
         essay = null;
       }
@@ -44,34 +41,6 @@
       alert("Error al inicializar el ensayo en la base de datos.");
     } finally {
       isSeeding = false;
-    }
-  }
-
-  async function generateAudio() {
-    if (isGenerating || !essay) return;
-    isGenerating = true;
-    try {
-      const response = await fetch('/api/generate-audio', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          text: essay.content,
-          essayId: essay._id,
-          slug: essay.slug
-        })
-      });
-      const data = await response.json();
-      if (data.audioUrl) {
-        audioUrl = data.audioUrl;
-        await loadEssay();
-      } else {
-        alert("Error al generar audio: " + (data.error || "Desconocido"));
-      }
-    } catch (e) {
-      console.error("Error generating audio:", e);
-      alert("Error de conexión al generar audio.");
-    } finally {
-      isGenerating = false;
     }
   }
 
@@ -127,43 +96,28 @@
           </div>
         </div>
 
-        <!-- Audio Player Section -->
-        <div class="max-w-prose mx-auto mb-8 flex items-center gap-4 border-y border-gray-200 py-4 min-h-[64px]">
-          {#if !essay && !isSeeding}
+        <!-- Audio Player Section (Manual management) -->
+        {#if !essay && !isSeeding}
+          <div class="max-w-prose mx-auto mb-8 border-y border-gray-200 py-4 flex justify-center">
             <button 
               onclick={runSeed}
               class="text-[10px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold"
             >
-              [ Inicializar contenido en Base de Datos ]
+              [ Sincronizar contenido con Base de Datos ]
             </button>
-          {:else if isSeeding}
+          </div>
+        {:else if isSeeding}
+          <div class="max-w-prose mx-auto mb-8 border-y border-gray-200 py-4 flex justify-center">
             <span class="text-[10px] uppercase tracking-widest text-gray-400 animate-pulse">Sincronizando con Convex...</span>
-          {:else if audioUrl}
-            <div class="flex items-center gap-4 w-full animate-in fade-in slide-in-from-bottom-2 duration-700">
+          </div>
+        {:else if audioUrl}
+          <div class="max-w-prose mx-auto mb-8 flex items-center gap-4 border-y border-gray-200 py-4 min-h-[64px] animate-in fade-in slide-in-from-bottom-2 duration-700">
+            <div class="flex items-center gap-4 w-full">
               <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Escuchar:</span>
               <audio controls src={audioUrl} class="h-8 flex-grow opacity-70 grayscale"></audio>
             </div>
-          {:else}
-            <button 
-              onclick={generateAudio}
-              disabled={isGenerating}
-              class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-gray-500 hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
-            >
-              {#if isGenerating}
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 border-2 border-gray-400 border-t-black rounded-full animate-spin"></div>
-                  <span class="animate-pulse">Sintetizando voz (ElevenLabs)...</span>
-                </div>
-              {:else}
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Escuchar este ensayo</span>
-              {/if}
-            </button>
-          {/if}
-        </div>
+          </div>
+        {/if}
 
         <div class="max-w-prose mx-auto mb-12 text-[#9C9C9C] flex justify-end">
           <p class="text-sm text-right font-['Jost'] italic leading-relaxed font-bold max-w-md">
