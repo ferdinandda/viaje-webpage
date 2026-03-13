@@ -11,20 +11,39 @@
   let essay = $state(null);
   let isGenerating = $state(false);
   let audioUrl = $state(null);
+  let isSeeding = $state(false);
 
   const slug = "sangre-tierra-y-silencio";
-  // Fallback URL confirmed by user to avoid initialization errors
   const CONVEX_URL = PUBLIC_CONVEX_URL || "https://aromatic-aardvark-340.convex.cloud";
   const convex = new ConvexHttpClient(CONVEX_URL);
 
   async function loadEssay() {
     try {
-      essay = await convex.query(api.notes.getEssayBySlug, { slug });
-      if (essay?.audioUrl) {
-        audioUrl = essay.audioUrl;
+      const result = await convex.query(api.notes.getEssayBySlug, { slug });
+      if (result) {
+        essay = result;
+        if (essay.audioUrl) {
+          audioUrl = essay.audioUrl;
+        }
+      } else {
+        essay = null;
       }
     } catch (e) {
       console.error("Error loading essay from Convex:", e);
+    }
+  }
+
+  async function runSeed() {
+    if (isSeeding) return;
+    isSeeding = true;
+    try {
+      await convex.mutation(api.notes.seedRun);
+      await loadEssay();
+    } catch (e) {
+      console.error("Error seeding essay:", e);
+      alert("Error al inicializar el ensayo en la base de datos.");
+    } finally {
+      isSeeding = false;
     }
   }
 
@@ -109,9 +128,18 @@
         </div>
 
         <!-- Audio Player Section -->
-        <div class="max-w-prose mx-auto mb-8 flex items-center gap-4 border-y border-gray-200 py-4">
-          {#if audioUrl}
-            <div class="flex items-center gap-4 w-full">
+        <div class="max-w-prose mx-auto mb-8 flex items-center gap-4 border-y border-gray-200 py-4 min-h-[64px]">
+          {#if !essay && !isSeeding}
+            <button 
+              onclick={runSeed}
+              class="text-[10px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold"
+            >
+              [ Inicializar contenido en Base de Datos ]
+            </button>
+          {:else if isSeeding}
+            <span class="text-[10px] uppercase tracking-widest text-gray-400 animate-pulse">Sincronizando con Convex...</span>
+          {:else if audioUrl}
+            <div class="flex items-center gap-4 w-full animate-in fade-in slide-in-from-bottom-2 duration-700">
               <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Escuchar:</span>
               <audio controls src={audioUrl} class="h-8 flex-grow opacity-70 grayscale"></audio>
             </div>
@@ -131,7 +159,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>Escuchar este ensayo (IA)</span>
+                <span>Escuchar este ensayo</span>
               {/if}
             </button>
           {/if}
@@ -202,7 +230,7 @@
       {/if}
 
       <div class="{$readerModeActive ? 'text-xl leading-loose font-serif text-justify' : 'text-lg leading-relaxed mb-4 text-justify font-[\'Jost\'] mx-auto max-w-prose'}">
-        <p class="mb-4">Ya instalados el dispositivo de la ecosofía de Guattari y el desarrollo histórico de la menstruación, evidencio la manera en que el problema aquí planteado puede ser pensado en torno a los tres registros ecológicos. Primero, es evidente el problema ambiental que suscita el aumento exponencial del plástico en los productos de higiene y su eventual desecho en vertederos. En segundo lugar, en el nivel del problema social, identificamos que a la histórica tradición de vergüenza en torno a la menstruación se le añade una segunda dimensión de negación del ciclo femenino en pos del circuito del trabajo. Este sistema a su vez perpetúa el esquema del capitalismo por medio de la comercialización de estos productos desechables en favor de la industria. Por último, en el nivel de la subjetividad, la urgencia por ingresar en el paradigma de éxito moldeado a la medida del hombre, las mujeres suscriben al ritmo de la hiperproductividad y a la utilización de estos productos que dañan tanto su cuerpo como su entorno natural.</p>
+        <p class="mb-4">Ya instalados el dispositivo de la ecosofía de Guattari y el desarrollo histórico de la menstruación, evidencio la manera en que el problema aquí planteado puede ser pensado en torno a los tres registros ecológicos. Primero, es evidente el problema ambiental que suscita el aumento exponencial del plástico en los productos de higiene y su eventual desecho en vertederos. En segundo lugar, en el nivel del problema social, identificamos que a la histórica tradición de vergüenza en torno a la menstruación se le añade una segunda dimensión de negación del ciclo femenino en pos del circuito del trabajo. Este sistema a su vez perpetúa el esquema del capitalismo por medio de la comercialización de estos productos desechables en favor de la industria. Por último, en el nivel del problema subjetividad, la urgencia por ingresar en el paradigma de éxito moldeado a la medida del hombre, las mujeres suscriben al ritmo de la hiperproductividad y a la utilización de estos productos que dañan tanto su cuerpo como su entorno natural.</p>
         
         <h2 class="text-xl font-bold mt-12 mb-6 text-left" style="font-family: 'Advent_Pro', sans-serif;">El nacimiento de Venus</h2>
         
@@ -238,7 +266,7 @@
         <p class="mb-1">Gershon, Livia. “The Secret History of Menstruation.” JSTOR Daily, 2018.</p>
         <p class="mb-1">Guattari, Félix. Las tres ecologías. Pre-Textos, 1990.</p>
         <p class="mb-1">Knight, Chris. Blood Relations: Menstruation and the Origins of Culture. Yale University Press, 1991.</p>
-        <p class="mb-1">Macho-Stadler, Marta. “Las chicas del radio y los riesgos de la radiación.” National Geographic España, 2020.</p>
+        <p class="mb-1">Macho-Stadler, Mayoría. “Las chicas del radio y los riesgos de la radiación.” National Geographic España, 2020.</p>
         <p class="mb-1">Mistral, Gabriela. Obra reunida. Tomo II: Poesía. Ediciones Biblioteca Nacional, 2019.</p>
         <p class="mb-1">“Nueva investigación revela los impactos nocivos de los agrotóxicos en la salud reproductiva de mujeres y niñas en América Latina.” Center for Reproductive Rights, 26 Nov. 2025.</p>
         <p class="mb-1">Schroeder, Fred E. H. “Feminine Hygiene, Fashion and the Emancipation of American Women.” American Studies, vol. 17, no. 2, 1976, pp. 101–110.</p>
