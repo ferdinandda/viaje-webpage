@@ -26,11 +26,10 @@ export async function POST({ request }) {
 
     // 1. Generar audio con ElevenLabs
     const cleanText = text.replace(/<[^>]*>?/gm, '');
-    const testText = cleanText.slice(0, 2000); // PRUEBA: Limitamos a 2000 caracteres
 
     const audio = await client.generate({
-      voice: "9oPKasc15pfAbMr7N6Gs",
-      text: testText,
+      voice: "HJmys3t5KLr6DUWl0kSe", // Voz: Rada
+      text: cleanText,
       model_id: "eleven_multilingual_v2",
       voice_settings: {
         stability: 0.5,
