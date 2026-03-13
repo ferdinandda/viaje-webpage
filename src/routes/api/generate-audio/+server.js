@@ -8,10 +8,12 @@ import { api } from "../../../../convex/_generated/api";
 
 export async function POST({ request }) {
   try {
-    const ELEVENLABS_API_KEY = env.ELEVENLABS_API_KEY;
+    // Robust way to get the API Key in Vercel/Node environment
+    const ELEVENLABS_API_KEY = (env.ELEVENLABS_API_KEY || process.env.ELEVENLABS_API_KEY)?.trim();
+    
     if (!ELEVENLABS_API_KEY) {
-      console.error('ELEVENLABS_API_KEY no está configurada');
-      return json({ error: 'Configuración de servidor incompleta (API Key)' }, { status: 500 });
+      console.error('ELEVENLABS_API_KEY no encontrada en env o process.env');
+      return json({ error: 'Configuración de servidor incompleta (API Key no encontrada)' }, { status: 500 });
     }
 
     const client = new ElevenLabsClient({
