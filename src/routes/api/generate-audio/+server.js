@@ -1,31 +1,41 @@
 import { json } from '@sveltejs/kit';
 import { ElevenLabsClient } from 'elevenlabs';
 import { put } from '@vercel/blob';
-import { ELEVENLABS_API_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { PUBLIC_CONVEX_URL } from '$env/static/public';
-
-const client = new ElevenLabsClient({
-  apiKey: ELEVENLABS_API_KEY,
-});
+import { ConvexHttpClient } from "convex/browser";
+import { api } from "../../../../convex/_generated/api";
 
 export async function POST({ request }) {
   try {
+    const ELEVENLABS_API_KEY = env.ELEVENLABS_API_KEY;
+    if (!ELEVENLABS_API_KEY) {
+      console.error('ELEVENLABS_API_KEY no está configurada');
+      return json({ error: 'Configuración de servidor incompleta (API Key)' }, { status: 500 });
+    }
+
+    if (!PUBLIC_CONVEX_URL) {
+      console.error('PUBLIC_CONVEX_URL no está configurada');
+      return json({ error: 'Configuración de servidor incompleta (Convex URL)' }, { status: 500 });
+    }
+
+    const client = new ElevenLabsClient({
+      apiKey: ELEVENLABS_API_KEY,
+    });
+
     const { text, essayId, slug } = await request.json();
 
     if (!text || !essayId || !slug) {
       return json({ error: 'Faltan datos requeridos (text, essayId, slug)' }, { status: 400 });
     }
 
-    // 1. Generar audio con ElevenLabs (usando una voz predeterminada, p.ej. "Aria")
-    // Puedes cambiar el voiceId por uno que te guste de ElevenLabs
+    // 1. Generar audio con ElevenLabs
     const audio = await client.generate({
       voice: "Aria",
-      text: text.replace(/<[^>]*>?/gm, ''), // Limpiar HTML para que no lea etiquetas
+      text: text.replace(/<[^>]*>?/gm, ''), // Limpiar HTML
       model_id: "eleven_multilingual_v2"
     });
 
-    // ElevenLabs devuelve un ReadableStream o Buffer dependiendo de la versión
-    // Lo convertimos a Buffer para subirlo a Vercel Blob
     const chunks = [];
     for await (const chunk of audio) {
       chunks.push(chunk);
@@ -38,12 +48,28 @@ export async function POST({ request }) {
       contentType: 'audio/mpeg',
     });
 
-    // 3. Actualizar Convex (usando una mutación HTTP o un cliente)
-    // Para simplificar, asumimos que el cliente puede llamar a la mutación después
-    // o lo hacemos aquí mismo con una petición fetch al sitio de Convex si está habilitado
-    // Por ahora devolvemos la URL para que el frontend la guarde o la use
+    // 3. Actualizar Convex
+    const convex = new ConvexHttpClient(PUBLIC_CONVEX_URL);
+    // Intentamos usar la mutación en notes o en essays según esté disponible
+    try {
+      if (api.notes && api.notes.updateEssayAudioUrl) {
+        await convex.mutation(api.notes.updateEssayAudioUrl, { 
+          id: essayId, 
+          audioUrl: blob.url 
+        });
+      } else if (api.essays && api.essays.updateAudioUrl) {
+        await convex.mutation(api.essays.updateAudioUrl, { 
+          id: essayId, 
+          audioUrl: blob.url 
+        });
+      }
+    } catch (convexError) {
+      console.error('Error actualizando Convex:', convexError);
+      // No fallamos el proceso completo si solo falló la actualización de la DB, 
+      // pero devolvemos la URL de todos modos.
+    }
     
-    return json({ audioUrl: blob.url });
+    return json({ audioUrl: blob.url, success: true });
 
   } catch (error) {
     console.error('Error generando audio:', error);

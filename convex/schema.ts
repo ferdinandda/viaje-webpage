@@ -11,13 +11,16 @@ export default defineSchema({
   essays: defineTable({
     title: v.string(),
     author: v.string(),
-    slug: v.string(),
-    content: v.string(), // We can store the HTML or structured text here
-    category: v.string(),
-    image: v.string(),
     date: v.string(),
-    readingTime: v.string(),
-    references: v.optional(v.array(v.string())),
+    image: v.string(),
+    epigraph: v.optional(v.string()),
+    content: v.string(),
+    readingMode: v.optional(v.boolean()),
     audioUrl: v.optional(v.string()),
+    slug: v.string(),
+    // Additional fields to match existing data and avoid validation errors
+    category: v.optional(v.string()),
+    readingTime: v.optional(v.string()),
+    references: v.optional(v.array(v.string())),
   }).index("by_slug", ["slug"]),
 });
