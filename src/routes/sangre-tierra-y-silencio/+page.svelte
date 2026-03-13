@@ -1,9 +1,59 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
   import { readerModeActive } from '$lib/stores';
+  import { ConvexHttpClient } from "convex/browser";
+  import { api } from "../../../convex/_generated/api";
+  import { PUBLIC_CONVEX_URL } from '$env/static/public';
 
-  let showReferences = false;
-  let atBottom = false;
+  let showReferences = $state(false);
+  let atBottom = $state(false);
+  
+  let essay = $state(null);
+  let isGenerating = $state(false);
+  let audioUrl = $state(null);
+
+  const slug = "sangre-tierra-y-silencio";
+  const convex = PUBLIC_CONVEX_URL ? new ConvexHttpClient(PUBLIC_CONVEX_URL) : null;
+
+  async function loadEssay() {
+    if (!convex) return;
+    try {
+      essay = await convex.query(api.notes.getEssayBySlug, { slug });
+      if (essay?.audioUrl) {
+        audioUrl = essay.audioUrl;
+      }
+    } catch (e) {
+      console.error("Error loading essay:", e);
+    }
+  }
+
+  async function generateAudio() {
+    if (isGenerating || !essay) return;
+    isGenerating = true;
+    try {
+      const response = await fetch('/api/generate-audio', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: essay.content,
+          essayId: essay._id,
+          slug: essay.slug
+        })
+      });
+      const data = await response.json();
+      if (data.audioUrl) {
+        audioUrl = data.audioUrl;
+        await loadEssay();
+      } else {
+        alert("Error al generar audio: " + (data.error || "Desconocido"));
+      }
+    } catch (e) {
+      console.error("Error generating audio:", e);
+      alert("Error de conexión al generar audio.");
+    } finally {
+      isGenerating = false;
+    }
+  }
 
   function toggleReferences() {
     showReferences = !showReferences;
@@ -23,6 +73,7 @@
 
   onMount(() => {
     window.addEventListener('scroll', handleScroll);
+    loadEssay();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -54,6 +105,32 @@
           <div class="absolute bottom-3 right-4 text-[9px] md:text-[10px] text-white/70 font-['Jost'] uppercase tracking-[0.2em] bg-black/30 px-3 py-1 backdrop-blur-sm">
             Carrie, Brian de Palma, 1976
           </div>
+        </div>
+
+        <!-- Audio Player Section -->
+        <div class="max-w-prose mx-auto mb-8 flex items-center gap-4 border-y border-gray-200 py-4">
+          {#if audioUrl}
+            <div class="flex items-center gap-4 w-full">
+              <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Escuchar:</span>
+              <audio controls src={audioUrl} class="h-8 flex-grow opacity-70 grayscale"></audio>
+            </div>
+          {:else}
+            <button 
+              onclick={generateAudio}
+              disabled={isGenerating}
+              class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-gray-500 hover:text-black transition-colors disabled:opacity-50"
+            >
+              {#if isGenerating}
+                <span class="animate-pulse">Generando audio...</span>
+              {:else}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Generar versión en audio</span>
+              {/if}
+            </button>
+          {/if}
         </div>
 
         <div class="max-w-prose mx-auto mb-12 text-[#9C9C9C] flex justify-end">
