@@ -14,11 +14,6 @@ export async function POST({ request }) {
       return json({ error: 'Configuración de servidor incompleta (API Key)' }, { status: 500 });
     }
 
-    if (!PUBLIC_CONVEX_URL) {
-      console.error('PUBLIC_CONVEX_URL no está configurada');
-      return json({ error: 'Configuración de servidor incompleta (Convex URL)' }, { status: 500 });
-    }
-
     const client = new ElevenLabsClient({
       apiKey: ELEVENLABS_API_KEY,
     });
@@ -49,8 +44,9 @@ export async function POST({ request }) {
     });
 
     // 3. Actualizar Convex
-    const convex = new ConvexHttpClient(PUBLIC_CONVEX_URL);
-    // Intentamos usar la mutación en notes o en essays según esté disponible
+    const CONVEX_URL = PUBLIC_CONVEX_URL || "https://aromatic-aardvark-340.convex.cloud";
+    const convex = new ConvexHttpClient(CONVEX_URL);
+    
     try {
       if (api.notes && api.notes.updateEssayAudioUrl) {
         await convex.mutation(api.notes.updateEssayAudioUrl, { 
@@ -65,8 +61,6 @@ export async function POST({ request }) {
       }
     } catch (convexError) {
       console.error('Error actualizando Convex:', convexError);
-      // No fallamos el proceso completo si solo falló la actualización de la DB, 
-      // pero devolvemos la URL de todos modos.
     }
     
     return json({ audioUrl: blob.url, success: true });

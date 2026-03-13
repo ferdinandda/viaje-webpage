@@ -13,17 +13,18 @@
   let audioUrl = $state(null);
 
   const slug = "sangre-tierra-y-silencio";
-  const convex = PUBLIC_CONVEX_URL ? new ConvexHttpClient(PUBLIC_CONVEX_URL) : null;
+  // Fallback URL confirmed by user to avoid initialization errors
+  const CONVEX_URL = PUBLIC_CONVEX_URL || "https://aromatic-aardvark-340.convex.cloud";
+  const convex = new ConvexHttpClient(CONVEX_URL);
 
   async function loadEssay() {
-    if (!convex) return;
     try {
       essay = await convex.query(api.notes.getEssayBySlug, { slug });
       if (essay?.audioUrl) {
         audioUrl = essay.audioUrl;
       }
     } catch (e) {
-      console.error("Error loading essay:", e);
+      console.error("Error loading essay from Convex:", e);
     }
   }
 
@@ -118,16 +119,19 @@
             <button 
               onclick={generateAudio}
               disabled={isGenerating}
-              class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-gray-500 hover:text-black transition-colors disabled:opacity-50"
+              class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-gray-500 hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
             >
               {#if isGenerating}
-                <span class="animate-pulse">Generando audio...</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 border-2 border-gray-400 border-t-black rounded-full animate-spin"></div>
+                  <span class="animate-pulse">Sintetizando voz (ElevenLabs)...</span>
+                </div>
               {:else}
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>Generar versión en audio</span>
+                <span>Escuchar este ensayo (IA)</span>
               {/if}
             </button>
           {/if}
