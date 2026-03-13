@@ -26,9 +26,13 @@ export async function POST({ request }) {
 
     // 1. Generar audio con ElevenLabs
     const audio = await client.generate({
-      voice: "Aria",
+      voice: "9oPKasc15pfAbMr7N6Gs", // Voice ID configurado por el usuario
       text: text.replace(/<[^>]*>?/gm, ''), // Limpiar HTML
-      model_id: "eleven_multilingual_v2"
+      model_id: "eleven_multilingual_v2",
+      voice_settings: {
+        stability: 0.5,
+        similarity_boost: 0.75
+      }
     });
 
     const chunks = [];
