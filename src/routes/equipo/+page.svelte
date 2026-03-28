@@ -37,7 +37,7 @@
     },
     {
       nombre: 'Javiera Zumelzu',
-      rol: '',
+      rol: 'Diseño Publicaciones de Instagram',
       locacion_ano: '(Iquique, 1999)',
       descripcion: 'Estudió Diseño Gráfico con Mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales; y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
       inicial: 'JZ'
@@ -65,7 +65,7 @@
   </div>
 
   <!-- Team List Section -->
-  <section class="pt-24 pb-32 bg-[#e5e5e5]" style="font-family: 'Jost', sans-serif;">
+  <section class="pt-24 pb-0 bg-[#e5e5e5]" style="font-family: 'Jost', sans-serif;">
     <div class="mx-auto max-w-4xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
       
       <!-- COMITÉ EDITORIAL -->
@@ -96,7 +96,7 @@
           {#each diseno as miembro}
             <div class="group flex flex-col items-center max-w-sm">
               {#if miembro.rol}
-                <p class="text-[10px] uppercase tracking-widest text-[#9C9C9C] mb-1 font-semibold" style="font-family: 'Jost', sans-serif;">{miembro.rol}</p>
+                <p class="text-[11px] italic tracking-[0.2em] text-[#9C9C9C] mb-3 font-light" style="font-family: 'Jost', sans-serif;">{miembro.rol}</p>
               {/if}
               <h3 class="text-2xl font-normal text-[var(--color-ink)] leading-tight mb-1" style="font-family: 'Stoke', serif;">{miembro.nombre}</h3>
               {#if miembro.locacion_ano}
@@ -109,6 +109,7 @@
           {/each}
         </div>
       </div>
+
 
     </div>
   </section>
