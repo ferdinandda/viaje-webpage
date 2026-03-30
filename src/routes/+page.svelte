@@ -183,8 +183,6 @@
     -webkit-box-decoration-break: clone;
     display: inline;
   }
-  .kindle-screen-dark { position: relative; }
-
   @keyframes bounce-hit {
     0% { transform: translateY(0); }
     20% { transform: translateY(-60px); }

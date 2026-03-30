@@ -3,7 +3,6 @@
   import { fade, scale } from 'svelte/transition';
   import { ConvexHttpClient } from "convex/browser";
   import { api } from "../../../convex/_generated/api";
-  import { PUBLIC_CONVEX_URL } from '$env/static/public';
 
   let newNoteText = $state('');
   let showForm = $state(false);
@@ -17,8 +16,9 @@
 
   onMount(async () => {
     try {
-        if (PUBLIC_CONVEX_URL) {
-            client = new ConvexHttpClient(PUBLIC_CONVEX_URL);
+        const CONVEX_URL = "https://aromatic-aardvark-340.convex.cloud";
+        if (CONVEX_URL) {
+            client = new ConvexHttpClient(CONVEX_URL);
             // Fetch initial notes
             const result = await client.query(api.notes.list);
             dbNotes = result || [];
@@ -58,6 +58,17 @@
   });
 
   let activeNote = $derived(displayNotes.find(n => (n.id || n._id) === activeNoteId));
+  let hoveredNoteId = $state(null);
+  let hoverTimer = null;
+
+  function onNoteEnter(id) {
+    clearTimeout(hoverTimer);
+    hoveredNoteId = id;
+  }
+
+  function onNoteLeave() {
+    hoverTimer = setTimeout(() => { hoveredNoteId = null; }, 120);
+  }
 
   async function addNote() {
     if (!newNoteText.trim() || newNoteText.length < 40) return;
@@ -100,33 +111,39 @@
     onkeydown={() => {}}
   >
     
-    <!-- Background Image: siluetas2.jpg (Tiled) - Darker -->
-    <div 
-      class="absolute inset-0 z-0 bg-repeat transition-transform duration-[120s] ease-linear hover:scale-105 pointer-events-none grayscale opacity-[0.85] contrast-125 mt-20"
-      style="background-image: url('/siluetas2.jpg'); background-size: 400px auto;"
+    <!-- Background Siluetas -->
+    <div
+      class="absolute inset-0 z-0 pointer-events-none grayscale opacity-80 contrast-125 mt-20"
+      style="background-image: url('/siluetas2.jpg'); background-repeat: repeat; background-size: auto 50%;"
     ></div>
     
     <!-- Notes Loop -->
-    <div class="absolute inset-0 z-10 overflow-hidden mt-20">
+    <div class="absolute inset-0 z-10 mt-20">
       {#each displayNotes as note (note.id || note._id)}
-        <div 
-          class="absolute group cursor-pointer p-16"
+        <div
+          class="absolute cursor-pointer p-16"
           style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
-          onclick={(e) => { 
-            e.stopPropagation(); 
-            activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id)); 
+          onmouseenter={() => onNoteEnter(note.id || note._id)}
+          onmouseleave={onNoteLeave}
+          onclick={(e) => {
+            e.stopPropagation();
+            activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id));
           }}
           role="button"
           tabindex="0"
           onkeydown={(e) => { if(e.key === 'Enter') activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id)); }}
         >
-          <!-- Trigger Area (Subtle highlight) -->
-          <div class="w-4 h-4 rounded-full bg-black/20 group-hover:bg-transparent transition-colors duration-500 mx-auto blur-sm"></div>
+          <!-- Trigger Area: luz que tintinea -->
+          <div class="relative mx-auto w-3 h-3">
+            <div class="absolute inset-0 rounded-full bg-yellow-300 animate-ping opacity-60"></div>
+            <div class="relative rounded-full w-3 h-3 bg-yellow-400 blur-[2px] shadow-[0_0_10px_5px_rgba(250,204,21,0.8)] transition-shadow duration-300"></div>
+          </div>
 
-          <!-- The Content (Revealed on Hover) - Desktop/Tablet -->
-          <div class="hidden sm:block opacity-0 group-hover:opacity-100 transition-all duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 text-center pointer-events-none z-50">
-            <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/90 backdrop-blur-[2px] p-4 rounded-sm shadow-xl border border-gray-100">
-              "{note.text}"
+          <!-- The Content (Revealed on Hover) - Desktop only, near the light -->
+          <div class="hidden sm:block absolute top-0 left-6 w-72 text-left pointer-events-none z-50 transition-opacity duration-200"
+               style="opacity: {hoveredNoteId === (note.id || note._id) ? 1 : 0}">
+            <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/85 p-4 rounded-sm shadow-xl border border-gray-100 text-justify">
+              {note.text}
             </p>
           </div>
         </div>
@@ -155,7 +172,7 @@
       class="bg-white/50 backdrop-blur-md border border-white/40 shadow-xl rounded-sm px-10 py-5 text-center pointer-events-auto transition-all hover:bg-white/70 hover:-translate-y-0.5 group"
     >
       <span class="text-black text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-['Jost'] font-normal group-hover:opacity-70 transition-all">
-        {showForm ? 'Cerrar' : 'anota lo que no se te puede pasar'}
+        {showForm ? 'Cerrar' : 'Deja una nota'}
       </span>
     </button>
   </div>
@@ -180,9 +197,6 @@
           Deja una nota sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
         </p>
         
-        <p class="text-gray-400 mb-8 font-['Jost'] text-[10px] italic text-center uppercase tracking-widest">
-          Solo filtramos mensajes de odio.
-        </p>
 
         <textarea
           bind:value={newNoteText}

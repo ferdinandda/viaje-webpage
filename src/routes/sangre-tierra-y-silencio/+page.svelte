@@ -3,17 +3,15 @@
   import { readerModeActive } from '$lib/stores';
   import { ConvexHttpClient } from "convex/browser";
   import { api } from "../../../convex/_generated/api";
-  import { PUBLIC_CONVEX_URL } from '$env/static/public';
-
   let showReferences = $state(false);
   let atBottom = $state(false);
-  
+
   let essay = $state(null);
   let audioUrl = $state(null);
   let isSeeding = $state(false);
 
   const slug = "sangre-tierra-y-silencio";
-  const CONVEX_URL = PUBLIC_CONVEX_URL || "https://aromatic-aardvark-340.convex.cloud";
+  const CONVEX_URL = "https://aromatic-aardvark-340.convex.cloud";
   const convex = new ConvexHttpClient(CONVEX_URL);
 
   async function loadEssay() {

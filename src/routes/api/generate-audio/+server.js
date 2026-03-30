@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 import { ElevenLabsClient } from 'elevenlabs';
 import { put } from '@vercel/blob';
 import { env } from '$env/dynamic/private';
-import { PUBLIC_CONVEX_URL } from '$env/static/public';
+import { env as publicEnv } from '$env/dynamic/public';
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
 
@@ -56,7 +56,7 @@ export async function POST({ request }) {
     });
 
     // 5. Actualizar Convex
-    const CONVEX_URL = PUBLIC_CONVEX_URL || "https://aromatic-aardvark-340.convex.cloud";
+    const CONVEX_URL = publicEnv.PUBLIC_CONVEX_URL || "https://aromatic-aardvark-340.convex.cloud";
     const convex = new ConvexHttpClient(CONVEX_URL);
     
     try {

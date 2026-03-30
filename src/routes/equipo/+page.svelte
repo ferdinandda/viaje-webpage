@@ -3,7 +3,7 @@
     {
       nombre: 'Fernanda Moreno Gutiérrez',
       rol: '',
-      locacion_ano: '(Santiago, 2000)',
+      locacion_ano: '(Iquique, 1999)',
       descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
       inicial: 'FM'
     },
@@ -59,7 +59,7 @@
     <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
       <h2 class="text-xs md:text-sm font-normal mb-10 text-[var(--color-paper)] opacity-60 uppercase tracking-[0.4em]" style="font-family: 'Stoke', serif;">Nota editorial</h2>
       <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
-        <span class="editorial-strike">Este proyecto comienza a cuajar durante el verano del 2026 en el desierto de Atacama. Es posible, sin embargo, que se haya estado gestando ya en 2025, cuando nos conocimos en Valparaíso.</span> Sin tener del todo claro el lugar que ocupamos en la academia, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Nos interesa esa dislocación en el modo de ser y estar que toda composición ensayística implica. Por ello, la revista se propone como una apertura para quienes entienden el acto creativo como un modo [siempre inestable] de estar en el mundo.
+        Este proyecto comienza a cuajar en el desierto de Atacama durante el verano del 2026. Aunque es posible que se haya estado gestando ya un año antes, cuando nos conocimos en Valparaíso. Propensas a la inseguridad, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Formas [siempre inestables] de ser y estar en el mundo.
       </blockquote>
     </div>
   </div>
@@ -115,10 +115,3 @@
   </section>
 </div>
 
-<style>
-  .editorial-strike {
-    text-decoration: line-through;
-    text-decoration-color: #ffffff;
-    text-decoration-thickness: 1px;
-  }
-</style>
