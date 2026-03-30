@@ -55,6 +55,12 @@
     </div>
 
 
+    <!-- Intro text -->
+    <div class="mb-14 text-[var(--color-ink)] text-justify leading-relaxed text-sm md:text-base" style="font-family: 'Jost', sans-serif;">
+      <p class="mb-6">Leemos el ensayo como un lugar que oscila entre la experiencia y el concepto. Peculiar confinium donde una voz se hace cargo de algo, donde el pensamiento asume su responsabilidad ante el mundo. <s>Prueba, error, enfado, fastidio.</s> Ensayar a través de la escritura se trata [casi siempre] de arriesgar verdades que se saben provisionales. <s>O algo así escribe Adorno.</s></p>
+      <p>Viaje publica un ensayo mensual. La convocatoria está abierta todo el año. No imponemos tema. Nos interesan las escrituras que no cierran pregunta alguna.</p>
+    </div>
+
     <!-- Specs -->
     <dl class="text-[var(--color-ink)] mb-14">
       {#each [
