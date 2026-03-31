@@ -13,56 +13,25 @@
 
 <div style="font-family: 'Jost', sans-serif;" class="bg-[#e5e5e5] min-h-screen flex flex-col relative overflow-hidden">
 
-  <!-- Monito Panzón (Interactive Character) -->
-  <button
-    onclick={toggleOverlay}
-    class="absolute bottom-8 right-8 z-50 group focus:outline-none transition-transform hover:scale-110 active:scale-95"
-    aria-label="Interactuar con el monito"
-  >
-    <svg width="100" height="100" viewBox="0 0 100 100" class="drop-shadow-md">
-      <!-- Body (The "Panza") -->
-      <circle cx="50" cy="70" r="22" fill="var(--color-ink)" />
-      <!-- Head -->
-      <circle cx="50" cy="40" r="14" fill="var(--color-ink)" />
-
-      <!-- Static Arm -->
-      <path d="M 32 45 Q 20 55 25 70" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="round" />
-
-      <!-- Beckoning Arm (Animated) -->
-      <g class="animate-beckon origin-[68px_45px]">
-        <path d="M 68 45 Q 85 35 80 20" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="round" />
-        <!-- Hand/Finger pointing -->
-        <circle cx="80" cy="20" r="3" fill="var(--color-ink)" />
-      </g>
-
-      <!-- Legs -->
-      <path d="M 40 90 L 35 98" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="round" />
-      <path d="M 60 90 L 65 98" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="round" />
-
-      <!-- Eyes (Blinking effect in style) -->
-      <circle cx="45" cy="38" r="2" fill="white" class="animate-blink" />
-      <circle cx="55" cy="38" r="2" fill="white" class="animate-blink" />
-    </svg>
-  </button>
 
   <!-- Main Content -->
   <div class="px-8 max-w-2xl mx-auto pt-32 pb-24 flex-grow">
 
     <!-- Header -->
-    <div class="mb-14 text-[var(--color-ink)]">
-      <p class="text-[10px] uppercase tracking-[0.5em] opacity-50 mb-5">Revista Viaje</p>
+    <div class="mb-8 text-[var(--color-ink)]">
+      <p class="text-[10px] uppercase tracking-[0.5em] opacity-50 mb-3">Revista Viaje</p>
       <h1 class="text-6xl md:text-8xl font-bold uppercase leading-none" style="font-family: 'Bebas Neue', sans-serif;">Convocatoria</h1>
     </div>
 
-
     <!-- Intro text -->
-    <div class="mb-14 text-[var(--color-ink)] text-justify leading-relaxed text-sm md:text-base" style="font-family: 'Jost', sans-serif;">
-      <p class="mb-6">Leemos el ensayo como un lugar que oscila entre la experiencia y el concepto. Peculiar confinium donde una voz se hace cargo de algo, donde el pensamiento asume su responsabilidad ante el mundo. <s>Prueba, error, enfado, fastidio.</s> Ensayar a través de la escritura se trata [casi siempre] de arriesgar verdades que se saben provisionales. <s>O algo así escribe Adorno.</s></p>
-      <p>Viaje publica un ensayo mensual. La convocatoria está abierta todo el año. No imponemos tema. Nos interesan las escrituras que no cierran pregunta alguna.</p>
+    <div class="mb-8 text-[var(--color-ink)] text-justify leading-normal text-sm md:text-base" style="font-family: 'Jost', sans-serif;">
+      <p class="mb-3">Leemos el ensayo como un lugar que oscila entre la experiencia y el concepto. Peculiar confinium donde una voz se hace cargo de algo, donde el pensamiento responde ante el mundo.</p>
+      <p class="mb-3">Ensayar a través de la escritura es, casi siempre, arriesgar verdades que se saben provisionales. <s>O algo así escribe Adorno.</s></p>
+      <p>Viaje publica un ensayo mensual. La convocatoria está abierta todo el año. No imponemos tema. Nos interesa la escritura que no cierra pregunta alguna.</p>
     </div>
 
     <!-- Specs -->
-    <dl class="text-[var(--color-ink)] mb-14">
+    <dl class="text-[var(--color-ink)] mb-8 border-t border-[var(--color-ink)]/20">
       {#each [
         ['Publicación', 'Mensual'],
         ['Convocatoria', 'Abierta todo el año'],
@@ -75,23 +44,21 @@
         ['Notificación', 'Respondemos en máximo seis semanas'],
         ['Envío', 'Viajerevista@gmail.com'],
       ] as [label, value]}
-        <div class="py-1">
-          <dt class="text-[10px] uppercase tracking-[0.3em] opacity-50 mb-1">{label}</dt>
+        <div class="flex items-baseline gap-4 py-2 border-b border-[var(--color-ink)]/10">
+          <dt class="text-[10px] uppercase tracking-[0.3em] opacity-50 w-32 shrink-0">{label}</dt>
           <dd class="text-sm">{value}</dd>
         </div>
       {/each}
     </dl>
 
     <!-- CTA -->
-    <div class="flex justify-start">
-      <a
-        href="mailto:viajerevista@gmail.com"
-        class="inline-flex items-center gap-3 px-8 py-4 bg-[var(--color-ink)] text-[var(--color-paper)]
-               hover:opacity-80 transition-opacity duration-200"
-      >
-        <span class="text-xs uppercase tracking-widest">Enviar ensayo</span>
-      </a>
-    </div>
+    <button
+      onclick={toggleOverlay}
+      class="focus:outline-none transition-transform hover:scale-110 active:scale-95"
+      aria-label="Interactuar"
+    >
+      <img src="/secundario.png" alt="" class="w-24 h-auto drop-shadow-md animate-wiggle" />
+    </button>
 
   </div>
 
@@ -127,16 +94,6 @@
 </div>
 
 <style>
-  @keyframes beckon {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(-25deg); }
-  }
-
-  @keyframes blink {
-    0%, 90%, 100% { transform: scaleY(1); }
-    95% { transform: scaleY(0.1); }
-  }
-
   @keyframes megaReveal {
     0% {
       filter: blur(50px);
@@ -162,13 +119,17 @@
     to { opacity: 1; }
   }
 
-  .animate-beckon {
-    animation: beckon 1.5s ease-in-out infinite;
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    20% { transform: rotate(-6deg) translateY(-4px); }
+    40% { transform: rotate(6deg) translateY(-4px); }
+    60% { transform: rotate(-4deg) translateY(-2px); }
+    80% { transform: rotate(4deg) translateY(-2px); }
   }
 
-  .animate-blink {
-    animation: blink 4s infinite;
-    transform-origin: center;
+  .animate-wiggle {
+    animation: wiggle 2s ease-in-out infinite;
+    transform-origin: bottom center;
   }
 
   .animate-mega-reveal {
