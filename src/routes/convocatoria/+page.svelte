@@ -25,7 +25,7 @@
 
     <!-- Intro text -->
     <div class="mb-8 text-[var(--color-ink)] text-justify leading-normal text-sm md:text-base" style="font-family: 'Jost', sans-serif;">
-      <p class="mb-3">Leemos el ensayo como un lugar que oscila entre la experiencia y el concepto. Peculiar confinium donde una voz se hace cargo de algo, donde el pensamiento responde ante el mundo.</p>
+      <p class="mb-3">Entendemos el ensayo como un lugar que oscila entre la experiencia y el concepto. Peculiar confinium donde una voz se hace cargo de algo, donde el pensamiento responde ante el mundo.</p>
       <p class="mb-3">Ensayar a través de la escritura es, casi siempre, arriesgar verdades que se saben provisionales. <s>O algo así escribe Adorno.</s></p>
       <p>Viaje publica un ensayo mensual. La convocatoria está abierta todo el año. No imponemos tema. Nos interesa la escritura que no cierra pregunta alguna.</p>
     </div>
