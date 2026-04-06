@@ -21,7 +21,8 @@
       >
         this is what it feels like to die (Deathbloom)
       </h1>
-      <p class="text-sm text-center font-['Jost'] mb-8 text-white">Por <a href="https://www.youtube.com/@wabyeliott" target="_blank" class="hover:underline">Waby Eliott</a></p>
+      <p class="text-sm text-center font-['Jost'] mb-2 text-white">Por <a href="https://www.youtube.com/@wabyeliott" target="_blank" class="hover:underline">Waby Eliott</a></p>
+      <p class="text-xs text-center font-['Jost'] mb-8 text-gray-500">Junio, 2025</p>
 
       <div class="max-w-4xl mx-auto mb-12 aspect-video">
         <video
@@ -29,6 +30,12 @@
           controls
           class="w-full h-full"
         ></video>
+      </div>
+
+      <div class="max-w-2xl mx-auto mt-4 mb-12 text-gray-400 font-['Jost'] text-xs leading-relaxed space-y-3">
+        <p>thanks to georgina for gifting me the title deathbloom, thanks to maddie and laura and paul for being the choir, thanks to fica film fest for showing it in the barn, thanks to gabby for the sub-subtitle: "a ponderation of death". thanks to family and friends and all in between.</p>
+        <p>the aerial acrobats are the incredible Sylphes Aerial Ballet</p>
+        <p>The audio clip of Vietnamese Zen Master Thich Nhat Hanh is used by kind permission of the Plum Village Community of Engaged Buddhism. To learn more about Thich Nhat Hanh, and to support the ongoing peace work of his monastics, visit <a href="https://thichnhathanhfoundation.org/" target="_blank" class="underline hover:text-gray-200">thichnhathanhfoundation.org</a></p>
       </div>
 
       <p class="text-xs text-center font-['Jost'] mt-12 mb-8 text-gray-500 uppercase tracking-widest">Compartir en:
