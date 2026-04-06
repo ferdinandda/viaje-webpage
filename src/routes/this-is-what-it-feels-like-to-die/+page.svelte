@@ -3,12 +3,11 @@
   const title = 'this is what it feels like to die (Deathbloom)';
 
   async function shareInstagram() {
-    if (navigator.share) {
-      await navigator.share({ title, url });
-    } else {
-      await navigator.clipboard.writeText(url);
-      alert('Link copiado al portapapeles');
-    }
+    await navigator.clipboard.writeText(url);
+    window.location.href = 'instagram://story-camera';
+    setTimeout(() => {
+      alert('Link copiado — pegalo en tu historia de Instagram');
+    }, 500);
   }
 </script>
 
