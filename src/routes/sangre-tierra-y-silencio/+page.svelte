@@ -195,9 +195,7 @@
 
       {#if !$readerModeActive}
       <p class="text-xs text-center font-['Jost'] mt-12 mb-8 text-gray-500 uppercase tracking-widest">Compartir en:
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Frevistaviaje.cl%2Fsangre-tierra-y-silencio&text=Cuando%20la%20sangre%20toca%20la%20tierra%3A%20el%20doble%20v%C3%ADnculo%20de%20la%20mujer" target="_blank" class="text-gray-800 hover:text-black hover:underline mx-1">X</a> /
-        <a href="https://api.whatsapp.com/send?text=Cuando%20la%20sangre%20toca%20la%20tierra%3A%20el%20doble%20v%C3%ADnculo%20de%20la%20mujer%20https%3A%2F%2Frevistaviaje.cl%2Fsangre-tierra-y-silencio" target="_blank" class="text-gray-800 hover:text-black hover:underline mx-1">WhatsApp</a> /
-        <button onclick={() => { navigator.clipboard.writeText('https://revistaviaje.cl/sangre-tierra-y-silencio'); window.location.href = 'instagram://story-camera'; setTimeout(() => { alert('Link copiado — pegalo en tu historia de Instagram'); }, 500); }} class="text-gray-800 hover:text-black hover:underline mx-1 cursor-pointer">Instagram</button>
+        <a href="https://api.whatsapp.com/send?text=Cuando%20la%20sangre%20toca%20la%20tierra%3A%20el%20doble%20v%C3%ADnculo%20de%20la%20mujer%20https%3A%2F%2Frevistaviaje.cl%2Fsangre-tierra-y-silencio" target="_blank" class="text-gray-800 hover:text-black hover:underline mx-1">WhatsApp</a>
       </p>
 
       <div class="flex justify-center mt-16 mb-12">
