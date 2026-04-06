@@ -91,7 +91,6 @@
 
 <svelte:head>
   <title>Revista Viaje</title>
-  <meta name="description" content="Pensamos los territorios de Chile y la literatura como fuentes de experiencia. Entendemos la escritura y la lectura como prácticas que intervienen en la manera en que habitamos el mundo." />
 </svelte:head>
 
 <section class="min-h-screen flex flex-col justify-center relative bg-[#e5e5e5] text-[var(--color-ink)] kindle-screen">
