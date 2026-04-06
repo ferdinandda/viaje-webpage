@@ -32,7 +32,7 @@
         ></video>
       </div>
 
-      <div class="max-w-2xl mx-auto mt-4 mb-12 text-gray-400 font-['Jost'] text-xs leading-relaxed space-y-3">
+      <div class="max-w-2xl mx-auto mt-4 mb-12 text-gray-400 font-['Jost'] text-xs leading-relaxed space-y-3 text-justify">
         <p>thanks to georgina for gifting me the title deathbloom, thanks to maddie and laura and paul for being the choir, thanks to fica film fest for showing it in the barn, thanks to gabby for the sub-subtitle: "a ponderation of death". thanks to family and friends and all in between.</p>
         <p>the aerial acrobats are the incredible Sylphes Aerial Ballet</p>
         <p>The audio clip of Vietnamese Zen Master Thich Nhat Hanh is used by kind permission of the Plum Village Community of Engaged Buddhism. To learn more about Thich Nhat Hanh, and to support the ongoing peace work of his monastics, visit <a href="https://thichnhathanhfoundation.org/" target="_blank" class="underline hover:text-gray-200">thichnhathanhfoundation.org</a></p>
