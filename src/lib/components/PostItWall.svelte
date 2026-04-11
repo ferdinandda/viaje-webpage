@@ -58,17 +58,6 @@
   });
 
   let activeNote = $derived(displayNotes.find(n => (n.id || n._id) === activeNoteId));
-  let hoveredNoteId = $state(null);
-  let hoverTimer = null;
-
-  function onNoteEnter(id) {
-    clearTimeout(hoverTimer);
-    hoveredNoteId = id;
-  }
-
-  function onNoteLeave() {
-    hoverTimer = setTimeout(() => { hoveredNoteId = null; }, 120);
-  }
 
   async function addNote() {
     if (!newNoteText.trim() || newNoteText.length < 40) return;
@@ -103,13 +92,7 @@
 <section class="relative w-full h-screen overflow-hidden bg-[#e5e5e5] flex flex-col">
 
   <!-- Interactive Area with Silhouettes -->
-  <div 
-    class="relative flex-grow w-full overflow-hidden bg-[#e5e5e5]"
-    onclick={() => activeNoteId = null}
-    role="button"
-    tabindex="0"
-    onkeydown={() => {}}
-  >
+  <div class="relative flex-grow w-full overflow-hidden bg-[#e5e5e5]">
     
     <!-- Background Siluetas -->
     <div
@@ -120,45 +103,43 @@
     <!-- Notes Loop -->
     <div class="absolute inset-0 z-10 mt-20">
       {#each displayNotes as note (note.id || note._id)}
-        <div
-          class="absolute cursor-pointer p-16"
+        <button
+          class="absolute cursor-pointer p-3"
           style="left: {note.x}%; top: {note.y}%; transform: translate(-50%, -50%);"
-          onmouseenter={() => onNoteEnter(note.id || note._id)}
-          onmouseleave={onNoteLeave}
           onclick={(e) => {
             e.stopPropagation();
-            activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id));
+            activeNoteId = (note.id || note._id);
           }}
-          role="button"
-          tabindex="0"
-          onkeydown={(e) => { if(e.key === 'Enter') activeNoteId = (activeNoteId === (note.id || note._id) ? null : (note.id || note._id)); }}
+          aria-label="Ver nota"
         >
-          <!-- Trigger Area: luz que tintinea -->
-          <div class="relative mx-auto w-3 h-3">
+          <!-- Luz que tintinea -->
+          <div class="relative w-3 h-3">
             <div class="absolute inset-0 rounded-full bg-yellow-300 animate-ping opacity-60"></div>
-            <div class="relative rounded-full w-3 h-3 bg-yellow-400 blur-[2px] shadow-[0_0_10px_5px_rgba(250,204,21,0.8)] transition-shadow duration-300"></div>
+            <div class="relative rounded-full w-3 h-3 bg-yellow-400 blur-[2px] shadow-[0_0_10px_5px_rgba(250,204,21,0.8)]"></div>
           </div>
-
-          <!-- The Content (Revealed on Hover) - Desktop only, near the light -->
-          <div class="hidden sm:block absolute top-0 left-6 w-72 text-left pointer-events-none z-50 transition-opacity duration-200"
-               style="opacity: {hoveredNoteId === (note.id || note._id) ? 1 : 0}">
-            <p class="text-black text-[10px] md:text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-sm bg-white/85 p-4 rounded-sm shadow-xl border border-gray-100 text-justify">
-              {note.text}
-            </p>
-          </div>
-        </div>
+        </button>
       {/each}
     </div>
   </div>
 
-  <!-- Mobile Active Note Overlay (Global Fixed) -->
+  <!-- Active Note Overlay (all screens) -->
   {#if activeNote}
-    <div 
-      class="sm:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-xs text-center z-[100] pointer-events-none" 
-      transition:scale={{duration: 200, start: 0.9}}
+    <div
+      class="fixed inset-0 z-[100] flex items-center justify-center p-8"
+      onclick={() => activeNoteId = null}
+      role="button"
+      tabindex="0"
+      onkeydown={(e) => { if(e.key === 'Escape') activeNoteId = null; }}
+      aria-label="Cerrar nota"
+      transition:fade={{duration: 150}}
     >
-      <div class="pointer-events-auto bg-white/95 backdrop-blur-md p-6 rounded-sm shadow-2xl border border-gray-200">
-        <p class="text-black text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light drop-shadow-xl">
+      <div
+        class="bg-white/95 backdrop-blur-md p-8 rounded-sm shadow-2xl border border-gray-200 w-full max-w-sm text-center"
+        onclick={(e) => e.stopPropagation()}
+        role="presentation"
+        transition:scale={{duration: 200, start: 0.92}}
+      >
+        <p class="text-black text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light">
           "{activeNote.text}"
         </p>
       </div>

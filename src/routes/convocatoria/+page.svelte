@@ -19,48 +19,54 @@
 
     <!-- Header -->
     <div class="mb-8 text-[var(--color-ink)]">
-      <p class="text-[10px] uppercase tracking-[0.5em] opacity-50 mb-3">Revista Viaje</p>
-      <h1 class="text-6xl md:text-8xl font-bold uppercase leading-none" style="font-family: 'Bebas Neue', sans-serif;">Convocatoria</h1>
+      <p class="text-[10px] uppercase tracking-[0.5em] opacity-70 mb-3">Revista Viaje</p>
+      <div class="flex items-center gap-4">
+        <h1 class="text-6xl md:text-8xl font-black uppercase leading-none" style="font-family: 'Bebas Neue', sans-serif;">Convocatoria</h1>
+        <button
+          onclick={toggleOverlay}
+          class="focus:outline-none transition-transform hover:scale-110 active:scale-95 shrink-0"
+          aria-label="Interactuar"
+        >
+          <img src="/secundario.png" alt="" class="w-14 h-auto drop-shadow-md animate-wiggle" />
+        </button>
+      </div>
     </div>
 
     <!-- Intro text -->
     <div class="mb-8 text-[var(--color-ink)] text-justify leading-normal text-sm md:text-base" style="font-family: 'Jost', sans-serif;">
-      <p class="mb-3">Entendemos el ensayo como un lugar que oscila entre la experiencia y el concepto. Peculiar confinium donde una voz se hace cargo de algo, donde el pensamiento responde ante el mundo.</p>
-      <p class="mb-3">Ensayar a través de la escritura es, casi siempre, arriesgar verdades que se saben provisionales. <s>O algo así escribe Adorno.</s></p>
-      <p>Viaje publica un ensayo mensual. La convocatoria está abierta todo el año. No imponemos tema. Nos interesa la escritura que no cierra pregunta alguna.</p>
+      <p>La revista se publica con regularidad una vez al mes. Acepta ensayos en castellano y en otros idiomas; la convocatoria permanece abierta durante todo el año y no impone un tema específico. Los derechos de autor permanecen en manos del autor, y solo se solicita que, en caso de que el texto se publique en otro lugar, se mencione su aparición en Revista Viaje.</p>
     </div>
 
     <!-- Specs -->
-    <dl class="text-[var(--color-ink)] mb-8 border-t border-[var(--color-ink)]/20">
-      {#each [
-        ['Publicación', 'Mensual'],
-        ['Convocatoria', 'Abierta todo el año'],
-        ['Temática', 'Libre'],
-        ['Extensión', 'Mínimo 5 páginas, máximo 10'],
-        ['Formato', 'Word, EB Garamond 12, Espaciado 1.5, Página tamaño carta'],
-        ['Originalidad', 'Texto inédito'],
-        ['Derechos', 'Se mantienen con el autor'],
-        ['Nombre del archivo', 'TítuloDelEnsayo_ApellidoAutor'],
-        ['Notificación', 'Respondemos en máximo seis semanas'],
-        ['Envío', 'Viajerevista@gmail.com'],
-      ] as [label, value]}
-        <div class="flex items-baseline gap-4 py-2 border-b border-[var(--color-ink)]/10">
-          <dt class="text-[10px] uppercase tracking-[0.3em] opacity-50 w-32 shrink-0">{label}</dt>
-          <dd class="text-sm">{value}</dd>
-        </div>
-      {/each}
-    </dl>
+    <table class="w-full text-[var(--color-ink)] mb-8 border-collapse text-sm">
+      <tbody>
+        {#each [
+          ['Publicación', 'Mensual'],
+          ['Convocatoria', 'Abierta todo el año'],
+          ['Temática', 'Libre'],
+          ['Extensión', 'Mínimo 5 páginas, máximo 10'],
+          ['Formato', 'Archivo Word, tipografía EB Garamond tamaño 12, espaciado 1,5, página tamaño carta'],
+          ['Originalidad', 'Texto inédito'],
+          ['Derechos', 'Se mantienen con el autor'],
+          ['Nombre del archivo', 'TítuloDelEnsayo_ApellidoAutor'],
+          ['Notificación', 'Respondemos en un plazo máximo de seis semanas'],
+          ['Envío', 'Viajerevista@gmail.com'],
+        ] as [label, value]}
+          <tr class="border-b border-[var(--color-ink)]/20">
+            <td class="py-3 pr-8 align-top text-[10px] uppercase tracking-[0.25em] font-medium text-[var(--color-ink)] whitespace-nowrap w-40">{label}</td>
+            <td class="py-3 align-top leading-relaxed">{value}</td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
 
-    <!-- CTA -->
-    <button
-      onclick={toggleOverlay}
-      class="focus:outline-none transition-transform hover:scale-110 active:scale-95"
-      aria-label="Interactuar"
-    >
-      <img src="/secundario.png" alt="" class="w-24 h-auto drop-shadow-md animate-wiggle" />
-    </button>
+    <!-- Otros formatos -->
+    <p class="mb-8 text-[var(--color-ink)] text-sm md:text-base leading-normal" style="font-family: 'Jost', sans-serif;">
+      Si deseas proponer otros formatos o formas de colaboración, puedes enviar un correo a la revista explicando tu propuesta.
+    </p>
 
   </div>
+
 
   <!-- Full Screen Overlay (Secret Message) -->
   {#if showOverlay}
