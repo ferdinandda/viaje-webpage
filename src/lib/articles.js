@@ -8,7 +8,7 @@ export const articles = [
   },
   {
     id: 2,
-    title: 'this is what it feels like to die (Deathbloom)',
+    title: 'This is what it feels like to die (Deathbloom)',
     author: 'Waby Eliott',
     href: "/this-is-what-it-feels-like-to-die",
     img: "https://img.youtube.com/vi/V7kMEUK6rMQ/maxresdefault.jpg"

@@ -29,17 +29,10 @@
       inicial: 'AM'
     },
     {
-      nombre: 'Sofía Quevedo',
-      rol: '',
-      locacion_ano: '(Rancagua, 2001)',
-      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile, diplomada en Literaturas del mundo. Actualmente cursa el Magister en Escritura Creativa en la Universidad Alberto Hurtado.',
-      inicial: 'SQ'
-    },
-    {
       nombre: 'Javiera Zumelzu',
-      rol: 'Diseño Publicaciones de Instagram',
+      rol: '',
       locacion_ano: '(Iquique, 1999)',
-      descripcion: 'Estudió Diseño Gráfico con Mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales; y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
+      descripcion: 'Estudió Diseño Gráfico con mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales, y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
       inicial: 'JZ'
     }
   ];
@@ -63,9 +56,8 @@
             <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
           </div>
           <blockquote class="text-sm md:text-base leading-relaxed text-justify" style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #6B5B4E;">
-            <p class="mb-6">La única ley que posee al ensayo, dice Adorno, es la herejía. Conjurar esta escritura consiste en arriesgar verdades, en asumir incertidumbres, en recorrer vaivenes entre experiencias y conceptos. La forma, en su rebeldía, no permite prescripción alguna de sus atribuciones, pero suele ser guiada por una voz que se hace cargo de algo, por un pensamiento que debe responder ante su congregación.</p>
+            <p class="mb-6">La única ley que posee el ensayo, dice Adorno, es la herejía. Conjurar esta escritura consiste en arriesgar verdades, asumir incertidumbres y moverse entre experiencias y conceptos. La forma, en su rebeldía, no admite prescripción alguna de sus atribuciones, pero suele estar guiada por una voz que se hace cargo de algo, por un pensamiento que debe responder ante su congregación. Esas son las escrituras que Viaje convoca.</p>
 
-            <p>Este proyecto cristaliza entre el desierto de Atacama y Valparaíso durante el verano de 2026. Proclives a la inseguridad, buscamos convocar escrituras que ensayen distintas formas de ser y estar en el mundo <s>y en otros mundos posibles</s>.</p>
           </blockquote>
         </div>
       </div>
@@ -118,6 +110,11 @@
         </div>
       </div>
 
+      <!-- WEB -->
+      <div class="mb-24 text-center">
+        <p class="mb-8 text-xs uppercase tracking-[0.3em] text-[#9C9C9C] border-b border-[#D4CFC7] pb-4 font-medium inline-block w-full" style="font-family: 'Jost', sans-serif;">DISEÑO Y CREACIÓN WEB</p>
+        <h3 class="text-2xl font-normal text-[var(--color-ink)] leading-tight" style="font-family: 'Stoke', serif;">PanzónLab</h3>
+      </div>
 
     </div>
   </section>
@@ -129,9 +126,11 @@
     background-image: radial-gradient(circle, #1C1C1C 5px, transparent 5px);
     background-size: 16px 16px;
     padding: 10px;
-    display: inline-block;
-    width: 100%;
+    display: block;
+    width: 560px;
+    max-width: 100%;
     box-sizing: border-box;
+    margin: 0 auto;
   }
 
   .stamp-inner {
