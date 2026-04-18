@@ -57,10 +57,18 @@
   <!-- Editorial Note Section (Static) -->
   <div class="bg-[#1C1C1C] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
     <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
-      <h2 class="text-xs md:text-sm font-normal mb-10 text-[var(--color-paper)] opacity-60 uppercase tracking-[0.4em]" style="font-family: 'Stoke', serif;">Nota editorial</h2>
-      <blockquote class="text-xl md:text-2xl leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
-        Este proyecto comienza a cuajar en el desierto de Atacama durante el verano del 2026. Aunque es posible que se haya estado gestando ya un año antes, cuando nos conocimos en Valparaíso. Propensas a la inseguridad, buscamos dar lugar a un tipo de escritura que asume la incertidumbre como condición, pero sin perder de vista el lugar desde el que se enuncia. Formas [siempre inestables] de ser y estar en el mundo.
-      </blockquote>
+      <div class="stamp-wrap mx-auto max-w-2xl">
+        <div class="stamp-inner">
+          <div class="flex justify-center mb-8">
+            <img src="/secundario.png" alt="Viaje" class="h-20 w-auto object-contain" />
+          </div>
+          <blockquote class="text-sm md:text-base leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
+            <p class="mb-6">La única ley que posee al ensayo, dice Adorno, es la herejía. Conjurar esta escritura consiste en arriesgar verdades, en asumir incertidumbres, en recorrer vaivenes entre experiencias y conceptos. La forma, en su rebeldía, no permite prescripción alguna de sus atribuciones, pero suele ser guiada por una voz que se hace cargo de algo, por un pensamiento que debe responder ante su congregación.</p>
+            <p class="mb-6 text-center">***</p>
+            <p>Este proyecto cristaliza entre el desierto de Atacama y Valparaíso durante el verano del 2026. Propensas a la inseguridad, buscamos dar lugar a un tipo de escritura que modela formas [casi siempre inestables] de ser y estar en el mundo.</p>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -115,3 +123,15 @@
   </section>
 </div>
 
+<style>
+  .stamp-wrap {
+    background:
+      radial-gradient(circle, #1C1C1C 5px, transparent 5px) 0 0 / 14px 14px;
+    padding: 10px;
+  }
+
+  .stamp-inner {
+    background: #1C1C1C;
+    padding: 2.5rem;
+  }
+</style>
