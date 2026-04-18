@@ -11,11 +11,11 @@
   <meta name="description" content="Información sobre la convocatoria abierta de Revista Viaje." />
 </svelte:head>
 
-<div style="font-family: 'Jost', sans-serif;" class="bg-[#e5e5e5] min-h-screen flex flex-col relative overflow-hidden">
+<div style="font-family: 'Jost', sans-serif;" class="bg-[#e5e5e5] min-h-screen relative">
 
 
   <!-- Main Content -->
-  <div class="px-4 sm:px-8 w-full max-w-xl mx-auto pt-20 pb-8 flex-grow flex items-center justify-center">
+  <div class="px-4 sm:px-8 w-full max-w-xl mx-auto pt-24 pb-12">
 
     <div class="stamp-wrap w-full">
       <div class="stamp-inner">
