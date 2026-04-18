@@ -50,7 +50,7 @@
   <!-- Editorial Note Section (Static) -->
   <div class="bg-[#1C1C1C] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
     <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
-      <div class="stamp-wrap mx-auto max-w-2xl">
+      <div class="stamp-wrap mx-auto">
         <div class="stamp-inner">
           <div class="flex justify-center mb-8">
             <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
