@@ -62,7 +62,7 @@
           <div class="flex justify-center mb-8">
             <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
           </div>
-          <blockquote class="text-xs md:text-sm leading-relaxed text-justify" style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #6B5B4E;">
+          <blockquote class="text-sm md:text-base leading-relaxed text-justify" style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #6B5B4E;">
             <p class="mb-6">La única ley que posee al ensayo, dice Adorno, es la herejía. Conjurar esta escritura consiste en arriesgar verdades, en asumir incertidumbres, en recorrer vaivenes entre experiencias y conceptos. La forma, en su rebeldía, no permite prescripción alguna de sus atribuciones, pero suele ser guiada por una voz que se hace cargo de algo, por un pensamiento que debe responder ante su congregación.</p>
 
             <p>Este proyecto cristaliza entre el desierto de Atacama y Valparaíso durante el verano de 2026. Proclives a la inseguridad, buscamos convocar escrituras que ensayen distintas formas de ser y estar en el mundo <s>y en otros mundos posibles</s>.</p>

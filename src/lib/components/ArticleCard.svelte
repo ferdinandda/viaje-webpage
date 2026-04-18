@@ -27,7 +27,7 @@
   <!-- Content Container -->
   <div class="p-8 flex flex-col flex-grow justify-between text-center">
     <div>
-      <h3 class="text-2xl font-normal uppercase text-[var(--color-ink)] leading-[1.1] tracking-tight mb-4" style="font-family: 'Bebas Neue', sans-serif;">
+      <h3 class="text-2xl text-[var(--color-ink)] leading-[1.1] tracking-tight mb-4" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-style: italic;">
         {@html article.title}
       </h3>
       <div class="w-8 h-px bg-[var(--color-ink)] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
