@@ -1,8 +1,6 @@
 <!-- Trigger Vercel deploy: 2026-03-11 v11 -->
 <script>
   import TabbedContent from '$lib/components/TabbedContent.svelte';
-
-  const characters = ["[", "v", "i", "a", "j", "e", "]"];
 </script>
 
 <svelte:head>
@@ -15,17 +13,22 @@
   <div class="relative z-30 mx-auto max-w-5xl px-[var(--spacing-editorial)] md:px-8 lg:px-12 pt-48 pb-32 md:pt-60 md:pb-40">
 
     <!-- Main Title -->
-    <h1 class="text-center relative z-50">
-      <span class="block text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight leading-[0.9] whitespace-nowrap" style="font-family: 'Stoke', serif;">
-        {#each characters as char}
-          <span class="inline-block" style="color: var(--color-ink);">{char}</span>
-        {/each}
-      </span>
+    <h1 class="flex justify-center relative z-50">
+      <img src="/logo.png" alt="Revista Viaje" class="h-64 sm:h-72 md:h-80 lg:h-96 w-auto max-w-full" />
     </h1>
     <br>
     <div class="mt-4 text-center text-base md:text-lg text-[var(--color-ink)] leading-relaxed relative z-40">
       <span style="font-family: 'Stoke', serif;">
         Revista de Ensayo y Creación
+      </span>
+    </div>
+
+    <div
+      class="mt-12 md:mt-16 mx-auto max-w-2xl text-center text-sm md:text-base leading-relaxed relative z-20"
+      style="font-family: 'Jost', sans-serif;"
+    >
+      <span class="kindle-marker">
+        Revista Viaje es un medio digital nacido en Chile orientado a reunir escrituras que exploran diversas formas de ser y estar en el mundo.
       </span>
     </div>
 
@@ -40,15 +43,6 @@
           Convocatoria abierta
         </span>
       </a>
-    </div>
-
-    <div
-      class="mt-32 md:mt-40 mx-auto max-w-2xl text-center text-sm md:text-base leading-relaxed relative z-20"
-      style="font-family: 'Jost', sans-serif;"
-    >
-      <span class="kindle-marker">
-        Revista Viaje es un medio digital nacido en Chile que busca reunir escrituras sobre el mundo que habitamos <span class="line-through">y otros mundos posibles.</span>
-      </span>
     </div>
   </div>
 </section>

@@ -60,12 +60,12 @@
       <div class="stamp-wrap mx-auto max-w-2xl">
         <div class="stamp-inner">
           <div class="flex justify-center mb-8">
-            <img src="/secundario.png" alt="Viaje" class="h-20 w-auto object-contain" />
+            <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
           </div>
-          <blockquote class="text-sm md:text-base leading-relaxed text-[var(--color-paper)] font-light text-justify opacity-80" style="font-family: 'Jost', sans-serif;">
+          <blockquote class="text-xs md:text-sm leading-relaxed text-justify" style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #6B5B4E;">
             <p class="mb-6">La única ley que posee al ensayo, dice Adorno, es la herejía. Conjurar esta escritura consiste en arriesgar verdades, en asumir incertidumbres, en recorrer vaivenes entre experiencias y conceptos. La forma, en su rebeldía, no permite prescripción alguna de sus atribuciones, pero suele ser guiada por una voz que se hace cargo de algo, por un pensamiento que debe responder ante su congregación.</p>
-            <p class="mb-6 text-center">***</p>
-            <p>Este proyecto cristaliza entre el desierto de Atacama y Valparaíso durante el verano del 2026. Propensas a la inseguridad, buscamos dar lugar a un tipo de escritura que modela formas [casi siempre inestables] de ser y estar en el mundo.</p>
+
+            <p>Este proyecto cristaliza entre el desierto de Atacama y Valparaíso durante el verano de 2026. Proclives a la inseguridad, buscamos convocar escrituras que ensayen distintas formas de ser y estar en el mundo <s>y en otros mundos posibles</s>.</p>
           </blockquote>
         </div>
       </div>
@@ -125,13 +125,17 @@
 
 <style>
   .stamp-wrap {
-    background:
-      radial-gradient(circle, #1C1C1C 5px, transparent 5px) 0 0 / 14px 14px;
+    background-color: #F0EDE6;
+    background-image: radial-gradient(circle, #1C1C1C 5px, transparent 5px);
+    background-size: 16px 16px;
     padding: 10px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .stamp-inner {
-    background: #1C1C1C;
+    background: #F0EDE6;
     padding: 2.5rem;
   }
 </style>
