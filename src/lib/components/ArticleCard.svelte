@@ -11,45 +11,92 @@
   let { article } = $props();
 </script>
 
-<a
-  href={article.href}
-  class="group block bg-[#f0f0f0] transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col border border-gray-300"
->
-  <!-- Image Container -->
-  <div class="relative h-64 overflow-hidden image-container">
-    <img 
-      src={article.img} 
-      alt="Image for {article.title.replace(/<[^>]*>?/gm, '')}" 
-      class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105 color-eink-filter" 
+<a href={article.href} class="card-outer group">
+  <div class="card-image">
+    <img
+      src={article.img}
+      alt="Image for {article.title.replace(/<[^>]*>?/gm, '')}"
+      class="color-eink-filter"
     />
   </div>
-  
-  <!-- Content Container -->
-  <div class="p-8 flex flex-col flex-grow justify-between text-center">
-    <div>
-      <h3 class="text-lg sm:text-2xl text-[var(--color-ink)] leading-[1.1] tracking-tight mb-4 text-left" style="font-family: 'Stoke', serif; font-weight: normal;">
-        {@html article.title}
-      </h3>
-      <div class="w-8 h-px bg-[var(--color-ink)] mx-auto mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </div>
-    <p class="text-[var(--color-ink-muted)] text-xs uppercase tracking-widest mt-auto" style="font-family: 'Stoke Light', serif;">
-      {article.author}
-    </p>
+  <div class="card-content">
+    <h3 class="card-title">{@html article.title}</h3>
+    <p class="card-author">{article.author}</p>
   </div>
 </a>
 
 <style>
+  .card-outer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 10px 10px 20px 10px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.15);
+  }
+
+  .card-outer:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 6px 16px rgba(0,0,0,0.2);
+  }
+
+  .card-image {
+    width: 100%;
+    flex: 0 0 65%;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s;
+    display: block;
+  }
+
+  .card-outer:hover .card-image img {
+    transform: scale(1.03);
+  }
+
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding-top: 10px;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: var(--color-ink);
+    font-weight: 700;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-author {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
   .color-eink-filter {
     filter: sepia(0.1) saturate(0.7) contrast(1.1) brightness(1.05);
-  }
-  
-  .image-container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 2 2%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Crect width=%221%22 height=%221%22 fill=%22rgba(0,0,0,0.05)%22/%3E%3C/svg%3E');
-    background-size: 2px 2px;
-    pointer-events: none;
-    opacity: 0.4;
   }
 </style>

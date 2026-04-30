@@ -1,19 +1,34 @@
 <script>
   import { articles } from '$lib/articles.js';
   import ArticleCard from './ArticleCard.svelte';
-  // Use the latest 3 articles (or fewer if not enough)
-  let tabs = articles.slice(0, 3);
+  let tabs = articles.slice(0, 4);
 </script>
 
-<div class="p-4 max-w-7xl mx-auto">
-  <h2 class="text-2xl md:text-3xl text-center mb-16 text-[var(--color-ink)] leading-none uppercase tracking-tight font-bold" style="font-family: 'Jost', sans-serif;">Últimas Publicaciones</h2>
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+<div class="section-wrapper p-4 max-w-7xl mx-auto">
+  <div class="flex justify-center mb-16">
+    <h2 class="inline-block px-6 py-2 bg-black text-white text-sm uppercase tracking-[0.2em] relative z-10" style="font-family: 'Jost', sans-serif; font-weight: 300;">
+      Últimas Publicaciones
+    </h2>
+  </div>
+
+  <div class="flex flex-wrap justify-center gap-8 relative z-10">
     {#each tabs as tab}
-      <ArticleCard article={tab} />
+      <div class="card-fixed">
+        <ArticleCard article={tab} />
+      </div>
     {/each}
   </div>
 </div>
 
 <style>
+  .section-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-fixed {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+  }
 </style>

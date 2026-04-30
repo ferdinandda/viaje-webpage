@@ -4,11 +4,24 @@
   let tabs = articles;
 </script>
 
-<div class="p-8 pt-32 md:pt-40">
-  <h2 class="text-2xl md:text-3xl text-center mb-16 text-[var(--color-ink)] leading-none uppercase tracking-tight font-bold" style="font-family: 'Jost', sans-serif;">Ensayos</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+<div class="p-8 pt-32 md:pt-40 max-w-5xl mx-auto">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 relative z-10">
     {#each tabs as tab}
       <ArticleCard article={tab} />
     {/each}
   </div>
 </div>
+
+<style>
+  .watermark {
+    position: absolute;
+    width: 60%;
+    max-width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+</style>
