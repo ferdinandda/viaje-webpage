@@ -9,6 +9,7 @@
 <svelte:head>
   <title>Convocatoria - Revista Viaje</title>
   <meta name="description" content="Información sobre la convocatoria abierta de Revista Viaje." />
+  <link rel="preload" href="/fonts/BebasNeue-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 </svelte:head>
 
 <div style="font-family: 'Jost', sans-serif;" class="bg-[#e5e5e5] min-h-screen relative">
