@@ -21,7 +21,7 @@
     <div class="mt-16 pt-8 border-t border-white/10">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-sm text-[#9C9C9C]/70">
-          &copy; {currentYear} Revista Viaje. Todos los derechos reservados.
+          &copy; {currentYear} Revista Viaje.
         </p>
 
       </div>

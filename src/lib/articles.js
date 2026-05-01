@@ -3,28 +3,36 @@ export const articles = [
     id: 4,
     title: 'Por un futuro para nuestra risa',
     author: 'Hugo Herrera Pardo',
+    category: 'Ensayo',
     href: "/por-un-futuro-para-nuestra-risa",
-    img: "/siluetas.jpg"
+    img: "/cristian-castillo-s1rIwjxsjFQ-unsplash.jpg",
+    photoCredit: 'Cristian Castillo'
   },
   {
     id: 3,
-    title: "Rosalía dijo “Mi jettu 'nt'a lu nenti, Prima d'abbruciarmi”",
+    title: `Rosalía dijo \u201cMi jettu 'nt'a lu nenti, Prima d'abbruciarmi\u201d`,
     author: 'Luna Jadue',
+    category: 'Ensayo',
     href: "/saoko-papi-saoco",
-    img: "/mqdefault.jpg"
+    img: "/dmitry-romanoff-ZcEQ3286Opw-unsplash.jpg",
+    photoCredit: 'Dmitri Romanoff'
   },
   {
     id: 1,
     title: 'Cuando la sangre toca la tierra: el doble vínculo de la mujer',
     author: 'Florencia Leiva Silva',
+    category: 'Ensayo',
     href: "/sangre-tierra-y-silencio",
-    img: "/Carrieee.jpg"
+    img: "/Carrieee.jpg",
+    photoCredit: ''
   },
   {
     id: 2,
     title: 'This is what it feels like to die (Deathbloom)',
     author: 'Waby Eliott',
+    category: 'Crónica',
     href: "/this-is-what-it-feels-like-to-die",
-    img: "https://img.youtube.com/vi/V7kMEUK6rMQ/maxresdefault.jpg"
+    img: "/ignacio-amenabar-FQ-lG-6ux60-unsplash.jpg",
+    photoCredit: 'Ignacio Amenábar'
   }
 ];

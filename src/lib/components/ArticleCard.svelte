@@ -3,100 +3,112 @@
    * @typedef {Object} Article
    * @property {string} title
    * @property {string} author
+   * @property {string} category
    * @property {string} href
    * @property {string} img
+   * @property {string} [photoCredit]
    */
 
   /** @type {{ article: Article }} */
   let { article } = $props();
 </script>
 
-<a href={article.href} class="card-outer group">
-  <div class="card-image">
-    <img
-      src={article.img}
-      alt="Image for {article.title.replace(/<[^>]*>?/gm, '')}"
-      class="color-eink-filter"
-    />
-  </div>
-  <div class="card-content">
-    <h3 class="card-title">{@html article.title}</h3>
-    <p class="card-author">{article.author}</p>
-  </div>
-</a>
+<article class="pub-item">
+  <a href={article.href} class="pub-link">
+    <div class="pub-img-wrap">
+      <img src={article.img} alt={article.title} class="pub-img" />
+      {#if article.photoCredit}
+        <span class="foto-credito">© {article.photoCredit}</span>
+      {/if}
+    </div>
+    <h3>{@html article.title}</h3>
+    <div class="pub-author">{article.author}</div>
+  </a>
+</article>
 
 <style>
-  .card-outer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: #fff;
-    box-sizing: border-box;
-    padding: 10px 10px 20px 10px;
-    text-decoration: none;
+  .pub-item {
+    background: #edecea;
+    box-shadow: 0 4px 18px rgba(26,26,27,0.13), 0 1px 4px rgba(26,26,27,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 10px 10px 0;
+  }
+
+  .pub-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 36px rgba(107,13,30,0.25), 0 2px 12px rgba(107,13,30,0.15);
+    position: relative;
+    z-index: 2;
+  }
+
+  .pub-img-wrap {
+    position: relative;
+    display: block;
     overflow: hidden;
-    transition: transform 0.3s;
-    box-shadow: 2px 3px 10px rgba(0,0,0,0.15);
+    height: 210px;
   }
 
-  .card-outer:hover {
-    transform: translateY(-3px);
-    box-shadow: 4px 6px 16px rgba(0,0,0,0.2);
-  }
-
-  .card-image {
-    width: 100%;
-    flex: 0 0 65%;
-    overflow: hidden;
-  }
-
-  .card-image img {
+  .pub-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s;
     display: block;
   }
 
-  .card-outer:hover .card-image img {
-    transform: scale(1.03);
+  .foto-credito {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.75);
+    pointer-events: none;
   }
 
-  .card-content {
-    flex: 1;
+  .pub-link {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    padding-top: 10px;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px 8px 24px;
   }
 
-  .card-title {
+  .pub-item :global(h3) {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.35rem;
-    line-height: 1.25;
-    color: var(--color-ink);
     font-weight: 700;
-    margin: 0;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: 16px 0 6px;
+    color: #1a1a1b;
+    transition: color 0.3s;
   }
 
-  .card-author {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.65rem;
+  .pub-link:hover :global(h3) {
+    color: #6b0d1e;
+  }
+
+  .pub-author {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-ink-muted);
-    margin: 0;
+    letter-spacing: 2px;
+    color: rgba(26, 26, 27, 0.75);
+    margin-top: 6px;
   }
 
-  .color-eink-filter {
-    filter: sepia(0.1) saturate(0.7) contrast(1.1) brightness(1.05);
+  @media (max-width: 768px) {
+    .pub-link {
+      padding: 24px 20px;
+    }
+    .pub-item :global(h3) {
+      font-size: 1.25rem;
+    }
+    .pub-author {
+      font-size: 0.58rem;
+      margin-top: 16px;
+    }
   }
 </style>

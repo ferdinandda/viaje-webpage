@@ -23,15 +23,6 @@
       </span>
     </div>
 
-    <div
-      class="mt-12 md:mt-16 mx-auto max-w-lg text-center text-sm md:text-base leading-relaxed relative z-20"
-      style="font-family: 'Jost', sans-serif; font-weight: 300;"
-    >
-      <span class="kindle-marker">
-        Revista Viaje es un medio digital nacido en Chile orientado a reunir escrituras que exploran diversas formas de ser y estar en el mundo.
-      </span>
-    </div>
-
     <!-- CTA Button -->
     <div class="mt-12 md:mt-16 flex justify-center relative z-30">
       <a
@@ -58,7 +49,7 @@
   </div>
 </div>
 
-<main class="pt-12 bg-[#e5e5e5] pb-24 kindle-screen">
+<main>
   <TabbedContent />
 </main>
 

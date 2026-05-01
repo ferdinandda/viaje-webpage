@@ -4,31 +4,43 @@
   let tabs = articles.slice(0, 4);
 </script>
 
-<div class="section-wrapper p-4 max-w-7xl mx-auto">
-  <div class="flex justify-center mb-16">
-    <h2 class="inline-block px-6 py-2 bg-black text-white text-sm uppercase tracking-[0.2em] relative z-10" style="font-family: 'Jost', sans-serif; font-weight: 300;">
-      Últimas Publicaciones
-    </h2>
-  </div>
-
-  <div class="flex flex-wrap justify-center gap-8 relative z-10">
+<section class="ticker-section">
+  <div class="pub-label">Últimas Publicaciones</div>
+  <div class="pub-grid">
     {#each tabs as tab}
-      <div class="card-fixed">
-        <ArticleCard article={tab} />
-      </div>
+      <ArticleCard article={tab} />
     {/each}
   </div>
-</div>
+</section>
 
 <style>
-  .section-wrapper {
-    position: relative;
-    overflow: hidden;
+  .ticker-section {
+    padding: 100px 60px;
+    background: #f1f0ed;
   }
 
-  .card-fixed {
-    width: 320px;
-    height: 320px;
-    flex-shrink: 0;
+  .pub-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 60px;
+  }
+
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 32px;
+  }
+
+  @media (max-width: 768px) {
+    .pub-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .ticker-section {
+      padding: 60px 20px;
+    }
   }
 </style>

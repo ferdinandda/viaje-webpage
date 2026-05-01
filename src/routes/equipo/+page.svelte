@@ -32,7 +32,7 @@
       nombre: 'Javiera Zumelzu',
       rol: '',
       locacion_ano: '(Iquique, 1999)',
-      descripcion: 'Estudió Diseño Gráfico con mención en Sistemas de Identidad Visual en DUOC UC, Diseño Editorial en la Universidad Diego Portales, y cursó el Workshop of Branding, Design & Advertising en la School of Visual Arts, Nueva York.',
+      descripcion: '',
       inicial: 'JZ'
     }
   ];
@@ -46,78 +46,64 @@
   <meta name="description" content="Conoce al equipo editorial de Revista Viaje. Dirección, diseño y comité editorial." />
 </svelte:head>
 
-<div class="bg-[#e5e5e5]">
-  <!-- Editorial Note Section (Static) -->
-  <div class="bg-[#1C1C1C] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
-    <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
-      <div class="stamp-wrap mx-auto">
-        <div class="stamp-inner">
-          <div class="flex justify-center mb-8">
-            <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
-          </div>
-          <blockquote class="text-sm md:text-base leading-relaxed text-justify" style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #6B5B4E;">
-            <p class="mb-6">La única ley que posee el ensayo, dice Adorno, es la herejía. Conjurar esta escritura consiste en arriesgar verdades, asumir incertidumbres y moverse entre experiencias y conceptos. La forma, en su rebeldía, no admite prescripción alguna de sus atribuciones, pero suele estar guiada por una voz que se hace cargo de algo, por un pensamiento que debe responder ante su congregación. Esas son las escrituras que Viaje convoca.</p>
+<div class="bg-[#1C1C1C] pt-32 pb-32 md:pt-40 md:pb-40">
+  <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-4xl mx-auto">
+    <div class="stamp-wrap mx-auto">
+      <div class="stamp-inner">
 
-          </blockquote>
+        <!-- Logo -->
+        <div class="flex justify-center mb-8">
+          <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
         </div>
+
+        <!-- Texto editorial -->
+        <blockquote class="stamp-quote">
+          <p>La única ley que rige el ensayo, dice Adorno, es la herejía. Conjurar esta escritura exige arriesgar verdades, asumir incertidumbres. Ir y venir entre experiencias y conceptos. La forma, en su rebeldía, no admite prescripciones. Pero suele dejarse guiar por una voz que se hace cargo de algo, por un pensamiento que responde ante su propia congregación. Esas son las escrituras que Viaje convoca.</p>
+        </blockquote>
+
+        <div class="stamp-divider"></div>
+
+        <!-- COMITÉ EDITORIAL -->
+        <p class="stamp-section-label">Comité Editorial</p>
+        <div class="stamp-member-list">
+          {#each comite as miembro}
+            <div class="stamp-member">
+              <span class="stamp-member-name">{miembro.nombre}</span>
+              {#if miembro.locacion_ano}
+                <span class="stamp-member-loc">{miembro.locacion_ano}</span>
+              {/if}
+            </div>
+          {/each}
+        </div>
+
+        <div class="stamp-divider"></div>
+
+        <!-- DISEÑO -->
+        <p class="stamp-section-label">Diseño</p>
+        <div class="stamp-member-list">
+          {#each diseno as miembro}
+            <div class="stamp-member">
+              <span class="stamp-member-name">{miembro.nombre}</span>
+              {#if miembro.locacion_ano}
+                <span class="stamp-member-loc">{miembro.locacion_ano}</span>
+              {/if}
+            </div>
+          {/each}
+        </div>
+
+        <div class="stamp-divider"></div>
+
+        <!-- WEB -->
+        <p class="stamp-section-label">Diseño y Creación Web</p>
+        <div class="stamp-member-list">
+          <div class="stamp-member">
+            <span class="stamp-member-name">PanzónLab</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-  <!-- Team List Section -->
-  <section class="pt-24 pb-0 bg-[#e5e5e5]" style="font-family: 'Jost', sans-serif;">
-    <div class="mx-auto max-w-4xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
-      
-      <!-- COMITÉ EDITORIAL -->
-      <div class="mb-32 text-center">
-        <p class="mb-16 text-xs uppercase tracking-[0.3em] text-[#9C9C9C] border-b border-[#D4CFC7] pb-4 font-medium inline-block w-full" style="font-family: 'Jost', sans-serif;">COMITÉ EDITORIAL</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 text-center">
-          {#each comite as miembro}
-            <div class="group flex flex-col items-center">
-              {#if miembro.rol}
-                <p class="text-[10px] uppercase tracking-widest text-[#9C9C9C] mb-1 font-semibold" style="font-family: 'Jost', sans-serif;">{miembro.rol}</p>
-              {/if}
-              <h3 class="text-2xl font-normal text-[var(--color-ink)] leading-tight mb-1" style="font-family: 'Stoke', serif;">{miembro.nombre}</h3>
-              {#if miembro.locacion_ano}
-                <p class="text-xs text-[var(--color-ink-muted)] italic mb-4" style="font-family: 'Jost', sans-serif;">{miembro.locacion_ano}</p>
-              {/if}
-              <p class="text-sm md:text-base text-[var(--color-ink)] leading-relaxed opacity-80 max-w-sm text-justify" style="font-family: 'Jost', sans-serif;">
-                {miembro.descripcion}
-              </p>
-            </div>
-          {/each}
-        </div>
-      </div>
-
-      <!-- DISEÑO -->
-      <div class="mb-24 text-center">
-        <p class="mb-16 text-xs uppercase tracking-[0.3em] text-[#9C9C9C] border-b border-[#D4CFC7] pb-4 font-medium inline-block w-full" style="font-family: 'Jost', sans-serif;">DISEÑO</p>
-        <div class="flex justify-center">
-          {#each diseno as miembro}
-            <div class="group flex flex-col items-center max-w-sm">
-              {#if miembro.rol}
-                <p class="text-[11px] italic tracking-[0.2em] text-[#9C9C9C] mb-3 font-light" style="font-family: 'Jost', sans-serif;">{miembro.rol}</p>
-              {/if}
-              <h3 class="text-2xl font-normal text-[var(--color-ink)] leading-tight mb-1" style="font-family: 'Stoke', serif;">{miembro.nombre}</h3>
-              {#if miembro.locacion_ano}
-                <p class="text-xs text-[var(--color-ink-muted)] italic mb-4" style="font-family: 'Jost', sans-serif;">{miembro.locacion_ano}</p>
-              {/if}
-              <p class="text-sm md:text-base text-[var(--color-ink)] leading-relaxed opacity-80 text-justify" style="font-family: 'Jost', sans-serif;">
-                {miembro.descripcion}
-              </p>
-            </div>
-          {/each}
-        </div>
-      </div>
-
-      <!-- WEB -->
-      <div class="mb-24 text-center">
-        <p class="mb-8 text-xs uppercase tracking-[0.3em] text-[#9C9C9C] border-b border-[#D4CFC7] pb-4 font-medium inline-block w-full" style="font-family: 'Jost', sans-serif;">DISEÑO Y CREACIÓN WEB</p>
-        <h3 class="text-2xl font-normal text-[var(--color-ink)] leading-tight" style="font-family: 'Stoke', serif;">PanzónLab</h3>
-      </div>
-
-    </div>
-  </section>
 </div>
 
 <style>
@@ -136,5 +122,60 @@
   .stamp-inner {
     background: #F0EDE6;
     padding: 2.5rem;
+  }
+
+  .stamp-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #6B5B4E;
+    text-align: justify;
+    margin: 0;
+  }
+
+  .stamp-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(107, 91, 78, 0.3);
+    margin: 2rem auto;
+  }
+
+  .stamp-section-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #9C8F82;
+    margin-bottom: 1.25rem;
+  }
+
+  .stamp-member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .stamp-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .stamp-member-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #3a2e27;
+    line-height: 1.2;
+  }
+
+  .stamp-member-loc {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    font-style: italic;
+    color: #9C8F82;
   }
 </style>
