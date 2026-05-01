@@ -44,6 +44,7 @@
 <svelte:head>
   <title>Equipo Editorial — Revista Viaje</title>
   <meta name="description" content="Conoce al equipo editorial de Revista Viaje. Dirección, diseño y comité editorial." />
+  <link rel="preload" href="/2negro.png" as="image" />
 </svelte:head>
 
 <div class="bg-[#1C1C1C] pt-32 pb-32 md:pt-40 md:pb-40">
@@ -53,7 +54,7 @@
 
         <!-- Logo -->
         <div class="flex justify-center mb-8">
-          <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" />
+          <img src="/2negro.png" alt="Viaje" class="h-20 w-auto object-contain" fetchpriority="high" />
         </div>
 
         <!-- Texto editorial -->

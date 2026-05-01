@@ -45,6 +45,15 @@
       return !stringsToFilter.some(s => text.includes(s));
     });
 
+    // Deduplicate by text, keeping only the first occurrence
+    const seenTexts = new Set();
+    combined = combined.filter(n => {
+      const key = n.text.trim().toLowerCase();
+      if (seenTexts.has(key)) return false;
+      seenTexts.add(key);
+      return true;
+    });
+
     const addIfNotExists = (fixedNote) => {
         if (!combined.some(n => n.text === fixedNote.text)) {
             combined.push(fixedNote);
