@@ -16,7 +16,7 @@
 <article class="pub-item">
   <a href={article.href} class="pub-link">
     <div class="pub-img-wrap">
-      <img src={article.img} alt={article.title} class="pub-img" />
+      <img src={article.img} alt={article.title} class="pub-img" loading="eager" fetchpriority="high" />
       {#if article.photoCredit}
         <span class="foto-credito">© {article.photoCredit}</span>
       {/if}
@@ -46,6 +46,7 @@
     display: block;
     overflow: hidden;
     height: 210px;
+    background-color: #d5d2ce;
   }
 
   .pub-img {
@@ -53,6 +54,12 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    animation: imgFadeIn 0.4s ease-in;
+  }
+
+  @keyframes imgFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   .foto-credito {

@@ -19,12 +19,12 @@ export const articles = [
   },
   {
     id: 1,
-    title: 'Cuando la sangre toca la tierra: el doble vínculo de la mujer',
+    title: 'Cuando la sangre toca la tierra',
     author: 'Florencia Leiva Silva',
     category: 'Ensayo',
     href: "/sangre-tierra-y-silencio",
-    img: "/Carrieee.jpg",
-    photoCredit: ''
+    img: "/james-lee-YpDkIh137ws-unsplash.jpg",
+    photoCredit: 'James Lee'
   },
   {
     id: 2,
