@@ -16,7 +16,7 @@
 <style>
   .ticker-section {
     padding: 100px 60px;
-    background: #f1f0ed;
+    background: var(--color-paper);
   }
 
   .pub-label {
@@ -30,8 +30,14 @@
 
   .pub-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px 32px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .pub-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 768px) {

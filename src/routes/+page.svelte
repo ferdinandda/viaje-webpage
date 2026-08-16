@@ -1,6 +1,24 @@
 <!-- Trigger Vercel deploy: 2026-03-11 v11 -->
 <script>
+  import { onMount } from 'svelte';
   import TabbedContent from '$lib/components/TabbedContent.svelte';
+
+  let quoteEl;
+  let quoteVisible = $state(false);
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          quoteVisible = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (quoteEl) observer.observe(quoteEl);
+    return () => observer.disconnect();
+  });
 </script>
 
 <svelte:head>
@@ -38,12 +56,14 @@
   </div>
 </section>
 
-<div class="bg-[#1C1C1C] py-16 md:py-24 relative z-20">
+
+<div class="bg-[var(--color-paper)] py-16 md:py-24 relative z-20 quote-reveal" class:is-visible={quoteVisible} bind:this={quoteEl}>
   <div class="px-[var(--spacing-editorial)] md:px-12 text-center max-w-3xl mx-auto">
-    <blockquote class="text-lg md:text-xl leading-relaxed text-[#e5e5e5] font-light text-justify" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem;">
+    <div class="w-12 h-px bg-[var(--color-ink)] opacity-30 mx-auto mb-10"></div>
+    <blockquote class="text-lg md:text-xl leading-relaxed text-[var(--color-ink)] font-light text-justify" style="font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1.25rem;">
       "Me gusta pensar que quienes escriben ensayo tienen el pulso malo de los viajeros, mal estibados, empujados siempre a trasbordar y recomenzar sus maletas. Viaja Martí, viaja Mistral, viaja Benjamin, viaja Paz. Hubo y hay tal vez una noche: los focos iluminan el andén con aquella luz anaranjada de los sitios que no existen más que para los otros. El andén es igual a otros andenes; sin embargo, tan distinto en la nitidez con que los ojos del extranjero intentan atraparlo."
     </blockquote>
-    <p class="mt-8 text-xs uppercase tracking-widest text-[#b3b3b3]" style="font-family: 'Jost', sans-serif; font-weight: 300;">
+    <p class="mt-8 text-xs uppercase tracking-widest text-[var(--color-ink)] opacity-60" style="font-family: 'Jost', sans-serif; font-weight: 300;">
       Guadalupe Santa Cruz — El espesor de las palabras
     </p>
   </div>
@@ -55,6 +75,16 @@
 
 <style>
   .kindle-screen { position: relative; }
+
+  .quote-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .quote-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   .kindle-marker {
     background-color: var(--color-ink);
     color: var(--color-paper);
