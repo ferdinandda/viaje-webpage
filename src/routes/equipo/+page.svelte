@@ -1,33 +1,5 @@
 <script>
-  const equipo = [
-    {
-      nombre: 'Fernanda Moreno Gutiérrez',
-      rol: '',
-      locacion_ano: '(Iquique, 1999)',
-      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
-      inicial: 'FM'
-    },
-    {
-      nombre: 'Hannah Smalley',
-      rol: '',
-      locacion_ano: '(Nashville, 1998)',
-      descripcion: 'Estudió Castellano en Princeton y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
-      inicial: 'HS'
-    },
-    {
-      nombre: 'Florencia Leiva Silva',
-      rol: '',
-      locacion_ano: '(Talagante, 2001)',
-      descripcion: 'Estudió Letras en la Pontificia Universidad Católica de Chile y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
-      inicial: 'FL'
-    },
-    {
-      nombre: 'Aurora Mañas Navarrete',
-      rol: '',
-      locacion_ano: '(Valladolid, 2002)',
-      descripcion: 'Estudió Literatura Hispánica en la Universidad de Chile, es becaria ANID y actualmente cursa el Magíster en Estudios Literarios y Culturales Latinoamericanos en la Pontificia Universidad Católica de Valparaíso.',
-      inicial: 'AM'
-    },
+  const diseno = [
     {
       nombre: 'Javiera Zumelzu',
       rol: '',
@@ -36,14 +8,11 @@
       inicial: 'JZ'
     }
   ];
-
-  const comite = equipo.filter(m => m.nombre !== 'Javiera Zumelzu');
-  const diseno = equipo.filter(m => m.nombre === 'Javiera Zumelzu');
 </script>
 
 <svelte:head>
   <title>Equipo Editorial — Revista Viaje</title>
-  <meta name="description" content="Conoce al equipo editorial de Revista Viaje. Dirección, diseño y comité editorial." />
+  <meta name="description" content="Conoce al equipo editorial de Revista Viaje. Diseño y creación web." />
   <link rel="preload" href="/2negro.png" as="image" />
 </svelte:head>
 
@@ -64,21 +33,6 @@
 
         <div class="stamp-divider"></div>
 
-        <!-- COMITÉ EDITORIAL -->
-        <p class="stamp-section-label">Comité Editorial</p>
-        <div class="stamp-member-list">
-          {#each comite as miembro}
-            <div class="stamp-member">
-              <span class="stamp-member-name">{miembro.nombre}</span>
-              {#if miembro.locacion_ano}
-                <span class="stamp-member-loc">{miembro.locacion_ano}</span>
-              {/if}
-            </div>
-          {/each}
-        </div>
-
-        <div class="stamp-divider"></div>
-
         <!-- DISEÑO -->
         <p class="stamp-section-label">Diseño</p>
         <div class="stamp-member-list">
@@ -95,12 +49,7 @@
         <div class="stamp-divider"></div>
 
         <!-- WEB -->
-        <p class="stamp-section-label">Diseño y Creación Web</p>
-        <div class="stamp-member-list">
-          <div class="stamp-member">
-            <span class="stamp-member-name">PanzónLab</span>
-          </div>
-        </div>
+        <p class="stamp-section-label">Esta página fue desarrollada por Panzón</p>
 
       </div>
     </div>

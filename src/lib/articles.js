@@ -18,15 +18,6 @@ export const articles = [
     photoCredit: 'Dmitri Romanoff'
   },
   {
-    id: 1,
-    title: 'Cuando la sangre toca la tierra',
-    author: 'Florencia Leiva Silva',
-    category: 'Ensayo',
-    href: "/sangre-tierra-y-silencio",
-    img: "/james-lee-YpDkIh137ws-unsplash.jpg",
-    photoCredit: 'James Lee'
-  },
-  {
     id: 2,
     title: 'This is what it feels like to die (Deathbloom)',
     author: 'Waby Eliott',
@@ -34,5 +25,14 @@ export const articles = [
     href: "/this-is-what-it-feels-like-to-die",
     img: "/ignacio-amenabar-FQ-lG-6ux60-unsplash.jpg",
     photoCredit: 'Ignacio Amenábar'
+  },
+  {
+    id: 1,
+    title: 'Cuando la sangre toca la tierra',
+    author: 'Florencia Leiva Silva',
+    category: 'Ensayo',
+    href: "/sangre-tierra-y-silencio",
+    img: "/james-lee-YpDkIh137ws-unsplash.jpg",
+    photoCredit: 'James Lee'
   }
 ];
