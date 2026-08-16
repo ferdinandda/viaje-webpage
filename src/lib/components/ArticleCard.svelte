@@ -9,8 +9,8 @@
    * @property {string} [photoCredit]
    */
 
-  /** @type {{ article: Article }} */
-  let { article } = $props();
+  /** @type {{ article: Article, index?: number }} */
+  let { article, index = 1 } = $props();
 </script>
 
 <article class="pub-item">
@@ -21,6 +21,7 @@
         <span class="foto-credito">© {article.photoCredit}</span>
       {/if}
     </div>
+    <div class="pub-kicker">{String(index).padStart(2, '0')}</div>
     <h3>{@html article.title}</h3>
     <div class="pub-author">{article.author}</div>
   </a>
@@ -28,15 +29,11 @@
 
 <style>
   .pub-item {
-    background: #edecea;
-    box-shadow: 0 4px 18px rgba(26,26,27,0.13), 0 1px 4px rgba(26,26,27,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 10px 10px 0;
+    transition: transform 0.3s;
   }
 
   .pub-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 36px rgba(107,13,30,0.25), 0 2px 12px rgba(107,13,30,0.15);
+    transform: scale(1.02);
     position: relative;
     z-index: 2;
   }
@@ -78,7 +75,17 @@
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    padding: 20px 8px 24px;
+    padding: 16px 0 0;
+  }
+
+  .pub-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #6b0d1e;
+    margin-top: 14px;
   }
 
   .pub-item :global(h3) {
@@ -87,7 +94,7 @@
     font-style: italic;
     font-size: 1.25rem;
     line-height: 1.2;
-    margin: 16px 0 6px;
+    margin: 8px 0 6px;
     color: #1a1a1b;
     transition: color 0.3s;
   }
@@ -108,7 +115,7 @@
 
   @media (max-width: 768px) {
     .pub-link {
-      padding: 24px 20px;
+      padding: 16px 0 0;
     }
     .pub-item :global(h3) {
       font-size: 1.25rem;

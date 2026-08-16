@@ -7,8 +7,8 @@
 <section class="ticker-section">
   <div class="pub-label">Últimas Publicaciones</div>
   <div class="pub-grid">
-    {#each tabs as tab}
-      <ArticleCard article={tab} />
+    {#each tabs as tab, i}
+      <ArticleCard article={tab} index={i + 1} />
     {/each}
   </div>
 </section>
@@ -30,19 +30,12 @@
 
   .pub-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px 24px;
-  }
-
-  @media (max-width: 1024px) {
-    .pub-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 
   @media (max-width: 768px) {
     .pub-grid {
-      grid-template-columns: 1fr;
       gap: 16px;
     }
     .ticker-section {

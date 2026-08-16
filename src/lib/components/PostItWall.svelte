@@ -9,6 +9,8 @@
   let client;
   let dbNotes = $state([]);
   let activeNoteId = $state(null); // For mobile tap interaction
+  let noteDialogEl;
+  let formTextareaEl;
 
   // Mandatory notes
   const mandatoryNote = { id: 'first-note', text: 'huevos, arroz, fideos, queso, pan, vino, tabaco', x: 42, y: 58 };
@@ -68,6 +70,28 @@
 
   let activeNote = $derived(displayNotes.find(n => (n.id || n._id) === activeNoteId));
 
+  $effect(() => {
+    if (activeNote && noteDialogEl) {
+      noteDialogEl.focus();
+    }
+  });
+
+  $effect(() => {
+    if (showForm && formTextareaEl) {
+      formTextareaEl.focus();
+    }
+  });
+
+  function handleWindowKeydown(e) {
+    if (e.key !== 'Escape') return;
+    if (activeNoteId) {
+      activeNoteId = null;
+    } else if (showForm) {
+      showForm = false;
+      newNoteText = '';
+    }
+  }
+
   async function addNote() {
     if (!newNoteText.trim() || newNoteText.length < 40) return;
     
@@ -98,6 +122,8 @@
   }
 </script>
 
+<svelte:window onkeydown={handleWindowKeydown} />
+
 <section class="relative w-full h-screen overflow-hidden bg-[#e5e5e5] flex flex-col">
 
   <!-- Interactive Area with Silhouettes -->
@@ -106,7 +132,7 @@
     <!-- Background Siluetas -->
     <div
       class="absolute inset-0 z-0 pointer-events-none grayscale opacity-80 contrast-125 mt-20"
-      style="background-image: url('/siluetas2.jpg'); background-repeat: repeat; background-size: auto 50%;"
+      style="background-image: url('/banner.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;"
     ></div>
     
     <!-- Notes Loop -->
@@ -123,7 +149,7 @@
         >
           <!-- Luz que tintinea -->
           <div class="relative w-3 h-3">
-            <div class="absolute inset-0 rounded-full bg-yellow-300 animate-ping opacity-60"></div>
+            <div class="absolute inset-0 rounded-full bg-yellow-300 animate-ping motion-reduce:animate-none opacity-60"></div>
             <div class="relative rounded-full w-3 h-3 bg-yellow-400 blur-[2px] shadow-[0_0_10px_5px_rgba(250,204,21,0.8)]"></div>
           </div>
         </button>
@@ -135,22 +161,27 @@
   {#if activeNote}
     <div
       class="fixed inset-0 z-[100] flex items-center justify-center p-8"
-      onclick={() => activeNoteId = null}
-      role="button"
-      tabindex="0"
-      onkeydown={(e) => { if(e.key === 'Escape') activeNoteId = null; }}
-      aria-label="Cerrar nota"
       transition:fade={{duration: 150}}
     >
+      <div class="absolute inset-0" onclick={() => activeNoteId = null} aria-hidden="true"></div>
       <div
-        class="bg-white/95 backdrop-blur-md p-8 rounded-sm shadow-2xl border border-gray-200 w-full max-w-sm text-center"
-        onclick={(e) => e.stopPropagation()}
-        role="presentation"
+        class="relative bg-white/95 backdrop-blur-md p-8 rounded-sm shadow-2xl border border-gray-200 w-full max-w-sm text-center"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Nota"
+        tabindex="-1"
+        bind:this={noteDialogEl}
         transition:scale={{duration: 200, start: 0.92}}
       >
         <p class="text-black text-xs font-['Jost'] leading-relaxed tracking-[0.2em] font-light">
           "{activeNote.text}"
         </p>
+        <button
+          onclick={() => activeNoteId = null}
+          class="mt-6 text-gray-400 uppercase tracking-widest text-[10px] border-b border-transparent hover:border-gray-300 transition-colors hover:text-gray-600"
+        >
+          Cerrar
+        </button>
       </div>
     </div>
   {/if}
@@ -171,31 +202,38 @@
   {#if showForm}
     <div transition:fade class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-md">
       <!-- Click outside to close -->
-      <div 
-        class="absolute inset-0" 
+      <div
+        class="absolute inset-0"
         onclick={() => { showForm = false; newNoteText = ''; }}
-        role="button"
-        tabindex="0"
-        onkeydown={(e) => { if(e.key === 'Escape') showForm = false; }}
-        aria-label="Cerrar modal"
+        aria-hidden="true"
       ></div>
 
-      <div class="relative bg-white/95 shadow-2xl rounded-sm p-8 md:p-12 w-full max-w-lg border border-white/50" transition:scale={{duration: 300, start: 0.95}}>
-        
-        <h3 class="text-gray-900 font-['Jost'] text-sm font-light tracking-wide mb-2 text-center">Esto es solo un ejercicio:</h3>
-        <p class="text-gray-600 mb-4 font-['Jost'] text-[11px] md:text-xs leading-relaxed text-center px-4">
+      <div
+        class="relative bg-white/95 shadow-2xl rounded-sm p-8 md:p-12 w-full max-w-lg border border-white/50"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nota-modal-title"
+        aria-describedby="nota-modal-desc"
+        transition:scale={{duration: 300, start: 0.95}}
+      >
+
+        <h3 id="nota-modal-title" class="text-gray-900 font-['Jost'] text-sm font-light tracking-wide mb-2 text-center">Esto es solo un ejercicio:</h3>
+        <p id="nota-modal-desc" class="text-gray-600 mb-4 font-['Jost'] text-[11px] md:text-xs leading-relaxed text-center px-4">
           Deja una nota sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
         </p>
-        
 
+
+        <label for="nota-textarea" class="sr-only">Escribe tu nota</label>
         <textarea
+          id="nota-textarea"
           bind:value={newNoteText}
+          bind:this={formTextareaEl}
           class="w-full bg-transparent border-b border-gray-200 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-transparent font-['Jost'] leading-normal"
           maxlength="180"
         ></textarea>
-        
+
         <div class="mt-4 flex justify-between px-2 text-[9px] text-gray-400 uppercase tracking-widest font-['Jost']">
-          <span>{newNoteText.length}/180 caracteres</span>
+          <span aria-live="polite" aria-atomic="true">{newNoteText.length}/180 caracteres</span>
           {#if newNoteText.length > 0 && newNoteText.length < 40}
              <span class="text-red-400">Muy corto</span>
           {/if}

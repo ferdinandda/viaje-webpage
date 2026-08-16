@@ -8,5 +8,6 @@
 </svelte:head>
 
 <div class="min-h-screen bg-[#1C1C1C]">
+  <h1 class="sr-only">Notas</h1>
   <PostItWall />
 </div>
