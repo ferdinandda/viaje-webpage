@@ -19,7 +19,6 @@
   // Derived states to check current page
   let isHomepage = $derived($page.url.pathname === '/');
   let isNotas = $derived($page.url.pathname === '/notas');
-  let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
 
   // Determine footer theme based on the page
   let footerTheme = $derived(isHomepage ? 'dark-red' : 'dark');

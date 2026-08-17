@@ -17,11 +17,13 @@
   let mouseNearTop = $state(false);
 
   let isHomepage = $derived($page.url.pathname === '/');
-  let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
   // Essay pages get a hide-on-scroll-down header so the reading hero isn't interrupted.
-  let isEssayPage = $derived(articles.some(article => article.href === $page.url.pathname));
+  let isEssayPage = $derived(
+    $page.url.pathname.startsWith('/ensayos/') ||
+    articles.some(article => article.href === $page.url.pathname)
+  );
 
-  let useBlackBg = $derived(isSangreTierraYSilencio || !isHomepage);
+  let useBlackBg = $derived(!isHomepage);
   let useLightNav = $derived(false);
 
   let scrolled = $derived(scrollY > 20);

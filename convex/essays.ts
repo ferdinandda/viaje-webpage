@@ -29,6 +29,7 @@ export const create = mutation({
     readingTime: v.string(),
     references: v.optional(v.array(v.string())),
     photoCredit: v.optional(v.string()),
+    epigraph: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const existing = await ctx.db
