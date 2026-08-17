@@ -38,7 +38,7 @@
           category: e.category || 'Ensayo',
           href: `/ensayos/${e.slug}`,
           img: e.image,
-          photoCredit: null
+          photoCredit: e.photoCredit || null
         }));
     } catch (err) {
       console.error('Error cargando ensayos desde Convex:', err);

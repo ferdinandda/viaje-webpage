@@ -22,5 +22,6 @@ export default defineSchema({
     category: v.optional(v.string()),
     readingTime: v.optional(v.string()),
     references: v.optional(v.array(v.string())),
+    photoCredit: v.optional(v.string()),
   }).index("by_slug", ["slug"]),
 });
