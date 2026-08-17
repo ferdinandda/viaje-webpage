@@ -8,7 +8,7 @@
   <div class="pub-label">Últimas Publicaciones</div>
   <div class="pub-grid">
     {#each tabs as tab, i}
-      <ArticleCard article={tab} index={i + 1} />
+      <ArticleCard article={tab} index={tabs.length - i} />
     {/each}
   </div>
 </section>
@@ -22,8 +22,8 @@
   .pub-label {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 0.6rem;
-    letter-spacing: 6px;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #888;
     margin-bottom: 60px;

@@ -7,7 +7,7 @@
 <div class="p-8 pt-32 md:pt-40 max-w-5xl mx-auto">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 relative z-10">
     {#each tabs as tab, i}
-      <ArticleCard article={tab} index={i + 1} />
+      <ArticleCard article={tab} index={tabs.length - i} />
     {/each}
   </div>
 </div>

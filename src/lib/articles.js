@@ -9,15 +9,6 @@ export const articles = [
     photoCredit: 'Cristian Castillo'
   },
   {
-    id: 3,
-    title: `Rosalía dijo \u201cMi jettu 'nt'a lu nenti, Prima d'abbruciarmi\u201d`,
-    author: 'Luna Jadue',
-    category: 'Ensayo',
-    href: "/saoko-papi-saoco",
-    img: "/dmitry-romanoff-ZcEQ3286Opw-unsplash.jpg",
-    photoCredit: 'Dmitri Romanoff'
-  },
-  {
     id: 2,
     title: 'This is what it feels like to die (Deathbloom)',
     author: 'Waby Eliott',
@@ -25,6 +16,15 @@ export const articles = [
     href: "/this-is-what-it-feels-like-to-die",
     img: "/ignacio-amenabar-FQ-lG-6ux60-unsplash.jpg",
     photoCredit: 'Ignacio Amenábar'
+  },
+  {
+    id: 3,
+    title: `Rosalía dijo “Mi jettu 'nt'a lu nenti, Prima d'abbruciarmi”`,
+    author: 'Luna Jadue',
+    category: 'Ensayo',
+    href: "/saoko-papi-saoco",
+    img: "/dmitry-romanoff-ZcEQ3286Opw-unsplash.jpg",
+    photoCredit: 'Dmitri Romanoff'
   },
   {
     id: 1,
