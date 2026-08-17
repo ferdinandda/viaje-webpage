@@ -11,7 +11,7 @@
   const staticSlugs = new Set(articles.map((a) => a.href.replace(/^\//, '')));
 
   let dynamicArticles = $state([]);
-  let tabs = $derived([...articles, ...dynamicArticles]);
+  let tabs = $derived([...dynamicArticles, ...articles]);
 
   onMount(async () => {
     try {
