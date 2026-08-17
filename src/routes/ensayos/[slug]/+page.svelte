@@ -1,41 +1,10 @@
 <script>
-  import { page } from '$app/stores';
-  import { ConvexHttpClient } from "convex/browser";
-  import { api } from "../../../../convex/_generated/api";
   import ReadingControls from '$lib/components/ReadingControls.svelte';
 
-  let slug = $derived($page.params.slug);
-  let essay = $state(null);
-  let loading = $state(true);
-  let notFound = $state(false);
+  let { data } = $props();
+  let essay = $derived(data.essay);
   let showReferences = $state(false);
   let nightMode = $state(false);
-
-  const CONVEX_URL = "https://aromatic-aardvark-340.convex.cloud";
-  const convex = new ConvexHttpClient(CONVEX_URL);
-
-  async function loadEssay(currentSlug) {
-    loading = true;
-    notFound = false;
-    essay = null;
-    try {
-      const result = await convex.query(api.essays.getBySlug, { slug: currentSlug });
-      if (result) {
-        essay = result;
-      } else {
-        notFound = true;
-      }
-    } catch (e) {
-      console.error('Error cargando ensayo:', e);
-      notFound = true;
-    } finally {
-      loading = false;
-    }
-  }
-
-  $effect(() => {
-    if (slug) loadEssay(slug);
-  });
 
   function toggleReferences() {
     showReferences = !showReferences;
@@ -48,11 +17,7 @@
 
 <div class="min-h-screen bg-[var(--color-paper)] transition-colors duration-300 {nightMode ? 'reading-dark' : ''}">
   <main>
-    {#if loading}
-      <div class="min-h-screen flex items-center justify-center">
-        <span class="text-[10px] uppercase tracking-widest text-gray-400 animate-pulse">Cargando...</span>
-      </div>
-    {:else if notFound || !essay}
+    {#if !essay}
       <div class="min-h-screen flex flex-col items-center justify-center gap-4 pt-32 px-6 text-center">
         <p class="text-lg font-['Jost']">No encontramos este ensayo.</p>
         <a href="/ensayos" class="text-[10px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold">Volver a ensayos</a>

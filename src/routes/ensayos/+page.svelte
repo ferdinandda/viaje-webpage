@@ -1,16 +1,23 @@
 <script>
-  import { onMount } from 'svelte';
   import { articles } from '$lib/articles.js';
   import ArticleCard from '$lib/components/ArticleCard.svelte';
-  import { ConvexHttpClient } from "convex/browser";
-  import { api } from "../../../convex/_generated/api";
 
-  const CONVEX_URL = "https://aromatic-aardvark-340.convex.cloud";
-  const convex = new ConvexHttpClient(CONVEX_URL);
+  let { data } = $props();
 
   const staticSlugs = new Set(articles.map((a) => a.href.replace(/^\//, '')));
 
-  let dynamicArticles = $state([]);
+  let dynamicArticles = $derived(
+    (data.essays || [])
+      .filter((e) => !staticSlugs.has(e.slug))
+      .map((e) => ({
+        title: e.title,
+        author: e.author,
+        category: e.category || 'Ensayo',
+        href: `/ensayos/${e.slug}`,
+        img: e.image,
+        photoCredit: e.photoCredit || null
+      }))
+  );
   let tabs = $derived([...dynamicArticles, ...articles]);
 
   const PAGE_SIZE = 4;
@@ -26,24 +33,6 @@
     currentPage = page;
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
-
-  onMount(async () => {
-    try {
-      const essays = await convex.query(api.essays.list);
-      dynamicArticles = essays
-        .filter((e) => !staticSlugs.has(e.slug))
-        .map((e) => ({
-          title: e.title,
-          author: e.author,
-          category: e.category || 'Ensayo',
-          href: `/ensayos/${e.slug}`,
-          img: e.image,
-          photoCredit: e.photoCredit || null
-        }));
-    } catch (err) {
-      console.error('Error cargando ensayos desde Convex:', err);
-    }
-  });
 </script>
 
 <div class="p-8 pt-32 md:pt-40 max-w-5xl mx-auto">
