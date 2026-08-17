@@ -36,7 +36,7 @@
 
           <div>
             <h2 class="text-lg font-bold mb-3 text-left" style="font-family: 'Advent_Pro', sans-serif;">¿Qué entendemos por ensayo?</h2>
-            <p class="text-justify mb-3">El ensayo es, para nosotras, una forma abierta de pensamiento. No exige pertenecer a una disciplina determinada ni ajustarse a una fórmula. Puede partir de una investigación, una lectura, una experiencia, una imagen, un problema histórico, una obra artística o una pregunta que todavía no tiene respuesta.</p>
+            <p class="text-justify mb-3">El ensayo es, para nosotras, una forma abierta de pensamiento. Puede partir de una investigación, una lectura, una experiencia, una imagen, un problema histórico, una obra artística o una pregunta que todavía no tiene respuesta.</p>
             <p class="text-justify mb-3">Buscamos textos de extensión media, generalmente de 2.500 a 5.000 palabras, que desarrollen una idea con suficiente profundidad sin perder de vista a quien está leyendo. Nos interesan especialmente aquellos ensayos que consiguen poner en relación experiencias, conceptos, disciplinas o fenómenos que habitualmente aparecen separados.</p>
             <p class="text-justify">Un ensayo puede abordar ideas complejas y recurrir a conocimientos especializados, pero no debería ser escrito únicamente para especialistas. Nos interesa una escritura que no se limite a demostrar lo que sabe, sino que se pregunte qué podemos llegar a pensar a partir de aquello que sabe.</p>
           </div>

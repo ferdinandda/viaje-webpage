@@ -93,7 +93,7 @@
   }
 
   async function addNote() {
-    if (!newNoteText.trim() || newNoteText.length < 40) return;
+    if (!newNoteText.trim() || newNoteText.length < 10) return;
     
     const x = Math.floor(Math.random() * 80) + 10;
     const y = Math.floor(Math.random() * 80) + 10;
@@ -218,8 +218,8 @@
         transition:scale={{duration: 300, start: 0.95}}
       >
 
-        <h3 id="nota-modal-title" class="text-gray-900 font-['Jost'] text-sm font-light tracking-wide mb-2 text-center">Esto es solo un ejercicio:</h3>
-        <p id="nota-modal-desc" class="text-gray-600 mb-4 font-['Jost'] text-[11px] md:text-xs leading-relaxed text-center px-4">
+        <h3 id="nota-modal-title" class="text-gray-900 text-sm mb-2 text-center" style="font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 1px;">Esto es solo un ejercicio:</h3>
+        <p id="nota-modal-desc" class="text-gray-600 mb-4 text-[11px] md:text-xs leading-relaxed text-center px-4" style="font-family: 'Inter', sans-serif; font-weight: 400;">
           Deja una nota sobre algo que no quieres que se pierda. Tu texto aparecerá en alguna de las siluetas y formará parte de este muro.
         </p>
 
@@ -229,13 +229,14 @@
           id="nota-textarea"
           bind:value={newNoteText}
           bind:this={formTextareaEl}
-          class="w-full bg-transparent border-b border-gray-200 text-black text-xl font-light text-center focus:outline-none focus:border-black resize-none h-32 placeholder-transparent font-['Jost'] leading-normal"
+          class="w-full bg-transparent border-b border-gray-200 text-black text-xl text-center focus:outline-none focus:border-black resize-none h-32 placeholder-transparent leading-normal"
+          style="font-family: 'Inter', sans-serif; font-weight: 300;"
           maxlength="180"
         ></textarea>
 
-        <div class="mt-4 flex justify-between px-2 text-[9px] text-gray-400 uppercase tracking-widest font-['Jost']">
+        <div class="mt-4 flex justify-between px-2 text-[9px] text-gray-400 uppercase tracking-[2px]" style="font-family: 'Inter', sans-serif; font-weight: 500;">
           <span aria-live="polite" aria-atomic="true">{newNoteText.length}/180 caracteres</span>
-          {#if newNoteText.length > 0 && newNoteText.length < 40}
+          {#if newNoteText.length > 0 && newNoteText.length < 10}
              <span class="text-red-400">Muy corto</span>
           {/if}
         </div>
@@ -250,7 +251,7 @@
           </button>
           <button
             onclick={addNote}
-            disabled={newNoteText.length < 40}
+            disabled={newNoteText.length < 10}
             class="bg-black text-white px-8 py-3 rounded-sm hover:bg-gray-800 transition-colors disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-[0.2em] text-[10px] shadow-lg"
             style="font-family: 'Inter', sans-serif; font-weight: 400;"
           >
