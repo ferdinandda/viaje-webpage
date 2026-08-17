@@ -1,5 +1,8 @@
 <script>
+  import ReadingControls from '$lib/components/ReadingControls.svelte';
+
   let isMailOpen = $state(false);
+  let nightMode = $state(false);
   const url = 'https://revistaviaje.cl/this-is-what-it-feels-like-to-die';
   const title = 'this is what it feels like to die (Deathbloom)';
 
@@ -12,21 +15,32 @@
   <title>{title} — Waby Eliott | Revista Viaje</title>
 </svelte:head>
 
-<div class="min-h-screen pt-32 md:pt-40 bg-white">
+<div class="min-h-screen bg-white transition-colors duration-300 {nightMode ? 'reading-dark' : ''}">
   <main>
+    <div class="relative w-full h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] mt-20 md:mt-24 overflow-hidden">
+      <img src="/ignacio-amenabar-FQ-lG-6ux60-unsplash.jpg" alt="" class="absolute inset-0 w-full h-full object-cover blur-sm scale-110" />
+      <div class="absolute inset-0 bg-black/45"></div>
+      <div class="relative z-10 flex items-center justify-center h-full px-6">
+        <div class="flex flex-col items-center">
+          <h1
+            class="text-3xl md:text-5xl lg:text-6xl font-normal text-center max-w-4xl leading-tight text-white"
+            style="font-family: 'Cormorant Garamond', serif; font-style: italic;"
+          >
+            this is what it feels like to die (Deathbloom)
+          </h1>
+          <p class="text-xs text-center uppercase tracking-[2px] text-white mt-6" style="font-family: 'Inter', sans-serif; font-weight: 500;">
+            Por <a href="https://www.youtube.com/@wabyeliott" target="_blank" class="hover:underline">Waby Eliott</a>
+          </p>
+          <p class="text-[11px] text-center uppercase tracking-[2px] text-white/70 mt-1" style="font-family: 'Inter', sans-serif; font-weight: 500;">Junio, 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <ReadingControls bind:nightMode />
+
     <div class="container mx-auto px-4 py-8 max-w-4xl">
-      
-      <!-- Siempre visible: Título, Autor y Video -->
-      <h1
-        class="text-4xl md:text-5xl lg:text-6xl font-normal mb-6 text-center mx-auto max-w-4xl leading-tight"
-        style="font-family: 'Cormorant Garamond', serif; font-style: italic;"
-      >
-        this is what it feels like to die (Deathbloom)
-      </h1>
-      <p class="text-sm text-center font-['Jost'] mb-2 text-black">
-        Por <a href="https://www.youtube.com/@wabyeliott" target="_blank" class="hover:underline">Waby Eliott</a>
-      </p>
-      <p class="text-xs text-center font-['Jost'] mb-12 text-gray-500">Junio, 2025</p>
+
+      <!-- Siempre visible: Video -->
 
       <div class="max-w-4xl mx-auto mb-16 aspect-video shadow-xl rounded-sm overflow-hidden bg-black">
         <video
@@ -40,7 +54,7 @@
       <div class="flex justify-center mb-16">
         <button
           onclick={toggleMail}
-          class="px-10 py-4 border border-gray-300 text-gray-500 font-['Jost'] text-xs uppercase tracking-[0.3em] hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-sm"
+          class="px-10 py-4 border border-gray-300 text-gray-500 font-['Inter'] text-xs uppercase tracking-[0.3em] hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-sm"
         >
           {isMailOpen ? 'Cerrar mensaje' : 'Leer mensaje'}
         </button>

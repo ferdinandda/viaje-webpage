@@ -2,11 +2,13 @@
   import { onMount } from 'svelte';
   import { ConvexHttpClient } from "convex/browser";
   import { api } from "../../../convex/_generated/api";
-  
+  import ReadingControls from '$lib/components/ReadingControls.svelte';
+
   let showReferences = $state(false);
   let essay = $state(null);
   let audioUrl = $state(null);
   let isSeeding = $state(false);
+  let nightMode = $state(false);
 
   const slug = "sangre-tierra-y-silencio";
   const CONVEX_URL = "https://aromatic-aardvark-340.convex.cloud";
@@ -46,25 +48,36 @@
   });
 </script>
 
-<div class="min-h-screen pt-32 md:pt-40 bg-[var(--color-paper)]">
+<div class="min-h-screen bg-[var(--color-paper)] transition-colors duration-300 {nightMode ? 'reading-dark' : ''}">
   <main>
-    <div class="container mx-auto px-4 py-8">
-      <h1
-        class="text-4xl md:text-5xl lg:text-6xl font-normal mb-6 text-center mx-auto max-w-4xl leading-tight"
-        style="font-family: 'Cormorant Garamond', serif; font-style: italic;"
-      >
-        Cuando la sangre toca la tierra
-      </h1>
+    <div class="relative w-full h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] mt-20 md:mt-24 overflow-hidden">
+      <img src="/james-lee-YpDkIh137ws-unsplash.jpg" alt="" class="absolute inset-0 w-full h-full object-cover blur-sm scale-110" />
+      <div class="absolute inset-0 bg-black/45"></div>
+      <div class="relative z-10 flex items-center justify-center h-full px-6">
+        <div class="flex flex-col items-center">
+          <h1
+            class="text-3xl md:text-5xl lg:text-6xl font-normal text-center max-w-4xl leading-tight text-white"
+            style="font-family: 'Cormorant Garamond', serif; font-style: italic;"
+          >
+            Cuando la sangre toca la tierra
+          </h1>
+          <p class="text-xs text-center uppercase tracking-[2px] text-white mt-6" style="font-family: 'Inter', sans-serif; font-weight: 500;">Por Florencia Leiva Silva</p>
+          <p class="text-[11px] text-center uppercase tracking-[2px] text-white/70 mt-1" style="font-family: 'Inter', sans-serif; font-weight: 500;">Enero, 2025</p>
+        </div>
+      </div>
+    </div>
 
-      <p class="text-sm text-center font-['Jost'] mb-2">Por Florencia Leiva Silva</p>
-      <p class="text-xs text-center font-['Jost'] mb-8">Enero, 2025</p>
-      
+    <ReadingControls bind:nightMode />
+
+    <div class="container mx-auto px-4 py-8">
+
       <!-- Audio Player Section -->
       {#if !essay && !isSeeding}
         <div class="max-w-prose mx-auto mb-8 border-y border-gray-100 py-4 flex justify-center">
-          <button 
+          <button
             onclick={runSeed}
             class="text-[10px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold"
+            style="font-family: 'Inter', sans-serif;"
           >
             [ Sincronizar contenido ]
           </button>
@@ -132,7 +145,7 @@
           <div class="flex justify-center mt-16 mb-12">
             <button
               onclick={toggleReferences}
-              class="px-8 py-3 border border-gray-300 text-gray-500 font-['Jost'] text-[10px] md:text-xs uppercase tracking-[0.25em] hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-sm"
+              class="px-8 py-3 border border-gray-300 text-gray-500 font-['Inter'] text-[10px] md:text-xs uppercase tracking-[0.25em] hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-sm"
             >
               Obras citadas
             </button>

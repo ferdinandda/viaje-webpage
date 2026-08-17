@@ -179,6 +179,7 @@
         <button
           onclick={() => activeNoteId = null}
           class="mt-6 text-gray-400 uppercase tracking-widest text-[10px] border-b border-transparent hover:border-gray-300 transition-colors hover:text-gray-600"
+          style="font-family: 'Inter', sans-serif; font-weight: 400;"
         >
           Cerrar
         </button>
@@ -192,7 +193,7 @@
       onclick={() => showForm = !showForm}
       class="bg-white/50 backdrop-blur-md border border-white/40 shadow-xl rounded-sm px-10 py-5 text-center pointer-events-auto transition-all hover:bg-white/70 hover:-translate-y-0.5 group"
     >
-      <span class="text-black text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-['Jost'] font-normal group-hover:opacity-70 transition-all">
+      <span class="text-black text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-['Inter'] font-normal group-hover:opacity-70 transition-all">
         {showForm ? 'Cerrar' : 'Deja una nota'}
       </span>
     </button>
@@ -240,16 +241,18 @@
         </div>
 
         <div class="mt-10 flex justify-center gap-12 items-center">
-          <button 
+          <button
             onclick={() => { showForm = false; newNoteText = ''; }}
             class="text-gray-400 uppercase tracking-widest text-[10px] border-b border-transparent hover:border-gray-300 transition-colors hover:text-gray-600"
+            style="font-family: 'Inter', sans-serif; font-weight: 400;"
           >
             Cancelar
           </button>
-          <button 
+          <button
             onclick={addNote}
             disabled={newNoteText.length < 40}
             class="bg-black text-white px-8 py-3 rounded-sm hover:bg-gray-800 transition-colors disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-[0.2em] text-[10px] shadow-lg"
+            style="font-family: 'Inter', sans-serif; font-weight: 400;"
           >
             Publicar
           </button>

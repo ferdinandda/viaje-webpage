@@ -11,9 +11,13 @@
 
   /** @type {{ article: Article, index?: number }} */
   let { article, index = 1 } = $props();
+
+  // Editorial palette (rgb triplets), one tint per card, cycling if there are more cards than colors.
+  const tints = ['107, 13, 30', '44, 62, 107', '63, 92, 63', '138, 90, 42'];
+  let tint = $derived(tints[(index - 1) % tints.length]);
 </script>
 
-<article class="pub-item">
+<article class="pub-item" style="--tint-rgb: {tint};">
   <a href={article.href} class="pub-link">
     <div class="pub-img-wrap">
       <img src={article.img} alt={article.title} class="pub-img" loading="eager" fetchpriority="high" />
@@ -28,22 +32,26 @@
 </article>
 
 <style>
-  .pub-item {
-    transition: transform 0.3s;
-  }
-
-  .pub-item:hover {
-    transform: scale(1.02);
-    position: relative;
-    z-index: 2;
-  }
-
   .pub-img-wrap {
     position: relative;
     display: block;
     overflow: hidden;
     height: 210px;
     background-color: #d5d2ce;
+  }
+
+  .pub-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(var(--tint-rgb), 0.35);
+    opacity: 0;
+    transition: opacity 0.08s;
+    pointer-events: none;
+  }
+
+  .pub-item:hover .pub-img-wrap::after {
+    opacity: 1;
   }
 
   .pub-img {
@@ -63,7 +71,8 @@
     position: absolute;
     bottom: 6px;
     right: 8px;
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     font-size: 0.55rem;
     letter-spacing: 0.5px;
     color: rgba(255,255,255,0.75);
@@ -79,9 +88,9 @@
   }
 
   .pub-kicker {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.65rem;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     color: #6b0d1e;
@@ -89,24 +98,25 @@
   }
 
   .pub-item :global(h3) {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Fraunces', 'Cormorant Garamond', serif;
+    font-optical-sizing: auto;
     font-weight: 700;
-    font-style: italic;
-    font-size: 1.25rem;
-    line-height: 1.2;
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 1.25;
     margin: 8px 0 6px;
     color: #1a1a1b;
-    transition: color 0.3s;
+    transition: color 0.08s;
   }
 
   .pub-link:hover :global(h3) {
-    color: #6b0d1e;
+    color: rgb(var(--tint-rgb));
   }
 
   .pub-author {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgba(26, 26, 27, 0.75);

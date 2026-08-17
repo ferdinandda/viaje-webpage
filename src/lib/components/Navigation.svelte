@@ -9,18 +9,34 @@
   let { autoHide = false } = $props();
 
   let mobileMenuOpen = $state(false);
-  let scrolled = $state(false);
+  let scrollY = $state(0);
+  let lastScrollY = $state(0);
+  let hiddenByScroll = $state(false);
   let searchOpen = $state(false);
   let searchQuery = $state('');
   let mouseNearTop = $state(false);
 
   let isHomepage = $derived($page.url.pathname === '/');
   let isSangreTierraYSilencio = $derived($page.url.pathname === '/sangre-tierra-y-silencio');
+  // Essay pages get a hide-on-scroll-down header so the reading hero isn't interrupted.
+  let isEssayPage = $derived(articles.some(article => article.href === $page.url.pathname));
 
   let useBlackBg = $derived(isSangreTierraYSilencio || !isHomepage);
   let useLightNav = $derived(false);
 
+  let scrolled = $derived(scrollY > 20);
+  // Fades from 0.7 to 0.25 opacity the further the page scrolls, instead of a fixed value.
+  let scrolledOpacity = $derived(0.7 - Math.min(1, Math.max(0, (scrollY - 20) / 500)) * 0.45);
+
   let shouldShow = $derived(!autoHide || mouseNearTop || mobileMenuOpen || searchOpen);
+  let hiddenByEssayScroll = $derived(isEssayPage && hiddenByScroll && !mobileMenuOpen && !searchOpen);
+
+  $effect(() => {
+    // Reset the scroll-hide state whenever the route changes.
+    $page.url.pathname;
+    hiddenByScroll = false;
+    lastScrollY = 0;
+  });
 
   let searchResults = $derived(
     searchQuery.length < 2 
@@ -33,7 +49,16 @@
 
   $effect(() => {
     const handleScroll = () => {
-      scrolled = window.scrollY > 20;
+      const currentY = window.scrollY;
+      if (isEssayPage) {
+        if (currentY > lastScrollY && currentY > 100) {
+          hiddenByScroll = true;
+        } else if (currentY < lastScrollY) {
+          hiddenByScroll = false;
+        }
+      }
+      lastScrollY = currentY;
+      scrollY = currentY;
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -69,9 +94,10 @@
 {#if !$readerModeActive}
 
 <header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out 
-         {isHomepage ? (scrolled ? 'bg-[#e5e5e5]/70 backdrop-blur-md shadow-sm' : 'bg-transparent') : (scrolled ? 'bg-[#e5e5e5]/70 backdrop-blur-md shadow-sm' : 'bg-[#e5e5e5]')}
-         {autoHide && !shouldShow ? '-translate-y-full' : 'translate-y-0'}"
+  class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out will-change-transform
+         {scrolled ? 'backdrop-blur-md shadow-sm' : (isHomepage ? 'bg-transparent' : 'bg-[#e5e5e5]')}
+         {(autoHide && !shouldShow) || hiddenByEssayScroll ? '-translate-y-full' : 'translate-y-0'}"
+  style={scrolled ? `background-color: rgba(229, 229, 229, ${scrolledOpacity});` : ''}
 >
     <nav class="mx-auto max-w-7xl px-[var(--spacing-editorial)] md:px-8 lg:px-12">
       
@@ -85,7 +111,7 @@
             <li>
               <a
                 href={item.href}
-                style="font-family: 'Jost', sans-serif;"
+                style="font-family: 'Inter', sans-serif; font-weight: 400;"
                 class="relative text-xs tracking-widest uppercase transition-colors duration-300
                        {useLightNav ? 'text-white' : 'text-black opacity-70 hover:opacity-100'}"
               >
@@ -157,7 +183,7 @@
           <ul class="py-6 px-[var(--spacing-editorial)] space-y-4">
             {#each navItems as item}
               <li>
-                <a href={item.href} onclick={closeMobileMenu} style="font-family: 'Jost', sans-serif;" class="block text-base tracking-wide {($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')}">
+                <a href={item.href} onclick={closeMobileMenu} style="font-family: 'Inter', sans-serif; font-weight: 400;" class="block text-base tracking-wide {($page.url.pathname === item.href ? 'text-white' : 'text-white/70 hover:text-white')}">
                   {item.label}
                 </a>
               </li>

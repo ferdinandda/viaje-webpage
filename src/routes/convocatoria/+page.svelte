@@ -90,6 +90,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="text-white/30 hover:text-white text-[10px] uppercase tracking-widest transition-colors"
+          style="font-family: 'Inter', sans-serif; font-weight: 400;"
         >
           Ver referencia
         </a>
@@ -97,6 +98,7 @@
         <button
           onclick={toggleOverlay}
           class="text-white/20 hover:text-white text-xs uppercase tracking-[0.5em] transition-colors"
+          style="font-family: 'Inter', sans-serif; font-weight: 400;"
         >
           [ Volver ]
         </button>

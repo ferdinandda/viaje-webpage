@@ -83,3 +83,40 @@
   }
 }
 
+/* Night reading mode, toggled per essay via ReadingControls.svelte */
+.reading-dark {
+  background-color: #161616;
+  color: #d9d9d9;
+}
+
+.reading-dark .text-black,
+.reading-dark .text-gray-800,
+.reading-dark .text-gray-700,
+.reading-dark .text-gray-600 {
+  color: #cfcfcf;
+}
+
+.reading-dark .text-gray-500,
+.reading-dark .text-gray-400 {
+  color: #9a9a9a;
+}
+
+.reading-dark .border-gray-100,
+.reading-dark .border-gray-200,
+.reading-dark .border-gray-300,
+.reading-dark .border-gray-400 {
+  border-color: #3a3a3a;
+}
+
+.reading-dark .bg-white {
+  background-color: #1f1f1f;
+}
+
+.reading-dark .bg-gray-100 {
+  background-color: #232323;
+}
+
+.reading-dark a {
+  color: #d9d9d9;
+}
+

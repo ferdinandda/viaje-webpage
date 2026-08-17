@@ -20,7 +20,8 @@
   }
 
   .pub-label {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     font-size: 0.6rem;
     letter-spacing: 6px;
     text-transform: uppercase;
