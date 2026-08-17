@@ -15,7 +15,7 @@ export const list = query({
   handler: async (ctx) => {
     const essays = await ctx.db.query("essays").order("desc").collect();
     return essays.sort((a, b) => {
-      const pinnedDiff = (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0);
+      const pinnedDiff = (a.pinned ? 1 : 0) - (b.pinned ? 1 : 0);
       if (pinnedDiff !== 0) return pinnedDiff;
       return b._creationTime - a._creationTime;
     });
