@@ -1,7 +1,25 @@
 <script>
   import { articles } from '$lib/articles.js';
   import ArticleCard from './ArticleCard.svelte';
-  let tabs = articles.slice(0, 4);
+
+  let { essays = [] } = $props();
+
+  const staticSlugs = new Set(articles.map((a) => a.href.replace(/^\//, '')));
+
+  let dynamicArticles = $derived(
+    essays
+      .filter((e) => !staticSlugs.has(e.slug))
+      .map((e) => ({
+        title: e.title,
+        author: e.author,
+        category: e.category || 'Ensayo',
+        href: `/ensayos/${e.slug}`,
+        img: e.image,
+        photoCredit: e.photoCredit || null
+      }))
+  );
+
+  let tabs = $derived([...dynamicArticles, ...articles].slice(0, 4));
 </script>
 
 <section class="ticker-section">

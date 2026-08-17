@@ -25,7 +25,6 @@
         <span class="foto-credito">© {article.photoCredit}</span>
       {/if}
     </div>
-    <div class="pub-kicker">{String(index).padStart(2, '0')}</div>
     <h3>{@html article.title}</h3>
     <div class="pub-author">{article.author}</div>
   </a>
@@ -87,16 +86,6 @@
     padding: 16px 0 0;
   }
 
-  .pub-kicker {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: #6b0d1e;
-    margin-top: 14px;
-  }
-
   .pub-item :global(h3) {
     font-family: 'Fraunces', 'Cormorant Garamond', serif;
     font-optical-sizing: auto;
@@ -104,7 +93,7 @@
     font-style: normal;
     font-size: 1.5rem;
     line-height: 1.25;
-    margin: 8px 0 6px;
+    margin: 22px 0 6px;
     color: #1a1a1b;
     transition: color 0.08s;
   }

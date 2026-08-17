@@ -3,6 +3,8 @@
   import { onMount } from 'svelte';
   import TabbedContent from '$lib/components/TabbedContent.svelte';
 
+  let { data } = $props();
+
   let quoteEl;
   let quoteVisible = $state(false);
 
@@ -68,7 +70,7 @@
 </div>
 
 <main>
-  <TabbedContent />
+  <TabbedContent essays={data.essays} />
 </main>
 
 <style>
