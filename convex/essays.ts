@@ -13,7 +13,12 @@ export const getBySlug = query({
 
 export const list = query({
   handler: async (ctx) => {
-    return await ctx.db.query("essays").order("desc").collect();
+    const essays = await ctx.db.query("essays").order("desc").collect();
+    return essays.sort((a, b) => {
+      const pinnedDiff = (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0);
+      if (pinnedDiff !== 0) return pinnedDiff;
+      return b._creationTime - a._creationTime;
+    });
   },
 });
 
@@ -30,6 +35,7 @@ export const create = mutation({
     references: v.optional(v.array(v.string())),
     photoCredit: v.optional(v.string()),
     epigraph: v.optional(v.string()),
+    pinned: v.optional(v.boolean()),
   },
   handler: async (ctx, args) => {
     const existing = await ctx.db

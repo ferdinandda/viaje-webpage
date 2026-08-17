@@ -23,5 +23,6 @@ export default defineSchema({
     readingTime: v.optional(v.string()),
     references: v.optional(v.array(v.string())),
     photoCredit: v.optional(v.string()),
+    pinned: v.optional(v.boolean()),
   }).index("by_slug", ["slug"]),
 });
